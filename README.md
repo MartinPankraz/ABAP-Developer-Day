@@ -53,7 +53,7 @@ See you out there traversing the depths of enterprise integration across Microso
 
 This repos encourages contributions and feedback via the [GitHub Issues](https://github.com/MartinPankraz/ABAP-Developer-Day/issues/new/choose).
 
-## 🚸 Adventure Guides
+## 🚸 Adventure Guides [🔗](mentor/quest1.md)
 
 - [Karl Kessler - SAP](https://www.linkedin.com/in/karl-kessler-1a9b353/)
 - [Harish Bokkasam - SAP](https://www.linkedin.com/in/bokkasam-harish/)
