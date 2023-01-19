@@ -26,12 +26,12 @@ Ready to go on a digitization adventure?
 
 Before you go: verify [prerequisites](PREREQUISITES.md) are met (backpack, lunch box, good-bye kiss, haunted jewelry etc.)
 
-1. Novice's [path](student/exercise1.md) - Empower your fellow humans on Microsoft Teams via SAP RFCs
-2. Apprentice's curious [road](student/exercise2.md) - Trigger your first workflow via the ABAP SDK for Azure (to infinity and beyond)
-3. Debutant's [journey](student/exercise3.md) - Close the interaction cycle on Microsoft Teams and write back to SAP (OData)
-4. Accountant's [detour](student/exercise4.md) - Load the data into Microsoft Excel via OData
-5. Master's [trail](student/exercise5.md) - Unleash one of the mightiest automation tools on your workflow - the Azure Bot Framework
-6. Wizard's [route](student/exercise6.md) - Approach the last quest with a bang and improve one of the most dusted and slow processes there is -> automatically pre-fill your invoice drafted in Microsoft Word with master data from SAP
+1. [Novice's path](student/exercise1.md) - Empower your fellow humans on Microsoft Teams via SAP RFCs
+2. [Apprentice's curious road](student/exercise2.md) - Trigger your first workflow via the ABAP SDK for Azure (to infinity and beyond)
+3. [Debutant's journey](student/exercise3.md) - Close the interaction cycle on Microsoft Teams and write back to SAP (OData)
+4. [Accountant's detour](student/exercise4.md) - Load the data into Microsoft Excel via OData
+5. [Master's trail](student/exercise5.md) - Unleash one of the mightiest automation tools on your workflow - the Azure Bot Framework
+6. [Wizard's route](student/exercise6.md) - Approach the last quest with a bang and improve one of the most dusted and slow processes there is -> automatically pre-fill your invoice drafted in Microsoft Word with master data from SAP
 
 Finish the final quest and claim your badge 😎
 
@@ -53,14 +53,13 @@ See you out there traversing the depths of enterprise integration across Microso
 
 This repos encourages contributions and feedback via the [GitHub Issues](https://github.com/MartinPankraz/ABAP-Developer-Day/issues/new/choose).
 
-## 🚸 Mentors
+## 🚸 Adventure Guides
 
-- [Karl Kessler](https://www.linkedin.com/in/karl-kessler-1a9b353/)
-- [Harish Bokkasam](https://www.linkedin.com/in/bokkasam-harish/)
-
-- [Holger Bruchelt](https://www.linkedin.com/in/holger-bruchelt/)
-- [Bart Delanghe](https://www.linkedin.com/in/bart-delanghe/)
-- [Thijs Zandvliet](https://www.linkedin.com/in/thijszandvliet/)
-- [Bartosz Jarkowski](https://www.linkedin.com/in/bartosz-jarkowski/)
-- [Robert Boban](https://www.linkedin.com/in/rboban/)
-- [Martin Pankraz](https://www.linkedin.com/in/martin-pankraz/)
+- [Karl Kessler - SAP](https://www.linkedin.com/in/karl-kessler-1a9b353/)
+- [Harish Bokkasam - SAP](https://www.linkedin.com/in/bokkasam-harish/)
+- [Holger Bruchelt - Microsoft](https://www.linkedin.com/in/holger-bruchelt/)
+- [Bart Delanghe - Microsoft](https://www.linkedin.com/in/bart-delanghe/)
+- [Thijs Zandvliet - Microsoft](https://www.linkedin.com/in/thijszandvliet/)
+- [Bartosz Jarkowski - Microsoft](https://www.linkedin.com/in/bartosz-jarkowski/)
+- [Robert Boban - Microsoft](https://www.linkedin.com/in/rboban/)
+- [Martin Pankraz - Microsoft](https://www.linkedin.com/in/martin-pankraz/)
