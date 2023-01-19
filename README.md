@@ -24,7 +24,7 @@ Ready to go on a digitization adventure?
 
 ## 🧙🏾‍♀️Quests
 
-Before you go: verify [prerequisites](PREREQUISITES.md) are met (backpack, lunch box, good-bye kiss, haunted jewelry etc.)
+Before you go: verify [prerequisites](PREREQUISITES.md) are met (backpack, lunch box, good-bye kiss, haunted jewelry, ABAP Development Tools, etc.)
 
 1. [Novice's path](student/quest1.md) - Empower your fellow humans on Microsoft Teams via SAP RFCs
 2. [Apprentice's curious road](student/quest2.md) - Trigger your first workflow via the ABAP SDK for Azure (to infinity and beyond)
