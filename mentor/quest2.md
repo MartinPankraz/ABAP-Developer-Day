@@ -1,3 +1,3 @@
-# Quest 2 - Apprentice's curious road
+# Adventure-Guide notes quest 2
 
 [< Quest 1](quest1.md) - **[🏠Home](../README.md)** - [ Quest 3 >](quest3.md)
