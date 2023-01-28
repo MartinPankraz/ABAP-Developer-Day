@@ -15,12 +15,12 @@
 - Download the [On-premises data gateway](https://www.microsoft.com/en-us/download/details.aspx?id=53127); Similar like the SAP Cloud Connector the On-premises data gateway can establish a connection from systems behind your firewall to Azure. 
 - Download the [SAP .Net Conenctor](https://support.sap.com/en/product/connectors/msnet.html). Preferably select the NCo 3.1, Complied with .NET Framework 4.6.2 version. You need an S-User to sign-in and download this file. 
 
-### Installating  SAP .Net Connector
+### Installaing  SAP .Net Connector
 
 Start by installing the SAP .Net Connector. Just launch the SapNCox64Setup setup from the downloaded ZIP file and complete the installation. 
 
 ### Installing the on-premises data gateway
 
-Run the GatewayInstall installation file previously downloaded.
+Run the GatewayInstall installation file previously downloaded. In the last step you need to sign-in with your Azure Active Directory users (that is also used for your Azure subscription, so that we can later also use Logic Apps). Please make sure that during the installation you specify the Azure region from which you will also use your Logic Apps later on in the Azure subscription. 
 
 > **Note** - You might need to up the .NET Framework to the latest version (in case of the CAL images, an update to .NET Framework 4.8 is required). The easiest way is to do this using the [.NET Framework 4.8 Web Installer}(https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net48-web-installer)
