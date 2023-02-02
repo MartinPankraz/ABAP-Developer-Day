@@ -22,5 +22,7 @@ Start by installing the SAP .Net Connector. Just launch the SapNCox64Setup setup
 ### Installing the on-premises data gateway
 
 Run the GatewayInstall installation file previously downloaded. In the last step you need to sign-in with your Azure Active Directory users (that is also used for your Azure subscription, so that we can later also use Logic Apps). Please make sure that during the installation you specify the Azure region from which you will also use your Logic Apps later on in the Azure subscription. 
+![OPDG Select region](/student/prerequisite/OPDG-Region.jpg)
+
 
 > **Note** - You might need to up the .NET Framework to the latest version (in case of the CAL images, an update to .NET Framework 4.8 is required). The easiest way is to do this using the [.NET Framework 4.8 Web Installer}(https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net48-web-installer)

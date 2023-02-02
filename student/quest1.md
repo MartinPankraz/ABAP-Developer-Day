@@ -23,6 +23,26 @@ To log-on to the Azure portal, please use your Microsoft 365 users which has bee
  
 4) Select "[RFC] Call Functions" and select the on-prem data Gateway system. Also provide the SAP System detail information. 
  
+5) Click on the "Add new paramater" drop down and select "RFC Filter Group"
+>> Note: You need to click "somewhere" else so that the dialog box closes.  
+
+6) Fetching all the filter groups from the SAP system can take some time. You can also click on "Enter Custom Value"
+![Enter Custom Value](/student/Quest1/LA-EnterCustomValue.jpg)
+
+7) Now enter the Filter group name "Z_ONLINESHOP_MSF" and from the RFC Name field select the "ZF_RFC_ONLINESHOP_GET_ORDER:order:Z_ONLINESHOP_MSF"
+![Enter Custom Value](/student/Quest1/LA-EnterRFCName.jpg)
+
+8) Since we want to lookup a specific Order, we need to provide the IM_ORDER number. For the first test, just enter: 
+``` 
+<ZF_RFC_ONLINESHOP_GET_ORDER xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+<IM_ORDER>       12</IM_ORDER>
+</ZF_RFC_ONLINESHOP_GET_ORDER>
+```
+![Call SAP Function](/student/Quest1/LA-CallSAPFunction.jpg)
+
+
+9) From the top of the flow click on "Save" and "Run Trigger" to exectue the Flow. 
+
 
 
 **[🏠Home](./README.md)** - [ Quest 2 >](quest2.md)
