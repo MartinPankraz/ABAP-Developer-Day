@@ -15,6 +15,7 @@ To log-on to the Azure portal, please use your Microsoft 365 users which has bee
 - 
 
 ### Logic Apps Designer
+#### Setting up the Flow
 1) On the welcome screen, select "When a HTTP request is received". In the first step we will trigger the Logic Apps flow manually, but later on the SAP system can trigger the request automatically when a new order has been created in the Online Shop. 
 
 2) Click on "+ New Step" 
@@ -39,9 +40,138 @@ To log-on to the Azure portal, please use your Microsoft 365 users which has bee
 </ZF_RFC_ONLINESHOP_GET_ORDER>
 ```
 ![Call SAP Function](/student/Quest1/LA-CallSAPFunction.jpg)
-
+>> Note: See [How to create the Logic App Content](LogicAppContent.md) for more details on how to construct the XML playload for the RFC request in Logic Apps
 
 9) From the top of the flow click on "Save" and "Run Trigger" to exectue the Flow. 
+
+#### Working with the results from SAP
+1) Parse Json
+![Open Action](/student/Quest1/PraseJson.jpg)
+
+2) Paste Sample
+![Paste Sample](/student/Quest1/PasteSample.jpg)
+
+3) Add Content
+--- Update Screenshot
+![Paste Sample](/student/Quest1/SelectJsonResponse.jpg)
+
+#### Create Adaptive Card in Teams
+1) Add new Action
+![Open Action](/student/Quest1/PostAdaptiveCard.jpg)
+
+1) Sign-In Teams
+![Open Action](/student/Quest1/TeamsSignIn.jpg)
+
+1) Select User and Authentiate
+![Open Action](/student/Quest1/SelectUser.jpg)
+
+1) Select Channel
+![Open Action](/student/Quest1/SelectChannel.jpg)
+
+1) Select Teams and Channel
+![Open Action](/student/Quest1/SelectTeamsAndChannel.jpg)
+
+1) Copy and paste the Adaptive Card 
+We have used the [Adaptive Card Designer](https://www.adaptivecards.io/designer/) to create an Adaptive Card. Copy and paste the content from below in the Adaptive Card field. 
+![Open Action](/student/Quest1/xxx)
+
+
+```
+{
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "Medium",
+            "weight": "Bolder",
+            "text": "New Order has been placed in the Online Shop"
+        },
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "weight": "Bolder",
+                            "text": "Hi USER",
+                            "wrap": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "spacing": "None",
+                            "text": "Created {{DATE(${createdUtc},SHORT)}}",
+                            "isSubtle": true,
+                            "wrap": true
+                        }
+                    ],
+                    "width": "stretch"
+                }
+            ]
+        },
+        {
+            "type": "TextBlock",
+            "text": "A new order has been place in the Online Shop URL. Please review the provided information. ",
+            "wrap": true
+        },
+        {
+            "type": "FactSet",
+            "facts": [
+                {
+                    "title": "Order ID",
+                    "value": "${value}"
+                },
+                {
+                    "title": "Status Purchase Requisition",
+                    "value": "${value}"
+                },
+                {
+                    "title": "Ordered Items",
+                    "value": "${value}"
+                },
+                {
+                    "title": "Quantity",
+                    "value": "${value}"
+                },
+                {
+                    "title": "Description Text: ",
+                    "value": "${value}"
+                },
+                {
+                    "title": "Purchase Requisition: ",
+                    "value": "${value}"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "View",
+            "url": "URL"
+        }
+    ],
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3"
+}
+```
+
+1) Replace the placeholders with the variables and results from the SAP RFC call.   
+* Order ID
+* Status Purchase Requisition
+* Ordered Items
+* Purchase Requisition
+![Open Action](/student/Quest1/xxx)
+
+1) Trigger and run the Logic Apps Flow.
+
+
+
+
+
+
+
 
 
 

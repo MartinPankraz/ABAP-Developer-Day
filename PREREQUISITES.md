@@ -26,3 +26,28 @@ Run the GatewayInstall installation file previously downloaded. In the last step
 
 
 > **Note** - You might need to up the .NET Framework to the latest version (in case of the CAL images, an update to .NET Framework 4.8 is required). The easiest way is to do this using the [.NET Framework 4.8 Web Installer}(https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net48-web-installer)
+
+
+### Install ABAP SDK for Azure
+1) Go to Transaction SE38 -> ZABAP_GIT_STANDALONE
+
+2) Create Package
+
+3) Enter GitUrl 
+The ABAP SDK for Azure is hosted on GitHut at xxx. Use URL https://github.com/microsoft/ABAP-SDK-for-Azure.git to fetch the required files
+
+4) Confirm Inactive Objects
+![Inactive Obejcts](/student/prerequisite/ABAPGit-InactiveObjects.jpg)
+
+### Prepare the Client
+
+In a hosted event we have prepared a VM for you so that you can find all the required tools for this workshop already pre-installed. If you do it on your own, you might need to install these tools on your computer. 
+
+1) Browser
+We recommend that you install a Browser like Microsoft Edge or Google Chrome and run it in private / incognito mode. By this you ensure that there is no mix-up with other (corporate) identities that you might you already used. 
+
+2) Bot Framework
+
+3) Microsoft Excel
+Althought most of the itnegration that we do also run in a Browser (e.g. the Teams or Word integration) we recommend to install the rich-client version of Excel. In this version it is very easy to connect to the OData service and get the data live in your Excel sheet. 
+
