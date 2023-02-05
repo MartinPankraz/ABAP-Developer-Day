@@ -200,23 +200,243 @@ In the next step we want to enable the user to create a purchase requisition dir
 The creation happens via a POST message. Since POSTing data to an SAP requires a few steps (e.g. you need to fetch a X-CSRF Token and handle etag), we "outsource" the logic into (another Logic Apps)[http://]
 
 1) Lets take a look at the Logic App: 
+The first things we need to do is use another action for publishing the adaptive card to Teams, which also waits for the response of the user. 
+![Add additional action](Quest3/AddNewAction.jpg)
+
+2) Search for "Post adaptive card and wait" and select the new Teams Action
+![Search for new action](Quest3/SearchForPostAndWait.jpg)
+
+3) Enter the same values for Team and Channel as before. Keep the "Message" property empty for now
+![Enter values](Quest3/SelectChannel.jpg)
+
+4) For the message copy and paste the following content. Compared to the previous Adaptive Card, we have now added an addition action. 
+```json
+{
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "Medium",
+            "weight": "Bolder",
+            "text": "New Order has been placed in the Online Shop"
+        },
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "weight": "Bolder",
+                            "text": "Hi USER",
+                            "wrap": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "spacing": "None",
+                            "text": "Created {{DATE(${createdUtc},SHORT)}}",
+                            "isSubtle": true,
+                            "wrap": true
+                        }
+                    ],
+                    "width": "stretch"
+                }
+            ]
+        },
+        {
+            "type": "TextBlock",
+            "text": "A new order has been place in the Online Shop URL. Please review the provided information. ",
+            "wrap": true
+        },
+        {
+            "type": "FactSet",
+            "facts": [
+                {
+                    "title": "Order ID",
+                    "value": "@{items('For_each')?['ORDERID']}"
+                },
+                {
+                    "title": "Status Purchase Requisition",
+                    "value": "@{items('For_each')?['PRSTATUS']}"
+                },
+                {
+                    "title": "Ordered Items",
+                    "value": "@{items('For_each')?['ORDEREDITEM']}"
+                },
+                {
+                    "title": "Quantity",
+                    "value": "@{items('For_each_2')?['quantity']}"
+                },
+                {
+                    "title": "Description Text: ",
+                    "value": "@{items('For_each_2')?['DescriptionText']}"
+                },
+                {
+                    "title": "Purchase Requisition: ",
+                    "value": "@{items('For_each')?['PURCHASEREQN']}"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "View",
+            "url": "https://vhcals4hcs.dummy.nodomain:44301/sap/bc/adt/businessservices/odatav4/feap?feapParams=C%C2%87u%C2%84C%C2%83%C2%84%C2%89C%C2%83xu%C2%88uHC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87Es%C2%83HC%C2%87%C2%86%C2%8AxC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87ECDDDEC77c%C2%82%C2%80%7D%C2%82ysg%7C%C2%83%C2%84777777ni%5Dscb%60%5DbYg%5CcdsagE77DDDE77ni%5Dscb%60%5DbYg%5CcdsagEscH&sap-ui-language=EN&sap-client=100#/Online_Shop(OrderUUID=@{items('For_each_2')?['OrderUUID']},IsActiveEntity=true)"
+        },
+        {
+            "type": "Action.Submit",
+            "title": "Create Purchase Requisition",
+             "id": "CreatePR"
+}
+    ],
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3"
+}
+```
+
+5) With this we can delete the first Action to send an Adaptive Card to Teams. 
+![Delete Action](Quest3/DeleteAction.jpg)
+  
+### Wait for input 
+1) Now we have to react to the answer from the user. If the User clicked on the "Create Purchase Requision" button, we need to call the OData Service of the Online Shop to create the Purchase Requisition. Add a new Action by searching for "Control" and selecting the "Condition" action. If there is an action, we want to Check if it was our Create Purchase Requisition Button and only then execute next steps. 
+![Swich](Quest3/SwitchControl.jpg)
+ 
+
+2) For the conditions enter, the value
+```json
+outputs('Post_adaptive_card_and_wait_for_a_response')['body']['submitActionId']
+```
+![Swich](Quest3/ConditionEnterValue.jpg)
+
+
+3) and CreatePR for the value
+![Swich](Quest3/CreatePR-Value.jpg)
+
+### Create Purchase Requisition
+If the user clicked on the button we can finally create the Purchase Requisition. For this we can use the service.
 ```
 Online_Shop(OrderUUID=<OrderUUID>,IsActiveEntity=true)/com.sap.gateway.srvd.zui_onlineshop_ms1.v0001.createPurchaseRequisitionItem?sap-client=100&$select=SAP__Messages
 ```
+Since this is a POST call, we also need to provide a valid X-CSRF-Token and do the required e-tag handling. 
 
-2) With this understanding switch back to the Flow to send the Adaptive Cards to Teams. In the relevant action -- at the very end of the Adaptive Card in the Teams Step -- add another Action (don't forget the first ","):
-```json
-,
-        {
-            "type": "Action.OpenUrl",
-            "title": "Create Purchase Requisition",
-            "url": "URL"
-        }
+1) Let's create another "HTTP" Action in the "True" flow which calls the OData service for a specific OrderUUID and fetches the required X-CSRF token
+```html
+http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui_onlineshop_ms1/0001/Online_Shop(OrderUUID=@{variables('OrderUUID')},IsActiveEntity=true)
 ```
-and replace the URL placeholder with the URL to our Logic Apps, that creates the Purchase Requisition
+Select Method Get, add the Header: X-CSRF-Token = Fetch and also provide credentials for the authentication
+![Swich](Quest3/FetchToken.jpg)
 
-```http
-https://prod-45.northeurope.logic.azure.com/workflows/a4df8ae7431144149df38445fa318051/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=AsZ40xuXn4ZRYrz2uPHTKxgU_q8Lrn8lHSf8bYOzNF4&InputOrderUUID=@{items('For_each_2')?['OrderUUID']}
+2) Next we parse the JSON response to be able to access the X-CSRF-Token
+![Swich](Quest3/ParseJsonForToken.jpg)
+```json
+{
+    "properties": {
+        "#com.sap.gateway.srvd.zui_onlineshop_ms1.v0001.Edit(PreserveChanges)": {
+            "properties": {},
+            "type": "object"
+        },
+        "#com.sap.gateway.srvd.zui_onlineshop_ms1.v0001.createPurchaseRequisitionItem": {
+            "properties": {},
+            "type": "object"
+        },
+        "@@odata.context": {
+            "type": "string"
+        },
+        "@@odata.etag": {
+            "type": "string"
+        },
+        "@@odata.metadataEtag": {
+            "type": "string"
+        },
+        "CreatedAt": {
+            "type": "string"
+        },
+        "CreatedBy": {
+            "type": "string"
+        },
+        "DeliveryDate": {},
+        "DescriptionText": {
+            "type": "string"
+        },
+        "DraftEntityCreationDateTime": {},
+        "DraftEntityLastChangeDateTime": {},
+        "HasActiveEntity": {
+            "type": "boolean"
+        },
+        "HasDraftEntity": {
+            "type": "boolean"
+        },
+        "IsActiveEntity": {
+            "type": "boolean"
+        },
+        "LastChangedAt": {
+            "type": "string"
+        },
+        "LastChangedBy": {
+            "type": "string"
+        },
+        "LocalLastChangedAt": {
+            "type": "string"
+        },
+        "OrderID": {
+            "type": "string"
+        },
+        "OrderUUID": {
+            "type": "string"
+        },
+        "Ordereditem": {
+            "type": "string"
+        },
+        "Prstatus": {
+            "type": "string"
+        },
+        "Purchasereqn": {
+            "type": "string"
+        },
+        "SAP__Messages": {
+            "type": "array"
+        },
+        "URL": {
+            "type": "string"
+        },
+        "__EntityControl": {
+            "properties": {
+                "Deletable": {
+                    "type": "boolean"
+                },
+                "Updatable": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "__OperationControl": {
+            "properties": {
+                "Edit": {
+                    "type": "boolean"
+                },
+                "createPurchaseRequisitionItem": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "quantity": {
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
+```
+
+3) Now we are ready to make the action call to create the Purchase Requisition
+![Swich](Quest3/MakePurchaseRequisition.jpg)
+```dotnetcli
+body('Parse_JSON_3')?['@odata.etag']
+outputs('HTTP_2')['headers']?['x-csrf-token']
+replace(outputs('HTTP_2')['headers']?['Set-Cookie'], ',', ';')
 ```
 
 
