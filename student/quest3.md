@@ -438,7 +438,7 @@ body('Parse_JSON_3')?['@odata.etag']
 outputs('HTTP_2')['headers']?['x-csrf-token']
 replace(outputs('HTTP_2')['headers']?['Set-Cookie'], ',', ';')
 ```
-
+4) Test it 
 
 
 [< Quest 2](quest2.md) - **[🏠Home](../README.md)** - [ Quest 4 >](quest4.md)
