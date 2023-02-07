@@ -15,7 +15,7 @@
 - Download the [On-premises data gateway](https://www.microsoft.com/en-us/download/details.aspx?id=53127); Similar like the SAP Cloud Connector the On-premises data gateway can establish a connection from systems behind your firewall to Azure. 
 - Download the [SAP .Net Conenctor](https://support.sap.com/en/product/connectors/msnet.html). Preferably select the NCo 3.1, Complied with .NET Framework 4.6.2 version. You need an S-User to sign-in and download this file. 
 
-### Installaing  SAP .Net Connector
+### Installing  SAP .Net Connector
 
 Start by installing the SAP .Net Connector. Just launch the SapNCox64Setup setup from the downloaded ZIP file and complete the installation. 
 
@@ -47,6 +47,9 @@ In a hosted event we have prepared a VM for you so that you can find all the req
 We recommend that you install a Browser like Microsoft Edge or Google Chrome and run it in private / incognito mode. By this you ensure that there is no mix-up with other (corporate) identities that you might you already used. 
 
 2) Bot Framework
+Follow the instructions outlined [here](https://learn.microsoft.com/en-us/composer/install-composer) to install the Bot Framework Composer on your client. 
+In our case we have already installed the [.NET 3.1.426 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-3.1.426-windows-x64-installer) and also the [Composer](https://github.com/microsoft/BotFramework-Composer/releases/download/v2.1.2/BotFramework-Composer-2.1.2-windows-setup.exe) for Windows. 
+
 
 3) Microsoft Excel
 Althought most of the itnegration that we do also run in a Browser (e.g. the Teams or Word integration) we recommend to install the rich-client version of Excel. In this version it is very easy to connect to the OData service and get the data live in your Excel sheet. 
