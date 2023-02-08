@@ -1,13 +1,13 @@
 # Quest 3 - Debutant's journey
 Whenever an Order is created in the Online Shop the user is now notified in Teams. However, a Purchase Requisition is not yet created. 
 
-In order to simplify this process we want to empower the Teams user to review the created order and then create a Purchase Requistion directly from Teams. For this we will enhance our Adaptive Card and make it interactive: The user should have the option to create a Purchase Requisition directly from Teams. 
+In order to simplify this process we want to empower the Teams user to review the created order and then create a Purchase Requisition directly from Teams. For this we will enhance our Adaptive Card and make it interactive: The user should have the option to create a Purchase Requisition directly from Teams. 
 
 Instead of doing this again via an RFC call, we will now switch to OData. At first we will leverage an OData call to fetch additional information from our Order (since the RFC did not return all the required information like Description). 
 
 Then we will also call the an API from the Online Shop, that creates the actual Purchase Requisition in the SAP System. 
 
-### Enhance the existing Logic App with an additional call to the Odata service
+### Enhance the existing Logic App with an additional call to the OData service
 1) In the "For Each" loop that was created to send the Adaptive Card, click on "Add an Action"
 ![AddNewAction](Quest3/AddNewAction.jpg)  
 

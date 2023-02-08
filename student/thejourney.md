@@ -20,5 +20,10 @@ While working in Teams and chatting with colleagues it might be required for you
 Now that the order is place and a purchse requisition has -- hopefully -- been created, we might need to write an Invoice or contact the buyer. In our case we are using Word to write this letter, but in order to fetch the correct information from the Online Shop, we create an Add-in to Word that enables the user to connect to the SAP System directly from Word and paste the content in the document itself. 
 
 
+## What we have so far -- the Online Shop
+As a new front end to our SAP S/4HANA System we have created a RAP application where users can create orders. 
+The Online Shop was developed...
+ToDo--ToDo--ToDo--ToDo--ToDo--ToDo--ToDo--ToDo--
+
 **[🏠Home](../README.md)** - [ Quest 1 >](quest1.md)
 

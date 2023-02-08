@@ -272,7 +272,7 @@ Do the same for the other properties (we are not yet updating Description Text o
 
 
 
-[< The Journey](thejourney.md) - **[🏠Home](../README.md)** - [ Quest 1 >](quest1.md)
+[< The Journey](thejourney.md) - **[🏠Home](../README.md)** - [ Quest 2 >](quest2.md)
 
 
 
