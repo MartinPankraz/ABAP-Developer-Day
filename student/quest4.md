@@ -1,9 +1,9 @@
 # Quest 4 - Accountant's detour
 
-In the next step we want to integrate the Ordered Items in Excel. Unfortunately Excel does not yet support OData v4. Luckily creating an OData v2 services is just a click away with RAP. 
+In the next step we want to integrate the Ordered Items in Excel. Unfortunately Excel has some issues with this OData v4 service. Luckily creating an OData v2 services is just a click away with RAP. 
 
 Using this approach we have created the OData v2 service: http://vhcals4hcs.dummy.nodomain:50000/sap/opu/odata/sap/ZUI_ONLINESHOP_MS1_O2/Online_Shop 
->> Note: we are using here HTTP and Port 50000 (not HTTPS), because we have not installed official certificates. 
+>> Note: As before we are using here HTTP and Port 50000 (not HTTPS), because we have not installed official certificates. 
 
 1) Open Microsoft Excel on your VM
 

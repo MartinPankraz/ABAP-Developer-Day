@@ -26,6 +26,7 @@ Ready to go on a digitization adventure?
 
 Before you go: verify [prerequisites](PREREQUISITES.md) are met (backpack, lunch box, good-bye kiss, haunted jewelry, ABAP Development Tools, etc.)
 
+0. [The Journey](student/thejourney.md) - Where will this quest take us
 1. [Novice's path](student/quest1.md) - Empower your fellow humans on Microsoft Teams via SAP RFCs
 2. [Apprentice's curious road](student/quest2.md) - Trigger your first workflow via the ABAP SDK for Azure (to infinity and beyond)
 3. [Debutant's journey](student/quest3.md) - Close the interaction cycle on Microsoft Teams and write back to SAP (OData)

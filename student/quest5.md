@@ -43,7 +43,7 @@ We are following the official [Tutorial: Create a weather bot with Composer](htt
 1) Select the fetch_order_infos dialog in the bot explorer and click on Change in the properties for "Recognizer Type/Dispatch type". Then select the "Regular expressioN" type and click on Done
 ![Change to regular expression](Quest5/ChangeToRegularExpression.jpg)
 
-2) NOw with the trigger changed to Regular expression, click on the "..." next to the fetch_order_infos and select "+ Add new trigger"
+2) Now with the trigger changed to Regular expression, click on the "..." next to the fetch_order_infos and select "+ Add new trigger"
 ![Change to regular expression](Quest5/AddNewTrigger.jpg)
 
 3) In the new windows select "Intent recognized" under trigger type and user order for the name and input of the regular expression
@@ -66,6 +66,8 @@ We are following the official [Tutorial: Create a weather bot with Composer](htt
 ![Ask for Number](Quest5/AskForNumber.jpg)
 
 2) Select the "Prompt for a number" step and click on "Add alternative" to add a question, e.g. "What order ID are you looking for?"
+>> Note: You might  need to Close the Chat window again. 
+
 ![Ask for Number](Quest5/EnterQuestion.jpg)
 ![Ask for Number](Quest5/EnterText.jpg)
 
@@ -85,6 +87,7 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 
 3) To authenticate with our S4H_EXT user, click on "Add new" in the Headers section and enter "Authorization" as the key and "Basic czRoX2V4dDpXZWxjb21lMQ==" as the value. 
 ![Send HTTP request](Quest5/EnterHeaders.jpg)
+>>Note: Sometimes these properties are not stored. Before continuing with the next step, click on somewhere else to leave the focus of the Value input field.
 
 
 4) Since we expect a response in json and we want to store the results in a variable, enter "dialog.api_response" for the Result property and "json" for the Response type. 
@@ -144,6 +147,8 @@ Something went wrong: ${dialog.api_response.content.message}.
 1) Click again on "Restart bot" -> "Open Web Chat" to test the integration. 
 ![Demo bot run](Quest5/DemoBotRun.jpg)
 
+### Publish the bot to Teams
+ToDo--ToDo--ToDo--ToDo--ToDo--
 As a next step you could publish the bot to Azure Bot Framework and from there make it also available in Teams. 
 
 [< Quest 4](quest4.md) - **[🏠Home](../README.md)** - [ Quest 6 >](quest6.md)
