@@ -6,6 +6,7 @@ Throughout the next excercises we will use an Office 365 user, an Azure subscrip
 * First open up your [Office 365 Outlook Inbox](https://outlook.office.com/mail/inbox/). Make sure to authenticate with your Developer Office 365 user, not with your corporate / personal user. One of the last emails in the Inbox should be the invitation email for the Contoso YAAC Azure subscription. 
 ![Check Outlook](Quest1/CheckOutlook.jpg)
 
+
 * Next open [Microsoft Teams](https://teams.microsoft.com/). When doing that it is best to use the Browser experience (in order not to interfere with any other local Teams and Accounts that you might have installed). 
 
 * Now check if you have Excel on-prem installed. Here you do not need to authenticate and it is fine to use the rich-client. In Quest 4 we will connect to an OData service and read data from our Online Store. 

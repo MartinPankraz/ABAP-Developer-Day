@@ -124,12 +124,70 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 10) We should have all the information now so we can write a response to the user. Click on "+" in the True branch and click on "Send a resposne" 
 ![Send response](Quest5/SendAResponse-Withdata.jpg)
 
-11) As before add a text for the response:
+11) Since we want to reply with an Adaptive Card, click on "+" and select Attachments
+![Add Attachment](Quest5/PlusAttachments.jpg)
+
+
+12) Then click on Add new attachment -> Create from template -> Adaptive Card
+![Select Adaptive Card](Quest5/AddAdaptiveCard.jpg)
+
+13) Copy and paste/replace the content from below in the Attachment field 
+```json
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.2",
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "Order Item Information - ${dialog.orderID}",
+            "wrap": true,
+            "size": "Large",
+            "weight": "Bolder",
+            "color": "Accent"
+        },
+        {
+            "type": "TextBlock",
+            "text": "Information about Order ID: ${dialog.orderID} - ${dialog.Ordereditem}",
+            "weight": "Bolder",
+            "isSubtle": false
+        },
+        {
+            "type": "FactSet",
+            "facts": [
+                {
+                    "title": "Order ID",
+                    "value": "${dialog.orderID}"
+                },
+                {
+                    "title": "Order Item",
+                    "value": "${dialog.Ordereditem}"
+                },
+                {
+                    "title": "Quantity",
+                    "value": "${dialog.quantity}"
+                },
+                {
+                    "title": "Description",
+                    "value": "${dialog.DescriptionText}"
+                },
+                {
+                    "title": "PR Status",
+                    "value": "${dialog.Prstatus}"
+                },
+                {
+                    "title": "Purchase Requisition #",
+                    "value": "${dialog.Purchasereqn}"
+                }
+            ]
+        }
+    ]
+}```
 ```
-Order ID ${dialog.orderID} is an order of ${dialog.Ordereditem} (${dialog.DescriptionText}) with a quantity of ${dialog.quantity}. The purchase requisition is ${dialog.Prstatus} ${dialog.Purchasereqn}
-```
-![Success response](Quest5/SuccessResponse.jpg)
->> Note: We can also create a more beautiful adaptive card here like the one we sent to Teams from Logic Apps before. 
+
+![Content Added](Quest5/ContentAdded.jpg)
 
 12) Also add a response for the False branch using:
 ```
