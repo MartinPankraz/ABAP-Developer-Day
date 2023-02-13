@@ -347,3 +347,5 @@ ToDo--ToDo--ToDo--ToDo--ToDo--
 As a next step you could publish the bot to Azure Bot Framework and from there make it also available in Teams.
 
 [< Quest 4](quest4.md) - **[🏠Home](../README.md)** - [ Quest 6 >](quest6.md)
+
+[🔝](#)

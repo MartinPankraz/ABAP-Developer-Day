@@ -1,6 +1,6 @@
 # Quest 1 - Novice's path
 
-[< The Journey](quest0.md) - **[🏠Home](../README.md)** - [ Quest 2 >](quest2.md)
+[< Quest 0](quest0.md) - **[🏠Home](../README.md)** - [ Quest 2 >](quest2.md)
 
 ## Introduction
 
@@ -393,3 +393,5 @@ Do the same for the other properties (we are not yet updating Description Text o
 > **Note** - You can find a template for the Logic App flow (you still need to adjust to your specific SAP Connector and Teams connection) [here](Quest1/Quest1-LogicApp-CodeView.json)
 
 [< The Journey](quest0.md) - **[🏠Home](../README.md)** - [ Quest 2 >](quest2.md)
+
+[🔝](#)
