@@ -10,6 +10,10 @@
 
 - Install the On-prem data Gateway with access to the SAP S/4HANA System. This is required to access RFC/BAPIs in the SAP system behind your firewall. In our case we have installed the required tools on the "Windows Remote Desktop" of the SAP S/4HANA 2022, Fully-Activated Appliance CAL system
 
+### Configuration on the Azure Subscription
+- Create a Azure Event Grid Topic, e.g. EventsFromOnlineShop
+- Create a Service Bus Queue, e.g. ServiceBusForSAPOnlineShop
+
 ### Downloading required files
 
 - Download the [On-premises data gateway](https://www.microsoft.com/en-us/download/details.aspx?id=53127); Similar like the SAP Cloud Connector the On-premises data gateway can establish a connection from systems behind your firewall to Azure. 
