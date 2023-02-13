@@ -292,11 +292,7 @@ The creation happens via a POST message. POSTing data to SAP requires a few step
   
 ### Wait for input
 
-1. Now we have to react to the answer from the user. If the User clicked on the "Create Purchase Requisition" button, we need to call the OData Service of the Online Shop to create the Purchase Requisition.
-
-Add a new Action by searching for and selecting "Control" and selecting the "Condition" action.
-
-If there is an action, we want to Check if it was our Create Purchase Requisition Button and only then execute next steps.
+1. Now we have to react to the answer from the user. If the User clicked on the "Create Purchase Requisition" button, we need to call the OData Service of the Online Shop to create the Purchase Requisition. Add a new Action by searching for and selecting "Control" and selecting the "Condition" action. If there is an action, we want to Check if it was our Create Purchase Requisition Button and only then execute next steps.
 
 <p align="center" width="100%">
 <img alt="Switch" src="../img/student/Quest3/SwitchControl.jpg"  width="600">
@@ -460,9 +456,9 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 |---|---|
 |Method|POST|
 |URI|http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui_onlineshop_ms1/0001/Online_Shop\(OrderUUID=ORDERUUID-PLACEHOLDER,IsActiveEntity=true)/com.sap.gateway.srvd.zui_onlineshop_ms1.v0001.createPurchaseRequisitionItem?sap-client=100&$select=SAP__Messages|
-|If-Match|OData Etag value from Parse Json, e.g. body('Parse_JSON_3')?['@odata.etag']|
-|X-CSRF-Token|Dynamic x-csrf-token value from previous HTTP Call, e.g. outputs('HTTP_2')['headers']?['x-csrf-token']|
-|Cookie|we take the cookie from the previous HTTP call, order not to do another authentication, e.g. replace(outputs('HTTP_2')['headers']?['Set-Cookie'], ',', ';')|
+|If-Match|OData ETag value from Parse Json, e.g. `body('Parse_JSON_3')?['@odata.etag']`|
+|X-CSRF-Token|Dynamic x-csrf-token value from previous HTTP Call, e.g. `outputs('HTTP_2')['headers']?['x-csrf-token']`|
+|Cookie|we take the cookie from the previous HTTP call, order not to do another authentication, e.g. `replace(outputs('HTTP_2')['headers']?['Set-Cookie'], ',', ';')`|
 </div>
 
 * If- Match
@@ -528,7 +524,7 @@ The result should look like this:
 </p>
 
 <p align="center" width="100%">
-<img alt="PR in Online Shop" src="../img/student/Quest3/PRInOnlineShop.jpg"  width="700">
+<img alt="PR in Online Shop" src="../img/student/Quest3/PRInOnlineShop.jpg"  width="800">
 </p>
 
 ## Where to next?

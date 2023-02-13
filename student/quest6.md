@@ -41,13 +41,13 @@ To get familiar with the concepts of the Office JavaScript libraries, let's star
 2. Write some text, select a section and click on Run
 
 <p align="center" width="100%">
-<img alt="First Test" src="../img/student/Quest6/RunBasicAPI.jpg"  width="600">
+<img alt="First Test" src="../img/student/Quest6/RunBasicAPI.jpg"  width="800">
 </p>
 
 3. The TypScript call is executed within Word and a Button is Displayed. Click on the "Print Selection" button which will convert the marked text to Red.
 
 <p align="center" width="100%">
-<img alt="Change Color" src="../img/student/Quest6/ClickPrintSelection.jpg"  width="600">
+<img alt="Change Color" src="../img/student/Quest6/ClickPrintSelection.jpg"  width="800">
 </p>
 
 4. Continue to explore additional Samples by going back (you might need to expand the Code task pane to see the different entries in the Menu)
@@ -87,13 +87,13 @@ Click on Run
 3. Now write a number in your Document for an Order ID that you have previously created. Select this text and click on "Run"
 
 <p align="center" width="100%">
-<img alt="Click on Fetch" src="../img/student/Quest6/ClickOnFetch.jpg"  width="600">
+<img alt="Click on Fetch" src="../img/student/Quest6/ClickOnFetch.jpg"  width="800">
 </p>
  
 4. In the console Log you can see the different steps being executed and also the JSON response. The results are then pasted in the Word document
 
 <p align="center" width="100%">
-<img alt="Results" src="../img/student/Quest6/Results.jpg"  width="600">
+<img alt="Results" src="../img/student/Quest6/Results.jpg"  width="800">
 </p>
 
 ## Cleaning up

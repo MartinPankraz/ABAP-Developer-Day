@@ -228,6 +228,8 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 |dialog.DescriptionText|=dialog.api_response.content.value[0].DescriptionText|
 </div>
 
+<br>
+
 <p align="center" width="100%">
 <img alt="Properties added" src="../img/student/Quest5/PropertiesAdded.jpg"  width="600">
 </p>
