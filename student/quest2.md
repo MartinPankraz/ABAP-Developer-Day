@@ -14,11 +14,8 @@ For this we will enhance the SAP System to react on the custom event triggered b
 2) Create a new Queue by clicking on "+ Queue" and enter a Queue name, like Developer\<XXX>
 ![Create Queue](../img/student/Quest2/CreateQueue.jpg)
 
-3) When you scroll down you can see the Queue that was created. Click on it to access the Queue. 
+3) When you scroll down you can see the Queue that was created. 
 ![Verify the Queue](../img/student/Quest2/ScrollDownAndSelect.jpg)
-
-4) In order to enable the Logic App later on we need to create a Connection string. Click on "Shared Access Policies" and click on "+ Add", add a Policy name, select "Manage".
-![Create Shared Access Policy](../img/student/Quest2/CreatedSharedAccessPolicies.jpg)
 
 
 ## Create a Subscription in Azure Event Grid
