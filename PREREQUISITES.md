@@ -54,6 +54,6 @@ In a hosted event we have prepared a VM for you so that you can find all the req
 
 ## Where to next?
 
-**[🏠Home](../README.md)** - [ Or begin the journey >](quest0.md)
+**[🏠Home](../README.md)** - [ Quest 0 >](student/quest0.md)
 
 [🔝](#)
