@@ -14,8 +14,12 @@ For this we will enhance the SAP System to react on the custom event triggered b
 2) Create a new Queue by clicking on "+ Queue" and enter a Queue name, like Developer\<XXX>
 [Create Queue](../img/student/Quest2/CreateQueue.jpg)
 
-3) When you scroll down you can see the Queue that was created. 
+3) When you scroll down you can see the Queue that was created. Click on it to access the Queue. 
 [Verify the Queue](../img/student/Quest2/ScrollDownAndSelect.jpg)
+
+4) In order to enable the Logic App later on we need to create a Connection string. Click on "Shared Access Policies" and click on "+ Add", add a Policy name, select "Manage".
+[Create Shared Access Policy](../img/student/Quest2/CreatedSharedAccessPolicies.jpg)
+
 
 ## Create a Subscription in Azure Event Grid
 1) Similar like before, in the Azure Portal search for EventsFromOnlineShop and select the Event Grid
@@ -42,6 +46,97 @@ For this we will enhance the SAP System to react on the custom event triggered b
 
 ## Test
 Create and Order in the Online Shop and peek 
+
+## Connect the event to our Logic App
+1) Open the Logic App created in Quest 1 and delete the first Trigger / Action (When a HTTP request is received)
+[Delete the first action](../img/student/Quest2/LogicAppDesigner.jpg)
+
+2) Search for "Service Bus" and select the new Trigger action "Service Bus"
+[Search Service Bus](../img/student/Quest2/SearchServiceBus.jpg)
+
+3) Select "When a message is received..."
+[When a message is received](../img/student/Quest2/WhenAMessgeIsReceived.jpg)
+
+4) Enter a name and the Connecting string from the Service Bus Queue. Click on Create
+[Enter a name and connection string](../img/student/Quest2/EnterNameAndConnectionString.jpg)
+
+```http
+Endpoint=sb://servicebusforsaponlineshop.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=cIcJZtV87fyvpldm78OVcABI8LSw7QxRI+ASbCrll/w=
+```
+>>Note: the Connection string can be retrieved from 
+[Copy connection string](../img/student/Quest2/CopyConnectionString.jpg)
+
+5) Select the Queue name that you previously created. 
+[Select Queue](../img/student/Quest2/SelectQueueName.jpg)
+
+6) Add another action 
+[Add action](../img/student/Quest2/AddAnotherAction.jpg)
+
+7) Add Initialize Variable
+[Initialize Variable](../img/student/Quest2/InitalizeVariable.jpg)
+
+8) Use the Contet from the incoming Service Bus request
+[Set message content](../img/student/Quest2/SetMessageContent.jpg)
+
+9) Add a Parse Json action 
+[Select Parse JSON structure](../img/student/Quest2/ParseJson.jpg)
+
+10) Use the previously initialized variable and use the Schema from below. 
+[Enter Schema](../img/student/Quest2/EnterSchema.jpg)
+
+```json
+{
+    "type": "object",
+    "properties": {
+        "subject": {
+            "type": "string"
+        },
+        "eventtype": {
+            "type": "string"
+        },
+        "id": {
+            "type": "string"
+        },
+        "data": {
+            "type": "object",
+            "properties": {
+                "ordernr": {
+                    "type": "string"
+                },
+                "createdby": {
+                    "type": "string"
+                },
+                "event": {
+                    "type": "string"
+                },
+                "date": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                }
+            }
+        },
+        "dataversion": {
+            "type": "string"
+        },
+        "metadataversion": {
+            "type": "string"
+        },
+        "eventtime": {
+            "type": "string"
+        },
+        "topic": {
+            "type": "string"
+        }
+    }
+}
+```
+
+11) In the next step to call the RFC, replace the hard-coded order Nr with the "ordernr" field from the parsed message body. 
+[Enter Order NR](../img/student/Quest2/EnterOrderNr.jpg)
+
+### Test it!
 
 
 ## Where to next?
