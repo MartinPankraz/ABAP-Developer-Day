@@ -104,6 +104,8 @@ Feel free to reminiscent about your journey while covering your tracks in the cl
 - Decommission the M365 dev tenant
 - Devour left overs from lunch box
 
+## Where to next?
+
 [< Quest 5](quest5.md) - **[🏠Home](../README.md)**
 
 [🔝](#)

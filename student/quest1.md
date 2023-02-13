@@ -392,6 +392,8 @@ Do the same for the other properties (we are not yet updating Description Text o
 
 > **Note** - You can find a template for the Logic App flow (you still need to adjust to your specific SAP Connector and Teams connection) [here](Quest1/Quest1-LogicApp-CodeView.json)
 
+## Where to next?
+
 [< The Journey](quest0.md) - **[🏠Home](../README.md)** - [ Quest 2 >](quest2.md)
 
 [🔝](#)

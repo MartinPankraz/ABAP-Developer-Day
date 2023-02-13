@@ -52,6 +52,8 @@ In a hosted event we have prepared a VM for you so that you can find all the req
 
 3) Microsoft Excel - Although most of the integration that we do also run in a Browser (e.g. the Teams or Word integration) we recommend to install the rich-client version of Excel. In this version it is very easy to connect to the OData service and get the data live in your Excel sheet.
 
+## Where to next?
+
 **[🏠Home](../README.md)** - [ Or begin the journey >](quest0.md)
 
 [🔝](#)

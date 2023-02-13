@@ -531,6 +531,8 @@ The result should look like this:
 <img alt="PR in Online Shop" src="../img/student/Quest3/PRInOnlineShop.jpg"  width="700">
 </p>
 
+## Where to next?
+
 [< Quest 2](quest2.md) - **[🏠Home](../README.md)** - [ Quest 4 >](quest4.md)
 
 [🔝](#)
