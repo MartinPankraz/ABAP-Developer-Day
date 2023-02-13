@@ -26,7 +26,7 @@ Ready to go on a digitization adventure?
 
 Before you go: verify [prerequisites](PREREQUISITES.md) are met (backpack, lunch box, good-bye kiss, haunted jewelry, ABAP Development Tools, etc.)
 
-0. [The Journey](student/thejourney.md) - Where will this quest take us
+0. [The Journey](student/quest0.md) - Where will those quests take us
 1. [Novice's path](student/quest1.md) - Empower your fellow humans on Microsoft Teams via SAP RFCs
 2. [Apprentice's curious road](student/quest2.md) - Trigger your first workflow via the ABAP SDK for Azure (to infinity and beyond)
 3. [Debutant's journey](student/quest3.md) - Close the interaction cycle on Microsoft Teams and write back to SAP (OData)
@@ -44,11 +44,11 @@ See you out there traversing the depths of enterprise integration across Microso
 
 ## ✨Recommended courses and further learning
 
-- ABAP Environment
-- ABAP SDK for Azure
-- ABAP RESTful Application Programming Model (RAP)
-- Adaptive Cards in Microsoft Teams
-- Azure Bot Framework
+- [ABAP Environment (aka Embedded Steampunk)](https://blogs.sap.com/2022/10/25/how-to-use-embedded-steampunk-in-sap-s-4hana-cloud-private-edition-and-in-on-premise-the-new-abap-extensibility-guide/)
+- [ABAP SDK for Azure](https://github.com/microsoft/ABAP-SDK-for-Azure)
+- [ABAP RESTful Application Programming Model (RAP)](https://help.sap.com/docs/ABAP_PLATFORM_NEW/b5670aaaa2364a29935f40b16499972d/289477a81eec4d4e84c0302fb6835035.html)
+- [Adaptive Cards in Microsoft Teams](https://learn.microsoft.com/microsoftteams/platform/task-modules-and-cards/cards/design-effective-cards?tabs=design)
+- [Azure Bot Framework](https://learn.microsoft.com/azure/bot-service/bot-overview?view=azure-bot-service-4.0)
 
 ## 📢Feedback
 

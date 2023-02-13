@@ -1,39 +1,61 @@
 # Quest 1 - Novice's path
 
+[< The Journey](quest0.md) - **[🏠Home](../README.md)** - [ Quest 2 >](quest2.md)
+
 ## Introduction
-Throughout the next excercises we will use an Office 365 user, an Azure subscription and some Office 365 tools. In order to make sure that everything is fine, it is best to quickly try and verify all used resources. 
 
-* First open up your [Office 365 Outlook Inbox](https://outlook.office.com/mail/inbox/). Make sure to authenticate with your Developer Office 365 user, not with your corporate / personal user. One of the last emails in the Inbox should be the invitation email for the Contoso YAAC Azure subscription. 
-![Check Outlook](Quest1/CheckOutlook.jpg)
+Throughout the next exercises we will use an Office 365 user, an Azure subscription and some Office 365 tools. In order to make sure that everything is fine, it is best to quickly try and verify all used resources.
 
+1. Open up your [Office 365 Outlook Inbox](https://outlook.office.com/mail/inbox/). Make sure to authenticate with your Developer Office 365 user, not with your corporate / personal user. One of the last emails in the Inbox should be the invitation email for the Contoso YAAC Azure subscription.
 
-* Next open [Microsoft Teams](https://teams.microsoft.com/). When doing that it is best to use the Browser experience (in order not to interfere with any other local Teams and Accounts that you might have installed). 
+<p align="center" width="100%">
+<img alt="Invitation Email" src="../img/student/Quest1/CheckOutlook.jpg"  width="800">
+</p>
 
-* Now check if you have Excel on-prem installed. Here you do not need to authenticate and it is fine to use the rich-client. In Quest 4 we will connect to an OData service and read data from our Online Store. 
+2. Open [Microsoft Teams](https://teams.microsoft.com/). When doing that it is best to use the Browser experience (in order not to interfere with any other local Teams and Accounts that you might have installed).
 
-* For the last exercise we are going to integrate in [Microsoft Word](https://www.office.com/launch/word?auth=2). You can open and create a Blank document from there. 
+3. Check if you have Excel on-prem installed. Here you do not need to authenticate and it is fine to use the rich-client. In Quest 4 we will connect to an OData service and read data from our Online Store.
 
-* For every participant a resource group in Azure has been created in a central Azure subscription. In order to not interfere with other users, please always make sure that you only operate in the resource group assigned to you. 
+4. For the last exercise we are going to integrate in [Microsoft Word](https://www.office.com/launch/word?auth=2). You can open and create a Blank document from there.
 
-To log-on to the [Azure portal](https://portal.azure.com/#home), please use your Microsoft 365 users which has been assisnged as a contribute to the central Azure subscription. Make sure that the Directory shown in the upper right corner of your user says "Contoso YAAC". 
-![Contoso YaaC](Quest1/ContosoYaac.jpg)
+5. For every participant a resource group in Azure has been created in a central Azure subscription. In order to not interfere with other users, please always make sure that you only operate in the resource group assigned to you. 
 
- and if not switch to this Directory, by clicking on your user, selecting Switch directory and then clicking on Switch for the Contoso YAAC Directory. 
-![Switch Directory](Quest1/SwitchDirectory.jpg)
+> **Info** - To log-on to the [Azure portal](https://portal.azure.com/#home), please use your Microsoft 365 users which has been assigned as a contribute to the central Azure subscription.
 
-* And we have of course our Online Shop. Open xxx and create a first order! Screenshot
-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-
+Make sure that the Directory shown in the upper right corner of your user says "Contoso YAAC".
 
+<p align="center" width="100%">
+<img alt="Contoso YaaC" src="../img/student/Quest1/ContosoYaac.jpg"  width="800">
+</p>
 
+If not switch to this Directory, by clicking on your user, selecting Switch directory and then clicking on Switch for the Contoso YAAC Directory.
 
-### Create Logic Apps
-1) In the Search bar at the top search for Logic Apps and click on the Logic Apps under Services
-![Search Logic Apps](Quest1/SearchLogicApps.jpg)
+<p align="center" width="100%">
+<img alt="Switch Directory" src="../img/student/Quest1/SwitchDirectory.jpg"  width="800">
+</p>
 
-2) Click on "+ Add" 
-![Add Logic Apps](Quest1/AddLogicApps.jpg)
+Open the [Fiori app]() and create your first order using the SAP Online Shop built on RAP and cloud-compliant ABAP!
 
-3) Enter the required Logic Apps information
+> **Warning** Todo
+
+## Provision your workflow orchestrator - Azure Logic Apps
+
+1. Use the Search bar at the top, search for Logic Apps and click on the Logic Apps under Services.
+
+<p align="center" width="100%">
+<img alt="Search Logic Apps" src="../img/student/Quest1/SearchLogicApps.jpg"  width="600">
+</p>
+
+2. Click on "+ Add"
+
+<p align="center" width="100%">
+<img alt="Add Logic Apps" src="../img/student/Quest1/AddLogicApps.jpg"  width="600">
+</p>
+
+3. Enter the required Logic Apps information
+
+<br>
+<div style="margin-left: auto; margin-right: auto; width: 50%">
 
 |Property|Value|
 |---|---|
@@ -41,29 +63,54 @@ TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-
 |Logic App Name|Use a unique name, e.g. Developer002-OrderItem|
 |Region|Select North Europe|
 |Plan Type|Select Consumption|
+</div>
 
-![Create Logic App](Quest1/CreateLogicApp.jpg)
+<br>
+
+<p align="center" width="100%">
+<img alt="Create Logic App" src="../img/student/Quest1/CreateLogicApp.jpg"  width="600">
+</p>
+
+4. Click on Create + Review / Create
+
+5. Once the creation is done, click on "Go to resource"
+
+<p align="center" width="100%">
+<img alt="Create Logic App" src="../img/student/Quest1/GoToResource.jpg"  width="800">
+</p>
+
+## Design your workflow in Azure Logic Apps
+
+### Setting up the Flow
+
+1. On the welcome screen, select "When a HTTP request is received". In the first step we will trigger the Logic Apps flow manually, but later on the SAP system can trigger the request automatically when a new order has been created in the Online Shop.
+
+<p align="center" width="100%">
+<img alt="Start with HTTP Trigger" src="../img/student/Quest1/WhenHTTPRequest.jpg"  width="800">
+</p>
+
+2. Click on "+ New Step"
+
+<p align="center" width="100%">
+<img alt="New Step" src="../img/student/Quest1/NewStep.jpg"  width="600">
+</p>
+
+3. Search for and select "SAP" in the "Choose an operations" box.
+
+<p align="center" width="100%">
+<img alt="Select SAP" src="../img/student/Quest1/SelectSAP.jpg"  width="600">
+</p>
  
-4) then Click on Create + Review / Create 
+4. Select "[RFC] Call function in SAP (preview)" and select the on-prem data Gateway system. Also provide the SAP System detail information.
 
-5) Once the creation is done, click on "Go to resource"
-![Create Logic App](Quest1/GoToResource.jpg)
+<p align="center" width="100%">
+<img alt="Call RFC" src="../img/student/Quest1/CallFunctions.jpg"  width="600">
+</p>
 
-### Logic Apps Designer
-#### Setting up the Flow
-1) On the welcome screen, select "When a HTTP request is received". In the first step we will trigger the Logic Apps flow manually, but later on the SAP system can trigger the request automatically when a new order has been created in the Online Shop. 
-![Start with HTTP Trigger](Quest1/WhenHTTPRequest.jpg)
+5. Create the Connection using the following values.
 
-2) Click on "+ New Step" 
-![New Step](Quest1/NewStep.jpg)
-
-3) Search for and select "SAP" in the "Choose an operations" box. 
-![Select SAP](Quest1/SelectSAP.jpg)
- 
-4) Select "[RFC] Call function in SAP (preview)" and select the on-prem data Gateway system. Also provide the SAP System detail information. 
-![Call RFC](Quest1/CallFunctions.jpg)
-
-5) Create the Connection using the following value. Then click on Create
+<br>
+<div style="margin-left: auto; margin-right: auto; width: 50%">
 
 |Property|Value|
 |---|---|
@@ -75,50 +122,94 @@ TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-
 |AS Host|10.0.0.34|
 |AS Service|3200|
 |AS System Number|00|
+</div>
 
-![Connection Details](Quest1/ConnectionDetails.jpg)
+<br>
 
+<p align="center" width="100%">
+<img alt="Connection Details" src="../img/student/Quest1/ConnectionDetails.jpg"  width="600">
+</p>
+
+6. Click on Create
  
-5) Click on the "Add new paramater" drop down and select "RFC Filter Group"
->> Note: You need to click "somewhere" else so that the dialog box closes.  
-![RFC Filter Group](Quest1/RFCFilterGroup.jpg)
+7. Click on the "Add new parameter" drop down and select "RFC Filter Group"
 
-6) Fetching all the filter groups from the SAP system can take some time. You can also click on "Enter Custom Value"
-![Enter Custom Value](/student/Quest1/LA-EnterCustomValue.jpg)
+> **Note** - You need to click "somewhere" else so that the dialog box closes.
 
-7) Now enter the Filter group name "Z_ONLINESHOP_MSF"
-![Select Filter Group](/student/Quest1/SelectFilterGroup.jpg)
+<p align="center" width="100%">
+<img alt="RFC Filter Group" src="../img/student/Quest1/RFCFilterGroup.jpg"  width="600">
+</p>
 
- 8) and from the RFC Name field select the "ZF_RFC_ONLINESHOP_GET_ORDER:order:Z_ONLINESHOP_MSF"
-![Enter Custom Value](/student/Quest1/LA-EnterRFCName.jpg)
+> **Warning** - Fetching all the filter groups from the SAP system **may take some time**. Use "Enter Custom Value" if you know the technical name already.
 
-8) Since we want to lookup a specific Order, we need to provide the IM_ORDER number. For the first test, just enter which looks for Order ID 12 (feel free to select a number of an order that you have previously created!)
-``` 
+<p align="center" width="100%">
+<img alt="Enter Custom Value" src="../img/student/Quest1/LA-EnterCustomValue.jpg"  width="600">
+</p>
+
+8. Enter the Filter group name "Z_ONLINESHOP_MSF"
+
+<p align="center" width="100%">
+<img alt="Select Filter Group" src="../img/student/Quest1/SelectFilterGroup.jpg"  width="600">
+</p>
+
+9. From the RFC Name field, select the "ZF_RFC_ONLINESHOP_GET_ORDER:order:Z_ONLINESHOP_MSF"
+
+<p align="center" width="100%">
+<img alt="Enter Custom Value" src="../img/student/Quest1/LA-EnterRFCName.jpg"  width="600">
+</p>
+
+10. Lookup a specific Order by IM_ORDER number. For the first test, enter Order ID 12 (feel free to select a number of an order that you have previously created!)
+
+```xml
 <ZF_RFC_ONLINESHOP_GET_ORDER xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
 <IM_ORDER>       12</IM_ORDER>
 </ZF_RFC_ONLINESHOP_GET_ORDER>
 ```
-![Call SAP Function](/student/Quest1/LA-CallSAPFunction.jpg)
->> Note: See [How to create the Logic App Content](LogicAppContent.md) for more details on how to construct the XML playload for the RFC request in Logic Apps
 
-9) From the top of the flow click on "Save" and "Run Trigger" to execute the Flow. 
-![Save and run](/student/Quest1/SaveAndRun.jpg)
+> **Warning** - watch out for the leading spaces in the XML payload.
 
-10) As a result you will see the OrderID and some additional information coming back from the SAP System. 
-![First results](/student/Quest1/FirstResults.jpg)
->>Note: You can Copy results from the Json Response to your Clipboard, since we will use it in the next steps. 
+<p align="center" width="100%">
+<img alt="Call SAP Function" src="../img/student/Quest1/LA-CallSAPFunction.jpg"  width="600">
+</p>
 
-#### Working with the results from SAP
-1) With the results from the RFC call, we can now take this data and use it to publish to Teams. The first step is that we need to parse the results from the RFC call. Click on the "+ New Step" 
-![Open Action](/student/Quest1/NewStepParse.jpg)
+> **Note** - See [How to create the Logic App Content](LogicAppContent.md) for more details on how to construct the XML payload for the RFC request in Logic Apps
 
-2) Type "Parse JSON" and select the Parse JSON Action.
-![Open Action](/student/Quest1/SelectParseJson.jpg)
+11. From the top of the flow click on "Save" and "Run Trigger" to execute the Flow.
 
-3) Select the Content Field and from the Dynamic content pane on the right select "JsonResponse" Then click on "Use sample payload to generate schema". This allows us to leverage the output of the RFC call from the SAP system and generate a Schema directly out of it. 
-![Open Action](/student/Quest1/ContentField.jpg)
+<p align="center" width="100%">
+<img alt="Save and run" src="../img/student/Quest1/SaveAndRun.jpg"  width="600">
+</p>
 
-2) Next we can paste the sample payload from the first run. 
+12. As a result you will see the OrderID and some additional information coming back from the SAP System.
+
+<p align="center" width="100%">
+<img alt="First results" src="../img/student/Quest1/FirstResults.jpg"  width="600">
+</p>
+
+13. Copy results from the Json Response to your Clipboard. We will use it in the next steps.
+
+### Working with the results from SAP
+
+1. With the results from the RFC call, we can now take this data and use it to publish to Teams. The first step is that we need to parse the results from the RFC call. Click on the "+ New Step"
+
+<p align="center" width="100%">
+<img alt="Open Action" src="../img/student/Quest1/NewStepParse.jpg"  width="600">
+</p>
+
+2. Type "Parse JSON" and select the Parse JSON Action.
+
+<p align="center" width="100%">
+<img alt="Open Action" src="../img/student/Quest1/SelectParseJson.jpg"  width="600">
+</p>
+
+3. Select the Content Field and from the Dynamic content pane on the right select "JsonResponse" Then click on "Use sample payload to generate schema". This allows us to leverage the output of the RFC call from the SAP system and generate a Schema directly out of it.
+
+<p align="center" width="100%">
+<img alt="Open Action" src="../img/student/Quest1/ContentField.jpg"  width="600">
+</p>
+
+4. Next we can paste the sample payload from the first run.
+
 ```json
 {
   "EM_ORDER": [
@@ -138,32 +229,52 @@ TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-TODO-
   ]
 }
 ```
-![Paste Sample](/student/Quest1/PasteSample.jpg)
 
-3) The Parse JSON Action should now look like this:
-![Paste Sample](/student/Quest1/ParseJsonResults.jpg)
+<p align="center" width="100%">
+<img alt="Paste Sample" src="../img/student/Quest1/PasteSample.jpg"  width="600">
+</p>
 
-#### Create Adaptive Card in Teams
-1) In order to create an Adaptive Card to Teams, we now need to add another Action. As before, click on "+ New Step" and search for "Post adaptive card". Select the "Post adative card in a chat or channel"
-![Open Action](/student/Quest1/PostAdaptiveCard.jpg)
+5. The Parse JSON Action should now look like this:
 
-1) Click on the "Sign-In" button, to Sign-in with your Office 365 user in Teams
-![Open Action](/student/Quest1/TeamsSignIn.jpg)
+<p align="center" width="100%">
+<img alt="Paste Sample" src="../img/student/Quest1/ParseJsonResults.jpg"  width="600">
+</p>
 
-1) Select your User and Authenticate
-![Open Action](/student/Quest1/SelectUser.jpg)
+### Create Adaptive Card in Teams
 
-1) In the "Post in" drop-down select "Channel"
-![Open Action](/student/Quest1/SelectChannel.jpg)
+1. In order to create an Adaptive Card to Teams, we now need to add another Action. As before, click on "+ New Step" and search for "Post adaptive card". Select the "Post adative card in a chat or channel"
 
-1) Select a Team and Channel (just remember which combination you selected)
-![Open Action](/student/Quest1/SelectTeamsAndChannel.jpg)
+<p align="center" width="100%">
+<img alt="Open Action" src="../img/student/Quest1/PostAdaptiveCard.jpg"  width="600">
+</p>
 
-1) Copy and paste the Adaptive Card 
-We have used the [Adaptive Card Designer](https://www.adaptivecards.io/designer/) to create an Adaptive Card. Copy and paste the content from below in the Adaptive Card field. 
+2. Click on the "Sign-In" button, to Sign-in with your Office 365 user in Teams
 
+<p align="center" width="100%">
+<img alt="Open Action" src="../img/student/Quest1/TeamsSignIn.jpg"  width="600">
+</p>
 
-```
+3. Select your User and Authenticate
+
+<p align="center" width="100%">
+<img alt="Open Action" src="../img/student/Quest1/SelectUser.jpg"  width="400">
+</p>
+
+4. In the "Post in" drop-down select "Channel"
+
+<p align="center" width="100%">
+<img alt="Open Action" src="../img/student/Quest1/SelectChannel.jpg"  width="600">
+</p>
+
+5. Select a Team and Channel (just remember which combination you selected)
+
+<p align="center" width="100%">
+<img alt="Open Action" src="../img/student/Quest1/SelectTeamsAndChannel.jpg"  width="600">
+</p>
+
+6. For convenience, leverage below json created with the [Adaptive Card Designer](https://www.adaptivecards.io/designer/) and paste the content into the respective field.
+
+```json
 {
     "type": "AdaptiveCard",
     "body": [
@@ -243,37 +354,42 @@ We have used the [Adaptive Card Designer](https://www.adaptivecards.io/designer/
     "version": "1.3"
 }
 ```
-![Open Action](/student/Quest1/CopyPasteAdaptiveCard.jpg)
 
->> Note: Feel free to switch over to the Adaptive Card Designer and create your own Adaptive Card. Just make sure that you have several "placeholder" for Order ID, Status Purchase Requisition, Ordered Items and Purchase Requisition. 
+<p align="center" width="100%">
+<img alt="Open Action" src="../img/student/Quest1/CopyPasteAdaptiveCard.jpg"  width="600">
+</p>
 
-1) The adaptive Card has some hard coded "placeholder" in it. Find the place for Order ID and replace the "${value}" with the Dynamic Content from the Parsed JSON response from the SAP System. 
-Do the same for the other properties (we are not yet updating Description Text or Quantity since these values are not returned by the RFC). 
+> **Note** - Feel free to switch over to the Adaptive Card Designer and create your own Adaptive Card. Just make sure that you have several "placeholder" for Order ID, Status Purchase Requisition, Ordered Items and Purchase Requisition. 
+
+7. The adaptive Card has some hard coded "placeholder" in it. Find the place for Order ID and replace the "${value}" with the Dynamic Content from the Parsed JSON response from the SAP System.
+
+Do the same for the other properties (we are not yet updating Description Text or Quantity since these values are not returned by the RFC).
+
 * Order ID
 * Status Purchase Requisition
 * Ordered Items
 * Purchase Requisition
-![Replace Placeholder](/student/Quest1/ReplacePlaceholders.jpg)
 
->>Note: You might have seen that when adding the first OrderID dynamic variable, the Adaptive Card was put in a "For each" loop. That is because the schema of the resulting Json returns an array and potentially we could get multiple Orders back when filtering for a specific Order ID. 
-![For each section](/student/Quest1/ForEach.jpg)
+<br>
 
+<p align="center" width="100%">
+<img alt="Replace Placeholder" src="../img/student/Quest1/ReplacePlaceholders.jpg"  width="600">
+</p>
 
-1) Now we can Save and Run the Logic App flow again. As a result you should see an Adapitve Card in Teams showing the information from the Order specified. 
-![For each section](/student/Quest1/ResultsInTeams.jpg)
->>Note: If not all properties are shown, go back to the Teams action in the Logic Apps and validate the configuration. 
+> **Note** - You might have seen that when adding the first OrderID dynamic variable, the Adaptive Card was put in a "For each" loop. That is because the schema of the resulting Json returns an array and potentially we could get multiple Orders back when filtering for a specific Order ID. 
 
+<p align="center" width="100%">
+<img alt="For each section" src="../img/student/Quest1/ForEach.jpg"  width="600">
+</p>
 
+8. Save and Run the Logic App flow again. As a result you should see an Adaptive Card in Teams showing the information from the Order specified.
 
+<p align="center" width="100%">
+<img alt="For each section" src="../img/student/Quest1/ResultsInTeams.jpg"  width="600">
+</p>
 
+> **Note** - If not all properties are shown, go back to the Teams action in the Logic Apps and validate the configuration.
 
->> Note: You can find a template for the Logic App flow (you still need to adjust to your specific SAP Connector and Teams connection) [here](Quest1/Quest1-LogicApp-CodeView.json)
+> **Note** - You can find a template for the Logic App flow (you still need to adjust to your specific SAP Connector and Teams connection) [here](Quest1/Quest1-LogicApp-CodeView.json)
 
-
-
-
-
-[< The Journey](thejourney.md) - **[🏠Home](../README.md)** - [ Quest 2 >](quest2.md)
-
-
-
+[< The Journey](quest0.md) - **[🏠Home](../README.md)** - [ Quest 2 >](quest2.md)
