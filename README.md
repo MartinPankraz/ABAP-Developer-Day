@@ -22,7 +22,7 @@ Ready to go on a digitization adventure?
 
 <img src="img/giphy.gif" width=150>
 
-## 🧙🏾‍♀️Quests
+## 🧙🏾‍♀️Epic Quests
 
 Before you go: verify [prerequisites](PREREQUISITES.md) are met (backpack, lunch box, good-bye kiss, haunted jewelry, ABAP Development Tools, etc.)
 
