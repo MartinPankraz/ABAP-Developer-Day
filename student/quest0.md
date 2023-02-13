@@ -24,11 +24,13 @@ With a growing number of Orders in the Online Shop you might want to get a bette
 
 While working in Teams and chatting with colleagues it might be required for you to quickly lookup the status of a specific Order. You could switch back and forth between Teams and the Online Shop, but it would be much easier to just ask a Bot about the status. Leveraging the very same connections that we previously used, we will then use the Bot Framework Composer to create a very simply bot that allows you to fetch details from an Order and display it interactively in Teams.
 
-## Quest 6 - Approach the last quest with a bang and improve one of the most dusted and slow processes there is -> automatically pre-fill your invoice drafted in Microsoft Word with master data from SAP
+## Quest 6 - Automatically pre-fill your invoice drafted in Microsoft Word with master data from SAP
 
-Now that the order is place and a purchase requisition has -- hopefully -- been created, we might need to write an Invoice or contact the buyer. In our case we are using Word to write this letter, but in order to fetch the correct information from the Online Shop, we create an Add-in to Word that enables the user to connect to the SAP System directly from Word and paste the content in the document itself. 
+Approach the last quest with a bang and improve one of the most dusted and slow processes there ii.
 
-## What we have so far -- the Online Shop
+Now that the order is place and a purchase requisition has been created, we might need to write an Invoice or contact the buyer. In our case we are using Microsoft Word to write this letter, but in order to fetch the correct information from the Online Shop, we create an Add-in to Word that enables the user to connect to the SAP System directly from Word and paste the content in the document itself.
+
+## What we have so far -- the SAP Online Shop
 
 As a new front end to our SAP S/4HANA System we have created a RAP application where users can create orders.
 The Online Shop was developed...
