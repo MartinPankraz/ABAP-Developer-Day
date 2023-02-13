@@ -9,39 +9,39 @@ For this we will enhance the SAP System to react on the custom event triggered b
 
 ## Create a Queue in Azure Servie Bus
 1) In the top level of the Azure Portal search for "ServiceBusForSAPOnlineShop" and select the Service Bus
-[Select Service Bus](../img/student/Quest2/SelectServiceBus.jpg)
+![Select Service Bus](../img/student/Quest2/SelectServiceBus.jpg)
 
 2) Create a new Queue by clicking on "+ Queue" and enter a Queue name, like Developer\<XXX>
-[Create Queue](../img/student/Quest2/CreateQueue.jpg)
+![Create Queue](../img/student/Quest2/CreateQueue.jpg)
 
 3) When you scroll down you can see the Queue that was created. Click on it to access the Queue. 
-[Verify the Queue](../img/student/Quest2/ScrollDownAndSelect.jpg)
+![Verify the Queue](../img/student/Quest2/ScrollDownAndSelect.jpg)
 
 4) In order to enable the Logic App later on we need to create a Connection string. Click on "Shared Access Policies" and click on "+ Add", add a Policy name, select "Manage".
-[Create Shared Access Policy](../img/student/Quest2/CreatedSharedAccessPolicies.jpg)
+![Create Shared Access Policy](../img/student/Quest2/CreatedSharedAccessPolicies.jpg)
 
 
 ## Create a Subscription in Azure Event Grid
 1) Similar like before, in the Azure Portal search for EventsFromOnlineShop and select the Event Grid
-[Select Event Grid](../img/student/Quest2/SelectEventGrid.jpg)
+![Select Event Grid](../img/student/Quest2/SelectEventGrid.jpg)
 
 2) Click on "+ Subscription" and create a new subscription for the Event Grid
-[Create Event Grid Subscription](../img/student/Quest2/CreateEventSubscription.jpg)
+![Create Event Grid Subscription](../img/student/Quest2/CreateEventSubscription.jpg)
 
 3) Start entering the details like, subscription name and select Azure Service Bus Queue
-[Create Event Grid Subscription Details](../img/student/Quest2/EnterSubscriptionDetails.jpg)
+![Create Event Grid Subscription Details](../img/student/Quest2/EnterSubscriptionDetails.jpg)
 
 4) Click on "Select an endpoint" and make sure to select the Service Bus Queue for your Developer\<xxx> previous created. Then click on "Confirm Selection". 
-[Select Endpoint](../img/student/Quest2/SelectEndpoint.jpg)
+![Select Endpoint](../img/student/Quest2/SelectEndpoint.jpg)
 
 5) Click on the Filter tab and click on "Add new filter"
-[Add filter](../img/student/Quest2/AddFilter.jpg)
+![Add filter](../img/student/Quest2/AddFilter.jpg)
 
 6) For the filter, enter "data.createdby", select "Contains ins" and click "Add new values"
-[Enter filter information](../img/student/Quest2/EnterFilters.jpg)
+![Enter filter information](../img/student/Quest2/EnterFilters.jpg)
 
 7) Enter your SAP user, e.g. Developer\<xxx> and click on Create
-[Enter Value and click on create](../img/student/Quest2/ValueAndCreate.jpg)
+![Enter Value and click on create](../img/student/Quest2/ValueAndCreate.jpg)
 
 
 ## Test
@@ -49,40 +49,40 @@ Create and Order in the Online Shop and peek
 
 ## Connect the event to our Logic App
 1) Open the Logic App created in Quest 1 and delete the first Trigger / Action (When a HTTP request is received)
-[Delete the first action](../img/student/Quest2/LogicAppDesigner.jpg)
+![Delete the first action](../img/student/Quest2/LogicAppDesigner.jpg)
 
 2) Search for "Service Bus" and select the new Trigger action "Service Bus"
-[Search Service Bus](../img/student/Quest2/SearchServiceBus.jpg)
+![Search Service Bus](../img/student/Quest2/SearchServiceBus.jpg)
 
 3) Select "When a message is received..."
-[When a message is received](../img/student/Quest2/WhenAMessgeIsReceived.jpg)
+![When a message is received](../img/student/Quest2/WhenAMessgeIsReceived.jpg)
 
 4) Enter a name and the Connecting string from the Service Bus Queue. Click on Create
-[Enter a name and connection string](../img/student/Quest2/EnterNameAndConnectionString.jpg)
+![Enter a name and connection string](../img/student/Quest2/EnterNameAndConnectionString.jpg)
 
 ```http
 Endpoint=sb://servicebusforsaponlineshop.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=cIcJZtV87fyvpldm78OVcABI8LSw7QxRI+ASbCrll/w=
 ```
 >>Note: the Connection string can be retrieved from 
-[Copy connection string](../img/student/Quest2/CopyConnectionString.jpg)
+![Copy connection string](../img/student/Quest2/CopyConnectionString.jpg)
 
 5) Select the Queue name that you previously created. 
-[Select Queue](../img/student/Quest2/SelectQueueName.jpg)
+![Select Queue](../img/student/Quest2/SelectQueueName.jpg)
 
 6) Add another action 
-[Add action](../img/student/Quest2/AddAnotherAction.jpg)
+![Add action](../img/student/Quest2/AddAnotherAction.jpg)
 
 7) Add Initialize Variable
-[Initialize Variable](../img/student/Quest2/InitalizeVariable.jpg)
+![Initialize Variable](../img/student/Quest2/InitalizeVariable.jpg)
 
 8) Use the Contet from the incoming Service Bus request
-[Set message content](../img/student/Quest2/SetMessageContent.jpg)
+![Set message content](../img/student/Quest2/SetMessageContent.jpg)
 
 9) Add a Parse Json action 
-[Select Parse JSON structure](../img/student/Quest2/ParseJson.jpg)
+![Select Parse JSON structure](../img/student/Quest2/ParseJson.jpg)
 
 10) Use the previously initialized variable and use the Schema from below. 
-[Enter Schema](../img/student/Quest2/EnterSchema.jpg)
+![Enter Schema](../img/student/Quest2/EnterSchema.jpg)
 
 ```json
 {
@@ -134,7 +134,7 @@ Endpoint=sb://servicebusforsaponlineshop.servicebus.windows.net/;SharedAccessKey
 ```
 
 11) In the next step to call the RFC, replace the hard-coded order Nr with the "ordernr" field from the parsed message body. 
-[Enter Order NR](../img/student/Quest2/EnterOrderNr.jpg)
+![Enter Order NR](../img/student/Quest2/EnterOrderNr.jpg)
 
 ### Test it!
 
