@@ -4,11 +4,11 @@
 
 Whenever an Order is created in the Online Shop the user is now notified in Teams. However, a Purchase Requisition is not yet created.
 
-In order to simplify this process we want to empower the Teams user to review the created order and then create a Purchase Requisition directly from Teams. For this we will enhance our Adaptive Card and make it interactive: The user should have the option to create a Purchase Requisition directly from Teams. 
+In order to simplify this process we want to empower the Teams user to review the created order and then create a Purchase Requisition directly from Teams. For this we will enhance our Adaptive Card and make it interactive: The user should have the option to create a Purchase Requisition directly from Teams.
 
 Instead of doing this again via an RFC call, we will now switch to OData. At first we will leverage an OData call to fetch additional information from our Order (since the RFC did not return all the required information like Description).
 
-Then we will also call the an API from the Online Shop, that creates the actual Purchase Requisition in the SAP System. 
+Then we will also call the an API from the Online Shop, that creates the actual Purchase Requisition in the SAP System.
 
 ## Enhance the existing Logic App with an additional call to the OData service
 
@@ -54,7 +54,7 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 <img alt="Use Order ID" src="../img/student/Quest3/AddAuthentication.jpg"  width="600">
 </p>
 
-7. Select Authentication Type Basic and enter the username and password for the SAP System, S4H_EXT / Welcome1
+7. Select Authentication Type Basic and enter the username and password for the SAP System, `S4H_EXT / Welcome1`
 
 <p align="center" width="100%">
 <img alt="Enter Authentication" src="../img/student/Quest3/EnterpriseAuthentication.jpg"  width="600">

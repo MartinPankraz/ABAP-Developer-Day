@@ -4,7 +4,7 @@
 
 Now we want to leverage the same OData service to build an App in the Office suite of Microsoft 365. Instead of using Visual Studio Code or Visual Studio to build a "full" app, we are going to leverage the Script-Lab add-in which enables you to create an app directly from within the Office app. The concept is the same for Excel, Outlook or Power Point, so we are going to do this in Microsoft Word.
 
-Once the app is build, you can easily create a stand-alone app and continue the app development in VS Code following the process outlined [here](https://learn.microsoft.com/office/dev/add-ins/overview/create-an-office-add-in-from-script-lab). 
+Once the app is build, you can easily create a stand-alone app and continue the app development in VS Code following the process outlined [here](https://learn.microsoft.com/office/dev/add-ins/overview/create-an-office-add-in-from-script-lab).
 
 ## Install Script-Lab add-in into Word
 
@@ -26,7 +26,7 @@ Once the app is build, you can easily create a stand-alone app and continue the 
 <img alt="Call SAP Function" src="../img/student/Quest6/Word-Continue.jpg"  width="600">
 </p>
 
-4. As a result you can now see the Script Lab add-in in the menu and task pane on the right. 
+4. As a result you can now see the Script Lab add-in in the menu and task pane on the right.
 
 <p align="center" width="100%">
 <img alt="Call SAP Function" src="../img/student/Quest6/Word-ScriptLabinOffice.jpg"  width="600">
@@ -34,7 +34,7 @@ Once the app is build, you can easily create a stand-alone app and continue the 
 
 ## Run a first test
 
-To get familiar with the concepts of the Office JavaScript libraries, let's start with a few simple examples. 
+To get familiar with the concepts of the Office JavaScript libraries, let's start with a few simple examples.
 
 1. In the Script Lab task pane on the right click on "Basic API call (Typescript)"
 
@@ -44,7 +44,7 @@ To get familiar with the concepts of the Office JavaScript libraries, let's star
 <img alt="First Test" src="../img/student/Quest6/RunBasicAPI.jpg"  width="600">
 </p>
 
-3. The TypScript call is executed within Word and a Button is Displayed. Click on the "Print Selection" button which will convert the marked text to Red. 
+3. The TypScript call is executed within Word and a Button is Displayed. Click on the "Print Selection" button which will convert the marked text to Red.
 
 <p align="center" width="100%">
 <img alt="Change Color" src="../img/student/Quest6/ClickPrintSelection.jpg"  width="600">
@@ -76,8 +76,7 @@ to import a sample from Git
 
 When the import is done, click on Trust to trust the snippet.
 
-2. Take a look and explore the imported content. The code basically looks at a marked text in your Word document (e.g. an Order ID number) and calls a Logic Apps which then calls the OData Service to filter and fetch a specific Order ID.
-Then the results are pasted in the Word document.
+2. Take a look and explore the imported content. The code basically looks at a marked text in your Word document (e.g. an Order ID number) and calls a Logic Apps which then calls the OData Service to filter and fetch a specific Order ID. Then the results are pasted in the Word document.
 
 Click on Run
 

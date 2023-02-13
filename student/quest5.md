@@ -103,7 +103,7 @@ We are following the official [Tutorial: Create a weather bot with Composer](htt
 <img alt="Begin a new dialog" src="../img/student/Quest5/LinkTriggerToDialog.jpg"  width="600">
 </p>
 
-5. Having the "Begin a new dialog" step still selected, select "get_order" from the Dialog name dropdown. 
+5. Having the "Begin a new dialog" step still selected, select "get_order" from the Dialog name dropdown.
 
 <p align="center" width="100%">
 <img alt="Link to get order" src="../img/student/Quest5/LinkTOGetOrder.jpg"  width="600">
@@ -115,7 +115,7 @@ We are following the official [Tutorial: Create a weather bot with Composer](htt
 <img alt="Restart Bot" src="../img/student/Quest5/RestartBot.jpg"  width="600">
 </p>
 
-7. If you now trigger our flow (e.g. using something with order), you will get the response from our get_order dialog. 
+7. If you now trigger our flow (e.g. using something with order), you will get the response from our get_order dialog.
 
 <p align="center" width="100%">
 <img alt="Another test" src="../img/student/Quest5/SecondTest.jpg"  width="400">
@@ -123,7 +123,7 @@ We are following the official [Tutorial: Create a weather bot with Composer](htt
 
 ## Prompt a user for input
 
-1. In the next step we need to ask the user for an order number. For this select the BeginDialog step under "get_order" and click on the "+" sign after the "Send a response" step. From there Click on "Ask a question" and "Number". 
+1. In the next step we need to ask the user for an order number. For this select the BeginDialog step under "get_order" and click on the "+" sign after the "Send a response" step. From there Click on "Ask a question" and "Number".
 
 <p align="center" width="100%">
 <img alt="Ask for Number" src="../img/student/Quest5/AskForNumber.jpg"  width="600">
@@ -232,7 +232,7 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 <img alt="Properties added" src="../img/student/Quest5/PropertiesAdded.jpg"  width="600">
 </p>
 
-10. We should have all the information now so we can write a response to the user. Click on "+" in the True branch and click on "Send a resposne"
+10. We should have all the information now so we can write a response to the user. Click on "+" in the True branch and click on "Send a response"
 
 <p align="center" width="100%">
 <img alt="Send response" src="../img/student/Quest5/SendAResponse-Withdata.jpg"  width="600">

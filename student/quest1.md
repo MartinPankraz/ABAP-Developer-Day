@@ -146,19 +146,19 @@ Open the [Fiori app]() and create your first order using the SAP Online Shop bui
 <img alt="Enter Custom Value" src="../img/student/Quest1/LA-EnterCustomValue.jpg"  width="600">
 </p>
 
-8. Enter the Filter group name "Z_ONLINESHOP_MSF"
+8. Enter the Filter group name `Z_ONLINESHOP_MSF`
 
 <p align="center" width="100%">
 <img alt="Select Filter Group" src="../img/student/Quest1/SelectFilterGroup.jpg"  width="600">
 </p>
 
-9. From the RFC Name field, select the "ZF_RFC_ONLINESHOP_GET_ORDER:order:Z_ONLINESHOP_MSF"
+9. From the RFC Name field, select the `ZF_RFC_ONLINESHOP_GET_ORDER:order:Z_ONLINESHOP_MSF`
 
 <p align="center" width="100%">
 <img alt="Enter Custom Value" src="../img/student/Quest1/LA-EnterRFCName.jpg"  width="600">
 </p>
 
-10. Lookup a specific Order by IM_ORDER number. For the first test, enter Order ID 12 (feel free to select a number of an order that you have previously created!)
+10. Lookup a specific Order by `IM_ORDER` number. For the first test, enter Order ID 12 (feel free to select a number of an order that you have previously created!)
 
 ```xml
 <ZF_RFC_ONLINESHOP_GET_ORDER xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
@@ -242,7 +242,7 @@ Open the [Fiori app]() and create your first order using the SAP Online Shop bui
 
 ### Create Adaptive Card in Teams
 
-1. In order to create an Adaptive Card to Teams, we now need to add another Action. As before, click on "+ New Step" and search for "Post adaptive card". Select the "Post adative card in a chat or channel"
+1. In order to create an Adaptive Card to Teams, we now need to add another Action. As before, click on "+ New Step" and search for "Post adaptive card". Select the "Post adaptive card in a chat or channel"
 
 <p align="center" width="100%">
 <img alt="Open Action" src="../img/student/Quest1/PostAdaptiveCard.jpg"  width="600">

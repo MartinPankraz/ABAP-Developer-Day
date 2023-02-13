@@ -2,7 +2,7 @@
 
 **[🏠Home](../README.md)** - [ Quest 1 >](quest1.md)
 
-Our jounrey will start from an SAP Online Shop that allows users to choose and place orders from a variety of products. One the orders are placed in the Online Shop, a manager can "Approve" these orders and create an actual Purchase Requisition in the SAP system.
+Our journey will start from an SAP Online Shop that allows users to choose and place orders from a variety of products. One the orders are placed in the Online Shop, a manager can "Approve" these orders and create an actual Purchase Requisition in the SAP system.
 
 ## Quest 1 - Empower your fellow humans on Microsoft Teams via SAP RFCs
 
