@@ -17,13 +17,13 @@ For this we will enhance the SAP System to react on the custom event triggered b
 2. Create a new Queue by clicking on "+ Queue" and enter a Queue name, like Developer\<XXX>
 
 <p align="center" width="100%">
-<img alt="Create Queue" src="../img/student/Quest2/CreateQueue.jpg"  width="600">
+<img alt="Create Queue" src="../img/student/Quest2/CreateQueue.jpg"  width="800">
 </p>
 
 3. When you scroll down you can see the Queue that was created. 
 
 <p align="center" width="100%">
-<img alt="Verify the Queue" src="../img/student/Quest2/ScrollDownAndSelect.jpg"  width="600">
+<img alt="Verify the Queue" src="../img/student/Quest2/ScrollDownAndSelect.jpg"  width="800">
 </p>
 
 ## Create a Subscription in Azure Event Grid
@@ -37,7 +37,7 @@ For this we will enhance the SAP System to react on the custom event triggered b
 2. Click on "+ Subscription" and create a new subscription for the Event Grid
 
 <p align="center" width="100%">
-<img alt="Create Event Grid Subscription" src="../img/student/Quest2/CreateEventSubscription.jpg"  width="600">
+<img alt="Create Event Grid Subscription" src="../img/student/Quest2/CreateEventSubscription.jpg"  width="800">
 </p>
 
 3. Start entering the details like, subscription name and select Azure Service Bus Queue
@@ -49,7 +49,7 @@ For this we will enhance the SAP System to react on the custom event triggered b
 4. Click on "Select an endpoint" and make sure to select the Service Bus Queue for your Developer\<xxx> previous created. Then click on "Confirm Selection". 
 
 <p align="center" width="100%">
-<img alt="Select Endpoint" src="../img/student/Quest2/SelectEndpoint.jpg"  width="600">
+<img alt="Select Endpoint" src="../img/student/Quest2/SelectEndpoint.jpg"  width="800">
 </p>
 
 5. Click on the Filter tab and click on "Add new filter"
@@ -79,7 +79,7 @@ Create and Order in the Online Shop and peek
 1. Open the Logic App created in Quest 1 and delete the first Trigger / Action (When a HTTP request is received)
 
 <p align="center" width="100%">
-<img alt="Delete the first action" src="../img/student/Quest2/LogicAppDesigner.jpg"  width="600">
+<img alt="Delete the first action" src="../img/student/Quest2/LogicAppDesigner.jpg"  width="800">
 </p>
 
 2. Search for "Service Bus" and select the new Trigger action "Service Bus"
@@ -107,7 +107,7 @@ Endpoint=sb://servicebusforsaponlineshop.servicebus.windows.net/;SharedAccessKey
 > **Note** - the Connection string can be retrieved from
 
 <p align="center" width="100%">
-<img alt="Copy connection string" src="../img/student/Quest2/CopyConnectionString.jpg"  width="600">
+<img alt="Copy connection string" src="../img/student/Quest2/CopyConnectionString.jpg"  width="800">
 </p>
 
 5. Select the Queue name that you previously created.
@@ -125,19 +125,19 @@ Endpoint=sb://servicebusforsaponlineshop.servicebus.windows.net/;SharedAccessKey
 7. Add Initialize Variable
 
 <p align="center" width="100%">
-<img alt="Initialize Variable" src="../img/student/Quest2/InitalizeVariable.jpg"  width="600">
+<img alt="Initialize Variable" src="../img/student/Quest2/InitalizeVariable.jpg"  width="500">
 </p>
 
 8. Use the Contet from the incoming Service Bus request
 
 <p align="center" width="100%">
-<img alt="Set message content" src="../img/student/Quest2/SetMessageContent.jpg"  width="600">
+<img alt="Set message content" src="../img/student/Quest2/SetMessageContent.jpg"  width="800">
 </p>
 
 9. Add a Parse Json action
 
 <p align="center" width="100%">
-<img alt="Select Parse JSON structure" src="../img/student/Quest2/ParseJson.jpg"  width="600">
+<img alt="Select Parse JSON structure" src="../img/student/Quest2/ParseJson.jpg"  width="400">
 </p>
 
 10. Use the previously initialized variable and use the Schema from below.
@@ -198,7 +198,7 @@ Endpoint=sb://servicebusforsaponlineshop.servicebus.windows.net/;SharedAccessKey
 11. In the next step to call the RFC, replace the hard-coded order Nr with the `ordernr` field from the parsed message body.
 
 <p align="center" width="100%">
-<img alt="Enter Order NR" src="../img/student/Quest2/EnterOrderNr.jpg"  width="600">
+<img alt="Enter Order NR" src="../img/student/Quest2/EnterOrderNr.jpg"  width="800">
 </p>
 
 ### Test it!
