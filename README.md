@@ -20,7 +20,9 @@ You will be using Microsoft tooling and the globally most-widely adopted ERP wit
 
 Ready to go on a digitization adventure?
 
-<img src="img/giphy.gif" width=150>
+image source: [giphy.com](https://giphy.com/gifs/movie-film-cute-14bWswbeWGzYEo)
+
+<img src="img/giphy.gif" width=180>
 
 ## 🧙🏾‍♀️Epic Quests
 
@@ -39,6 +41,8 @@ Before you go: verify [prerequisites](PREREQUISITES.md) are met (backpack, lunch
 Finish the final quest and claim your badge 😎
 
 No one should say there aren't any cool stickers for ABAP'ers!
+
+Original image adapted from [source](https://martinpankraz.github.io/ninja-unicorn/about/). Credits go out to KC Lemson and Morgan Deegan.
 
 <img src="img/abap-ninja.png" width=100>
 
