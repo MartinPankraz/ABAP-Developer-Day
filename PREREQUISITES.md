@@ -62,7 +62,7 @@ In a hosted event we have prepared a VM for you so that you can find all the req
 
 2) **Bot Framework** - Follow the instructions outlined [here](https://learn.microsoft.com/composer/install-composer) to install the Bot Framework Composer on your client. In our case we have already installed the [.NET 3.1.426 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.426-windows-x64-installer) and also the [Composer](https://github.com/microsoft/BotFramework-Composer/releases/download/v2.1.2/BotFramework-Composer-2.1.2-windows-setup.exe) for Windows.
 
-3) **NodeJS** - Download and install NodeJs from [here](https://nodejs.org/en/download/)
+3) **NodeJS** - Download and install NodeJs from [here](https://nodejs.org/dist/v18.14.0/node-v18.14.0-x64.msi)
 
 3) Microsoft Excel - Although most of the integration that we do also run in a Browser (e.g. the Teams or Word integration) we recommend to install the rich-client version of Excel. In this version it is very easy to connect to the OData service and get the data live in your Excel sheet.
 
