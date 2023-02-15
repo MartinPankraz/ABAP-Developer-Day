@@ -344,9 +344,7 @@ Click again on "Restart bot" -> "Open Web Chat" to test the integration.
 </p>
 
 ## (Optional) Publish the bot to Teams
-
-ToDo--ToDo--ToDo--ToDo--ToDo--
-As a next step you could publish the bot to Azure Bot Framework and from there make it also available in Teams.
+Follow the steps outlined [here](https://learn.microsoft.com/en-us/composer/how-to-publish-bot?tabs=v2x) to publish the Bot to Azure and from there to Teams. 
 
 ## Where to next?
 

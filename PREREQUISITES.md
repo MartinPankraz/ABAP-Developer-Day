@@ -7,7 +7,7 @@
 - Access to Azure subscription with rights to deploy resources (consider [free sign-up](https://azure.microsoft.com/free/) for easy sandboxing, note: sign-up is gated by credit card but **no charges will occur**)
 - Access to Microsoft Teams and Office tenant (consider sign-up with [M365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program) for easy sandboxing)
 
-> **Note** - have a look at [this document](RequestMS365Developer.pdf) for additional guidance for the M36 Dev Program sign-up process.
+> **Note** - have a look at [this document](RequestMS365Developer.pdf) for additional guidance for the M365 Dev Program sign-up process.
 
 - Ensure access to [SAP ABAP Development Tools](https://tools.eu1.hana.ondemand.com/#abap) 3.30 or higher on Eclipse for embedded Steampunk development
 - Ensure availability of the [On-premises data Gateway](https://www.microsoft.com/download/details.aspx?id=53127) with access to the SAP S/4HANA System. This is required to access RFC/BAPIs in the SAP system behind your firewall. In our case we have installed the required tools on the "Windows Remote Desktop" of the SAP S/4HANA 2022, Fully-Activated Appliance CAL system
@@ -63,6 +63,11 @@ In a hosted event we have prepared a VM for you so that you can find all the req
 2) **Bot Framework** - Follow the instructions outlined [here](https://learn.microsoft.com/composer/install-composer) to install the Bot Framework Composer on your client. In our case we have already installed the [.NET 3.1.426 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.426-windows-x64-installer) and also the [Composer](https://github.com/microsoft/BotFramework-Composer/releases/download/v2.1.2/BotFramework-Composer-2.1.2-windows-setup.exe) for Windows.
 
 3) Microsoft Excel - Although most of the integration that we do also run in a Browser (e.g. the Teams or Word integration) we recommend to install the rich-client version of Excel. In this version it is very easy to connect to the OData service and get the data live in your Excel sheet.
+
+4) If you are using SAP CAL as an SAP backend system, it is recommended to add a host entry to your c:\windows\system32\drivers\etc\hosts file
+
+
+
 
 ## Where to next?
 

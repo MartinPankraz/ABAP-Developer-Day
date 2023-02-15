@@ -33,8 +33,24 @@ Now that the order is place and a purchase requisition has been created, we migh
 ## What we have so far -- the SAP Online Shop
 
 As a new front end to our SAP S/4HANA System we have created a RAP application where users can create orders.
-The Online Shop was developed...
+The Online Shop was developed using RAP, ...
 ToDo--ToDo--ToDo--ToDo--ToDo--ToDo--ToDo--ToDo--
+
+To access the [Online Shop](https://vhcals4hcs.dummy.nodomain:44301/sap/bc/adt/businessservices/odatav4/feap?feapParams=C%C2%87u%C2%84C%C2%83%C2%84%C2%89C%C2%83xu%C2%88uHC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87Es%C2%83HC%C2%87%C2%86%C2%8AxC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87ECDDDEC77c%C2%82%C2%80%7D%C2%82ysg%7C%C2%83%C2%84777777ni%5Dscb%60%5DbYg%5CcdsagE77DDDE77ni%5Dscb%60%5DbYg%5CcdsagEscH&sap-ui-language=EN&sap-client=100) click here. 
+
+Log in with your SAP users that was assigned to you, e.g. Developer100. 
+
+Feel free to play around and a place a first order. As mentioned these orders are created in the Online Shop RAP application. No purchase requesision as been created for these orders yet. 
+![Online Shop](../img/student/Quest2/OnlineShopCreate.jpg)
+
+Once you are familiar with the shop, lets continue with the next step!
+
+## Useful links used throughout the journey
+|What is it|URL|
+|---|---|
+|SAP Online Shop| [Online Shop](https://vhcals4hcs.dummy.nodomain:44301/sap/bc/adt/businessservices/odatav4/feap?feapParams=C%C2%87u%C2%84C%C2%83%C2%84%C2%89C%C2%83xu%C2%88uHC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87Es%C2%83HC%C2%87%C2%86%C2%8AxC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87ECDDDEC77c%C2%82%C2%80%7D%C2%82ysg%7C%C2%83%C2%84777777ni%5Dscb%60%5DbYg%5CcdsagE77DDDE77ni%5Dscb%60%5DbYg%5CcdsagEscH&sap-ui-language=EN&sap-client=100)|
+|Outook| [Office 365 Outlook Inbox](https://outlook.office.com/mail/inbox/)|
+
 
 ## Where to next?
 

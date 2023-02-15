@@ -11,10 +11,13 @@ Throughout the next exercises we will use an Office 365 user, an Azure subscript
 <p align="center" width="100%">
 <img alt="Invitation Email" src="../img/student/Quest1/CheckOutlook.jpg"  width="800">
 </p>
+>>Note: If you have not done so yet, accept the invite. You will be asked to Accept certain permissions to read your profile. 
+
 
 2. Open [Microsoft Teams](https://teams.microsoft.com/). When doing that it is best to use the Browser experience (in order not to interfere with any other local Teams and Accounts that you might have installed).
 
 3. Check if you have Excel on-prem installed. Here you do not need to authenticate and it is fine to use the rich-client. In Quest 4 we will connect to an OData service and read data from our Online Store.
+>> Note: if you want you can go to [Office.com](https://www.office.com/?auth=2&home=1) and click on "Install Apps" to run the OfficeSetup.exe which will insatll the rich clients for Excel (and other Office apps)
 
 4. For the last exercise we are going to integrate in [Microsoft Word](https://www.office.com/launch/word?auth=2). You can open and create a Blank document from there.
 
@@ -28,19 +31,16 @@ Make sure that the Directory shown in the upper right corner of your user says "
 <img alt="Contoso YaaC" src="../img/student/Quest1/ContosoYaac.jpg"  width="800">
 </p>
 
-If not switch to this Directory, by clicking on your user, selecting Switch directory and then clicking on Switch for the Contoso YAAC Directory.
+If not switch to this Directory, by clicking on your user, selecting **Switch directory** and then clicking on Switch for the Contoso YAAC Directory.
 
 <p align="center" width="100%">
 <img alt="Switch Directory" src="../img/student/Quest1/SwitchDirectory.jpg"  width="800">
 </p>
 
-Open the [Fiori app]() and create your first order using the SAP Online Shop built on RAP and cloud-compliant ABAP!
-
-> **Warning** Todo
 
 ## Provision your workflow orchestrator - Azure Logic Apps
 
-1. Use the Search bar at the top, search for Logic Apps and click on the Logic Apps under Services.
+1. From the [Azure portal](https://portal.azure.com/#home), use the Search bar at the top, search for Logic Apps and click on the Logic Apps under Services.
 
 <p align="center" width="100%">
 <img alt="Search Logic Apps" src="../img/student/Quest1/SearchLogicApps.jpg"  width="600">
@@ -71,7 +71,7 @@ Open the [Fiori app]() and create your first order using the SAP Online Shop bui
 <img alt="Create Logic App" src="../img/student/Quest1/CreateLogicApp.jpg"  width="600">
 </p>
 
-4. Click on Create + Review / Create
+4. Click on Review + Create/ Create
 
 5. Once the creation is done, click on "Go to resource"
 
@@ -88,6 +88,7 @@ Open the [Fiori app]() and create your first order using the SAP Online Shop bui
 <p align="center" width="100%">
 <img alt="Start with HTTP Trigger" src="../img/student/Quest1/WhenHTTPRequest.jpg"  width="800">
 </p>
+> **Info** - Sometimes it takes a long time to load the Logic Apps Designer for the first time. If this happens, just click on Refresh on your browser. 
 
 2. Click on "+ New Step"
 
@@ -117,8 +118,8 @@ Open the [Fiori app]() and create your first order using the SAP Online Shop bui
 |Connection name|Use a unique name, e.g. Dev002-SAPConnection|
 |Connection Gateway|Select AKDevelopmentWithJohnWin4|
 |Client|100|
-|SAP Username|S4H_EXT|
-|SAP Password|Welcome1|
+|SAP Username|Developer\<xxx>|
+|SAP Password|\<YourPassword>|
 |AS Host|10.0.0.34|
 |AS Service|3200|
 |AS System Number|00|
@@ -146,7 +147,7 @@ Open the [Fiori app]() and create your first order using the SAP Online Shop bui
 <img alt="Enter Custom Value" src="../img/student/Quest1/LA-EnterCustomValue.jpg"  width="600">
 </p>
 
-8. Enter the Filter group name `Z_ONLINESHOP_MSF`
+8. Enter the Filter group name `Z_ONLINESHOP_MSF:msf`
 
 <p align="center" width="100%">
 <img alt="Select Filter Group" src="../img/student/Quest1/SelectFilterGroup.jpg"  width="600">
@@ -158,7 +159,7 @@ Open the [Fiori app]() and create your first order using the SAP Online Shop bui
 <img alt="Enter Custom Value" src="../img/student/Quest1/LA-EnterRFCName.jpg"  width="600">
 </p>
 
-10. Lookup a specific Order by `IM_ORDER` number. For the first test, enter Order ID 12 (feel free to select a number of an order that you have previously created!)
+10. As a first step we want to lookup a specific Order ID by `IM_ORDER` number. For the first test, enter Order ID 12 (feel free to select a number of an order that you have previously created!)
 
 ```xml
 <ZF_RFC_ONLINESHOP_GET_ORDER xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
@@ -187,10 +188,34 @@ Open the [Fiori app]() and create your first order using the SAP Online Shop bui
 </p>
 
 13. Copy results from the Json Response to your Clipboard. We will use it in the next steps.
-
+```json
+{
+  "EM_ORDER": [
+    {
+      "CLIENT": "",
+      "ORDERUUID": "44g8idhTHt2oxgLO5ZOh1w==",
+      "ORDERID": "00000012",
+      "ORDEREDITEM": "Laptop",
+      "PURCHASEREQN": "0010001417",
+      "PRSTATUS": "In Process",
+      "CREATED_AT": 0,
+      "CREATED_BY": "",
+      "LAST_CHANGED_BY": "",
+      "LAST_CHANGED_AT": 0,
+      "LOCAL_LAST_CHANGED_AT": 0
+    }
+  ]
+}
+```
 ### Working with the results from SAP
 
-1. With the results from the RFC call, we can now take this data and use it to publish to Teams. The first step is that we need to parse the results from the RFC call. Click on the "+ New Step"
+1. With the results from the RFC call, we can now take this data and use it to publish to Teams. Click on "Designer" to return to the Logic Apps Designer view. 
+
+<p align="center" width="100%">
+<img alt="Back to Designer" src="../img/student/Quest1/BackToDesigner.jpg"  width="600">
+</p>
+
+2. The first step is that we need to parse the results from the RFC call. Click on the "+ New Step"
 
 <p align="center" width="100%">
 <img alt="Open Action" src="../img/student/Quest1/NewStepParse.jpg"  width="600">
@@ -293,14 +318,7 @@ Open the [Fiori app]() and create your first order using the SAP Online Shop bui
                         {
                             "type": "TextBlock",
                             "weight": "Bolder",
-                            "text": "Hi USER",
-                            "wrap": true
-                        },
-                        {
-                            "type": "TextBlock",
-                            "spacing": "None",
-                            "text": "Created {{DATE(${createdUtc},SHORT)}}",
-                            "isSubtle": true,
+                            "text": "Hi, ",
                             "wrap": true
                         }
                     ],
@@ -365,10 +383,10 @@ Open the [Fiori app]() and create your first order using the SAP Online Shop bui
 
 Do the same for the other properties (we are not yet updating Description Text or Quantity since these values are not returned by the RFC).
 
-* Order ID
-* Status Purchase Requisition
-* Ordered Items
-* Purchase Requisition
+* Order ID -> ORDERID
+* Status Purchase Requisition -> PRSTATUS
+* Ordered Items -> ORDEREDITEM
+* Purchase Requisition -> PURCHASEREQN
 
 <br>
 
@@ -382,7 +400,7 @@ Do the same for the other properties (we are not yet updating Description Text o
 <img alt="For each section" src="../img/student/Quest1/ForEach.jpg"  width="600">
 </p>
 
-8. Save and Run the Logic App flow again. As a result you should see an Adaptive Card in Teams showing the information from the Order specified.
+8. Save and Run the Logic App flow again via Run Trigger -> Run. As a result you should see an Adaptive Card in [Teams](https://teams.microsoft.com/) showing the information from the Order specified (make sure to navigate to your Teams Channel, e.g. Contoso -> General)
 
 <p align="center" width="100%">
 <img alt="For each section" src="../img/student/Quest1/ResultsInTeams.jpg"  width="600">
