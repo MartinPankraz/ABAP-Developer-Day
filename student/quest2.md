@@ -8,13 +8,13 @@ For this we will enhance the SAP System to react on the custom event triggered b
 
 ## Create a Queue in Azure Service Bus
 
-1. Search from the Azure Portal for "ServiceBusForSAPOnlineShop" and select the Service Bus
+1. Search from the [Azure Portal](https://portal.azure.com/) for `ServiceBusForSAPOnlineShop` and select the Service Bus
 
 <p align="center" width="100%">
 <img alt="Select Service Bus" src="../img/student/Quest2/SelectServiceBus.jpg"  width="600">
 </p>
 
-2. Create a new Queue by clicking on "+ Queue" and enter a Queue name, like Developer\<XXX>
+2. Create a new Queue by clicking on "+ Queue" and enter a Queue name, like Developer\<XXX> and click on **Create**
 
 <p align="center" width="100%">
 <img alt="Create Queue" src="../img/student/Quest2/CreateQueue.jpg"  width="800">
@@ -34,13 +34,13 @@ For this we will enhance the SAP System to react on the custom event triggered b
 <img alt="Select Event Grid" src="../img/student/Quest2/SelectEventGrid.jpg"  width="600">
 </p>
 
-2. Click on "+ Subscription" and create a new subscription for the Event Grid
+2. Click on "+ Event Subscription" and create a new subscription for the Event Grid
 
 <p align="center" width="100%">
 <img alt="Create Event Grid Subscription" src="../img/student/Quest2/CreateEventSubscription.jpg"  width="800">
 </p>
 
-3. Start entering the details like, subscription name and select Azure Service Bus Queue
+3. Start entering the details like, subscription name (`Developer<xxx>Subscription`) and select **Azure Service Bus Queue** as the Endpoint Type. 
 
 <p align="center" width="100%">
 <img alt="Create Event Grid Subscription Details" src="../img/student/Quest2/EnterSubscriptionDetails.jpg"  width="600">
@@ -72,15 +72,30 @@ For this we will enhance the SAP System to react on the custom event triggered b
 
 ### Test
 
-Create and Order in the Online Shop and peek
+Now events from the SAP system should be sent to the Service Bus Queue whenever a new Order is created in the Online Shop. Head over to the [Online Shop](https://vhcals4hcs.dummy.nodomain:44301/sap/bc/adt/businessservices/odatav4/feap?feapParams=C%C2%87u%C2%84C%C2%83%C2%84%C2%89C%C2%83xu%C2%88uHC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87Es%C2%83HC%C2%87%C2%86%C2%8AxC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87ECDDDEC77c%C2%82%C2%80%7D%C2%82ysg%7C%C2%83%C2%84777777ni%5Dscb%60%5DbYg%5CcdsagE77DDDE77ni%5Dscb%60%5DbYg%5CcdsagEscH&sap-ui-language=EN&sap-client=100) create a new Order and check for incoming events. 
+
+The easiest way is to search for `EventsFromOnlineShop` and select your Event Subscription (e.g. Developer\<xxx>Subscription) from the bottom of the page. 
+
+<p align="center" width="100%">
+<img alt="Navigate to Event Subscription" src="../img/student/Quest2/NavigateToEventSubscription.jpg"  width="800">
+</p>
+
+
+and look at the events. 
+
+<p align="center" width="100%">
+<img alt="Incoming Events" src="../img/student/Quest2/FirstIncomingEvent.jpg"  width="800">
+</p>
 
 ## Connect the event to our Logic App
 
-1. Open the Logic App created in Quest 1 and delete the first Trigger / Action (When a HTTP request is received)
+1. Now we need to change the configuration of our Logic App to react to incoming events in the Service Bus Queue. Open the Logic App created in Quest 1 and delete the first Trigger / Action (When a HTTP request is received)
 
 <p align="center" width="100%">
 <img alt="Delete the first action" src="../img/student/Quest2/LogicAppDesigner.jpg"  width="800">
 </p>
+
+>>Note: An easy way to navigate back to your Logic App is to search for `Developer<XXX>-OrderItem` in the Search bar on the top and then selecting the **Logic app designer** view in the navigation on the left. 
 
 2. Search for "Service Bus" and select the new Trigger action "Service Bus"
 
@@ -88,7 +103,7 @@ Create and Order in the Online Shop and peek
 <img alt="Search Service Bus" src="../img/student/Quest2/SearchServiceBus.jpg"  width="600">
 </p>
 
-3. Select "When a message is received..."
+3. Select **When a message is received in a queue (auto-complete)**
 
 <p align="center" width="100%">
 <img alt="When a message is received" src="../img/student/Quest2/WhenAMessgeIsReceived.jpg"  width="600">
@@ -96,13 +111,13 @@ Create and Order in the Online Shop and peek
 
 4. Enter a name and the Connecting string from the Service Bus Queue. Click on Create
 
-<p align="center" width="100%">
-<img alt="Enter a name and connection string" src="../img/student/Quest2/EnterNameAndConnectionString.jpg"  width="600">
-</p>
-
 ```http
 Endpoint=sb://servicebusforsaponlineshop.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=cIcJZtV87fyvpldm78OVcABI8LSw7QxRI+ASbCrll/w=
 ```
+
+<p align="center" width="100%">
+<img alt="Enter a name and connection string" src="../img/student/Quest2/EnterNameAndConnectionString.jpg"  width="600">
+</p>
 
 > **Note** - the Connection string can be retrieved from
 
@@ -122,19 +137,19 @@ Endpoint=sb://servicebusforsaponlineshop.servicebus.windows.net/;SharedAccessKey
 <img alt="Add action" src="../img/student/Quest2/AddAnotherAction.jpg"  width="600">
 </p>
 
-7. Add Initialize Variable
+7. Search for `Initialize variable` and add **Initialize Variable**
 
 <p align="center" width="100%">
 <img alt="Initialize Variable" src="../img/student/Quest2/InitalizeVariable.jpg"  width="500">
 </p>
 
-8. Use the Contet from the incoming Service Bus request
+8. Provide a Name, e.g. `Message Content` and for the vlaue use the **Content** from the incoming Service Bus request. Then make sure to change the type from Boolean to **String**
 
 <p align="center" width="100%">
 <img alt="Set message content" src="../img/student/Quest2/SetMessageContent.jpg"  width="800">
 </p>
 
-9. Add a Parse Json action
+9. As before click on the "+" to add a **Parse Json** action
 
 <p align="center" width="100%">
 <img alt="Select Parse JSON structure" src="../img/student/Quest2/ParseJson.jpg"  width="400">
@@ -200,6 +215,15 @@ Endpoint=sb://servicebusforsaponlineshop.servicebus.windows.net/;SharedAccessKey
 <p align="center" width="100%">
 <img alt="Enter Order NR" src="../img/student/Quest2/EnterOrderNr.jpg"  width="800">
 </p>
+
+>> Note: You might need to exapnd the properties from the Parse Json response. 
+
+<p align="center" width="100%">
+<img alt="See more" src="../img/student/Quest2/ParseJson-SeeMore.jpg"  width="800">
+</p>
+
+12. Click on Save to save the Logic Apps
+
 
 ### Test it!
 1) Open up again the [Online Shop](https://vhcals4hcs.dummy.nodomain:44301/sap/bc/adt/businessservices/odatav4/feap?feapParams=C%C2%87u%C2%84C%C2%83%C2%84%C2%89C%C2%83xu%C2%88uHC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87Es%C2%83HC%C2%87%C2%86%C2%8AxC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87ECDDDEC77c%C2%82%C2%80%7D%C2%82ysg%7C%C2%83%C2%84777777ni%5Dscb%60%5DbYg%5CcdsagE77DDDE77ni%5Dscb%60%5DbYg%5CcdsagEscH&sap-ui-language=EN&sap-client=100)
