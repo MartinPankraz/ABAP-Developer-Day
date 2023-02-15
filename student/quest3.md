@@ -12,7 +12,7 @@ Then we will also call the an API from the Online Shop, that creates the actual 
 
 ## Enhance the existing Logic App with an additional call to the OData service
 
-1. In the "For Each" loop that was created to send the Adaptive Card, click on "Add an Action"
+1. If you Logic App is not yet open, go to the [Azure Portal](https://portal.azure.com/) and search for your Logic Apps, e.g. `Developer<XXX>-OrderItem` and change to the **Logic app designer** view. In the "For Each" loop at the end of your flow that was created to send the Adaptive Card, click on "Add an Action"
 
 <p align="center" width="100%">
 <img alt="AddNewAction" src="../img/student/Quest3/AddNewAction.jpg"  width="600">
@@ -30,7 +30,7 @@ Then we will also call the an API from the Online Shop, that creates the actual 
 <img alt="Change Position" src="../img/student/Quest3/ChangePosition.jpg"  width="600">
 </p>
 
-4. Request an order from the Online Shop via OData filtering by OrderID
+4. Request an order from the Online Shop via OData filtering by OrderID. Select **GET** for the Method and copy the URL for the Online Shop Item in the URI field. 
 
 ```http
 http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui_onlineshop_ms1/0001/Online_Shop?$filter=OrderID%20eq%20%27ORDERID%27
@@ -54,13 +54,13 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 <img alt="Use Order ID" src="../img/student/Quest3/AddAuthentication.jpg"  width="600">
 </p>
 
-7. Select Authentication Type Basic and enter the username and password for the SAP System, `S4H_EXT / Welcome1`
+7. Select Authentication Type Basic and enter the username and password for the SAP System, `Developer<XXX> / <SAP Password>`
 
 <p align="center" width="100%">
 <img alt="Enter Authentication" src="../img/student/Quest3/EnterpriseAuthentication.jpg"  width="600">
 </p>
 
-8. Similar like with the RFC call we can now prase the JSON response, by adding a new action
+8. Similar like with the RFC call we can now prase the JSON response, by adding a new action after the HTTP Call
 
 <p align="center" width="100%">
 <img alt="Use Order ID" src="../img/student/Quest3/AddActionToParse.jpg"  width="600">
@@ -218,7 +218,10 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 <img alt="Input HTTP Body" src="../img/student/Quest3/ParseHttpBody.jpg"  width="600">
 </p>
 
-12. With this information we can make the new information like Description and Quantity also available in the Adaptive Card.
+12. With this information, expand the **Post adaptive card in chat or channel** action and make the new information like Description and Quantity also available in the Adaptive Card.
+
+* Quantity -> quantity
+* Description Text -> DescriptionText
 
 <p align="center" width="100%">
 <img alt="Use Order ID" src="../img/student/Quest3/AddQuantity%2BDescription.jpg"  width="600">
@@ -240,8 +243,9 @@ Then also make sure to update the Placeholder in the URL (ORDERUUID-PLACEHOLDER)
 
 14. Now we can test the scenario by creating another Order in our Online Shop
 
-TODO--TODO--TODO--TODO--TODO--TODO--TODO--TODO--
-Screenshot from Online Shop
+As before head over to the [Online Shop](https://vhcals4hcs.dummy.nodomain:44301/sap/bc/adt/businessservices/odatav4/feap?feapParams=C%C2%87u%C2%84C%C2%83%C2%84%C2%89C%C2%83xu%C2%88uHC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87Es%C2%83HC%C2%87%C2%86%C2%8AxC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87ECDDDEC77c%C2%82%C2%80%7D%C2%82ysg%7C%C2%83%C2%84777777ni%5Dscb%60%5DbYg%5CcdsagE77DDDE77ni%5Dscb%60%5DbYg%5CcdsagEscH&sap-ui-language=EN&sap-client=100) and create a new Order. 
+
+When you switch back over to Teams, you should see the Adaptive Card, now with additional properties and a working **View** button.
 
 ## Add an action to create the Purchase Requisition
 
@@ -250,7 +254,7 @@ In the next step we want to enable the user to create a purchase requisition dir
 
 The creation happens via a POST message. POSTing data to SAP requires a few steps (e.g. you need to fetch a X-CSRF Token and handle the ETag).
 
-1. Use another action for publishing the adaptive card to Teams, which also waits for the response of the user. Under the existing Teams action, click on "Add an action".
+1. Since we now need to wait for a response, we switch to a different Action. We will first addt his new action and then alter delete the existing Teams action. Under the existing Teams action, click on "Add an action".
 
 <p align="center" width="100%">
 <img alt="Add additional action" src="../img/student/Quest3/AddNewAction.jpg"  width="600">
@@ -284,6 +288,92 @@ The creation happens via a POST message. POSTing data to SAP requires a few step
 
 > **Note** - make sure that you start with the first "," so that the results are as shown in the screenshot.
 
+> **Note** - if you didn't rename anything, this is the correct conent
+```json
+{
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "Medium",
+            "weight": "Bolder",
+            "text": "New Order has been placed in the Online Shop"
+        },
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "weight": "Bolder",
+                            "text": "Hi USER",
+                            "wrap": true
+                        },
+                        {
+                            "type": "TextBlock",
+                            "spacing": "None",
+                            "text": "Created {{DATE(${createdUtc},SHORT)}}",
+                            "isSubtle": true,
+                            "wrap": true
+                        }
+                    ],
+                    "width": "stretch"
+                }
+            ]
+        },
+        {
+            "type": "TextBlock",
+            "text": "A new order has been place in the Online Shop URL. Please review the provided information. ",
+            "wrap": true
+        },
+        {
+            "type": "FactSet",
+            "facts": [
+                {
+                    "title": "Order ID",
+                    "value": "@{items('For_each')?['ORDERID']}"
+                },
+                {
+                    "title": "Status Purchase Requisition",
+                    "value": "@{items('For_each')?['PRSTATUS']}"
+                },
+                {
+                    "title": "Ordered Items",
+                    "value": "@{items('For_each')?['ORDEREDITEM']}"
+                },
+                {
+                    "title": "Quantity",
+                    "value": "@{items('For_each_2')?['quantity']}"
+                },
+                {
+                    "title": "Description Text: ",
+                    "value": "@{items('For_each_2')?['DescriptionText']}"
+                },
+                {
+                    "title": "Purchase Requisition: ",
+                    "value": "@{items('For_each')?['PURCHASEREQN']}"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "View",
+            "url": "https://vhcals4hcs.dummy.nodomain:44301/sap/bc/adt/businessservices/odatav4/feap?feapParams=C%C2%87u%C2%84C%C2%83%C2%84%C2%89C%C2%83xu%C2%88uHC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87Es%C2%83HC%C2%87%C2%86%C2%8AxC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87ECDDDEC77c%C2%82%C2%80%7D%C2%82ysg%7C%C2%83%C2%84777777ni%5Dscb%60%5DbYg%5CcdsagE77DDDE77ni%5Dscb%60%5DbYg%5CcdsagEscH&sap-ui-language=EN&sap-client=100#/Online_Shop(OrderUUID=@{items('For_each_2')?['OrderUUID']},IsActiveEntity=true)"
+        }{
+    "type": "Action.Submit",
+    "title": "Create Purchase Requisition",
+        "id": "CreatePR"
+}
+    ],
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3"
+}
+```
+
 5. With this we can delete the first Action to send an Adaptive Card to Teams.
 
 <p align="center" width="100%">
@@ -292,13 +382,17 @@ The creation happens via a POST message. POSTing data to SAP requires a few step
   
 ### Wait for input
 
-1. Now we have to react to the answer from the user. If the User clicked on the "Create Purchase Requisition" button, we need to call the OData Service of the Online Shop to create the Purchase Requisition. Add a new Action by searching for and selecting "Control" and selecting the "Condition" action. If there is an action, we want to Check if it was our Create Purchase Requisition Button and only then execute next steps.
+1. Now we have to react to the answer from the user. If the User clicked on the "Create Purchase Requisition" button, we need to call the OData Service of the Online Shop to create the Purchase Requisition. 
+
+Under the **Post adaptive card and wait for a response** action, click on **Add an action**. Search for and select **Control** and select the **Condition** action. 
+
+If there is an action, we want to Check if it was our Create Purchase Requisition Button and only then execute next steps.
 
 <p align="center" width="100%">
 <img alt="Switch" src="../img/student/Quest3/SwitchControl.jpg"  width="600">
 </p>
 
-2. For the conditions enter, the value in the Expression field (make sure to use the Expression pane on the right)
+2. For the **Conditions**, enter the value in the **Expression** field (make sure to use the Expression pane on the right)
 
 ```json
 outputs('Post_adaptive_card_and_wait_for_a_response')['body']['submitActionId']
@@ -308,11 +402,13 @@ outputs('Post_adaptive_card_and_wait_for_a_response')['body']['submitActionId']
 <img alt="Switch" src="../img/student/Quest3/ConditionEnterValue.jpg"  width="600">
 </p>
 
-3. and CreatePR for the value
+3. and `CreatePR` for the **Choose a value** 
 
 <p align="center" width="100%">
 <img alt="Switch" src="../img/student/Quest3/CreatePR-Value.jpg"  width="600">
 </p>
+
+> Note: In case the Expression Pane hides the **Choose a value**  field, click on **+ Add** without doing anything else there to hide the Pane. As a result you should be able to see the **Choose a value** field. 
 
 ### Create Purchase Requisition
 
@@ -333,14 +429,14 @@ Since this is a POST call, we also need to provide a valid X-CSRF-Token and do t
 2. Select Method Get, add the Header: X-CSRF-Token = Fetch and also provide credentials for the authentication. For the URI use:
 
 ```http
-http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui_onlineshop_ms1/0001/Online_Shop(OrderUUID=@{variables('OrderUUID')},IsActiveEntity=true)
+http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui_onlineshop_ms1/0001/Online_Shop(OrderUUID=@{items('For_each_2')?['OrderUUID']},IsActiveEntity=true)
 ```
 
 <p align="center" width="100%">
 <img alt="Add action in True flow" src="../img/student/Quest3/FetchToken.jpg"  width="600">
 </p>
 
-3. Next we parse the JSON response to be able to access the X-CSRF-Token
+3. Next we parse the JSON response to be able to access the X-CSRF-Token. Add another Action as before to **Parse JSON**
 
 <p align="center" width="100%">
 <img alt="Add action in True flow" src="../img/student/Quest3/ParseJsonForToken.jpg"  width="600">
@@ -455,8 +551,10 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 |Property|Value|
 |---|---|
 |Method|POST|
-|URI|http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui_onlineshop_ms1/0001/Online_Shop\(OrderUUID=ORDERUUID-PLACEHOLDER,IsActiveEntity=true)/com.sap.gateway.srvd.zui_onlineshop_ms1.v0001.createPurchaseRequisitionItem?sap-client=100&$select=SAP__Messages|
-|If-Match|OData ETag value from Parse Json, e.g. `body('Parse_JSON_3')?['@odata.etag']`|
+|URI|```http
+http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui_onlineshop_ms1/0001/Online_Shop(OrderUUID=ORDERUUID-PLACEHOLDER,IsActiveEntity=true)/com.sap.gateway.srvd.zui_onlineshop_ms1.v0001.createPurchaseRequisitionItem?sap-client=100&$select=SAP__Messages
+```|
+|If-Match|OData ETag value from Parse Json, e.g. ```body('Parse_JSON_4')?['@odata.etag']```|
 |X-CSRF-Token|Dynamic x-csrf-token value from previous HTTP Call, e.g. `outputs('HTTP_2')['headers']?['x-csrf-token']`|
 |Cookie|we take the cookie from the previous HTTP call, order not to do another authentication, e.g. `replace(outputs('HTTP_2')['headers']?['Set-Cookie'], ',', ';')`|
 </div>
@@ -464,18 +562,22 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 * If- Match
 
 ```json
-body('Parse_JSON_3')?['@odata.etag']
+body('Parse_JSON_4')?['@odata.etag']
 ```
 
 <p align="center" width="100%">
 <img alt="Add If Match" src="../img/student/Quest3/IfMatch.jpg"  width="600">
 </p>
 
-* OrderUUID:
+* OrderUUID: Take the vlue from **Parse JSON 4**
 
 <p align="center" width="100%">
 <img alt="Add Order UUID" src="../img/student/Quest3/OrderUUID.jpg"  width="600">
 </p>
+
+```http
+http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui_onlineshop_ms1/0001/Online_Shop(OrderUUID=@{body('Parse_JSON_4')?['OrderUUID']},IsActiveEntity=true)/com.sap.gateway.srvd.zui_onlineshop_ms1.v0001.createPurchaseRequisitionItem?sap-client=100&$select=SAP__Messages
+```
 
 * X-CSRF-Token:
 
@@ -503,6 +605,9 @@ The result should look like this:
 <img alt="Switch" src="../img/student/Quest3/MakePurchaseRequisition.jpg"  width="600">
 </p>
 
+Now make sure to save the Logic App!
+
+
 ### Test the new flow
 
 1. Now we can test the flow again. Create a new Order in the [Online Shop](https://vhcals4hcs.dummy.nodomain:44301/sap/bc/adt/businessservices/odatav4/feap?feapParams=C%C2%87u%C2%84C%C2%83%C2%84%C2%89C%C2%83xu%C2%88uHC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87Es%C2%83HC%C2%87%C2%86%C2%8AxC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87ECDDDEC77c%C2%82%C2%80%7D%C2%82ysg%7C%C2%83%C2%84777777ni%5Dscb%60%5DbYg%5CcdsagE77DDDE77ni%5Dscb%60%5DbYg%5CcdsagEscH&sap-ui-language=EN&sap-client=100).
@@ -526,6 +631,605 @@ The result should look like this:
 <p align="center" width="100%">
 <img alt="PR in Online Shop" src="../img/student/Quest3/PRInOnlineShop.jpg"  width="800">
 </p>
+
+### Troubleshooting
+* Check Logic App Run History
+
+* Swtich Condition passt nicht
+
+* Adaptive Card not correct
+
+Here is a working flow that you can replace via the **Code view** in the Logic App designer. You will need to connect it to your specific Service Bus Queue and Teams tenant. 
+```json
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "For_each": {
+                "actions": {
+                    "For_each_2": {
+                        "actions": {
+                            "Condition": {
+                                "actions": {
+                                    "HTTP_2": {
+                                        "inputs": {
+                                            "authentication": {
+                                                "password": "Welcome1",
+                                                "type": "Basic",
+                                                "username": "Developer100"
+                                            },
+                                            "headers": {
+                                                "X-CSRF-Token": "Fetch"
+                                            },
+                                            "method": "GET",
+                                            "uri": "http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui_onlineshop_ms1/0001/Online_Shop(OrderUUID=@{items('For_each_2')?['OrderUUID']},IsActiveEntity=true)"
+                                        },
+                                        "runAfter": {},
+                                        "type": "Http"
+                                    },
+                                    "HTTP_3": {
+                                        "inputs": {
+                                            "cookie": "@{replace(outputs('HTTP_2')['headers']?['Set-Cookie'], ',', ';')}",
+                                            "headers": {
+                                                "If-Match": "@body('Parse_JSON_4')?['@odata.etag']",
+                                                "X-CSRF-Token": "@{outputs('HTTP_2')['headers']?['x-csrf-token']}"
+                                            },
+                                            "method": "POST",
+                                            "uri": "http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui_onlineshop_ms1/0001/Online_Shop(OrderUUID=@{body('Parse_JSON_4')?['OrderUUID']},IsActiveEntity=true)/com.sap.gateway.srvd.zui_onlineshop_ms1.v0001.createPurchaseRequisitionItem?sap-client=100&$select=SAP__Messages"
+                                        },
+                                        "runAfter": {
+                                            "Parse_JSON_4": [
+                                                "Succeeded"
+                                            ]
+                                        },
+                                        "type": "Http"
+                                    },
+                                    "Parse_JSON_4": {
+                                        "inputs": {
+                                            "content": "@body('HTTP_2')",
+                                            "schema": {
+                                                "properties": {
+                                                    "#com.sap.gateway.srvd.zui_onlineshop_ms1.v0001.Edit(PreserveChanges)": {
+                                                        "properties": {},
+                                                        "type": "object"
+                                                    },
+                                                    "#com.sap.gateway.srvd.zui_onlineshop_ms1.v0001.createPurchaseRequisitionItem": {
+                                                        "properties": {},
+                                                        "type": "object"
+                                                    },
+                                                    "@@odata.context": {
+                                                        "type": "string"
+                                                    },
+                                                    "@@odata.etag": {
+                                                        "type": "string"
+                                                    },
+                                                    "@@odata.metadataEtag": {
+                                                        "type": "string"
+                                                    },
+                                                    "CreatedAt": {
+                                                        "type": "string"
+                                                    },
+                                                    "CreatedBy": {
+                                                        "type": "string"
+                                                    },
+                                                    "DeliveryDate": {},
+                                                    "DescriptionText": {
+                                                        "type": "string"
+                                                    },
+                                                    "DraftEntityCreationDateTime": {},
+                                                    "DraftEntityLastChangeDateTime": {},
+                                                    "HasActiveEntity": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "HasDraftEntity": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "IsActiveEntity": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "LastChangedAt": {
+                                                        "type": "string"
+                                                    },
+                                                    "LastChangedBy": {
+                                                        "type": "string"
+                                                    },
+                                                    "LocalLastChangedAt": {
+                                                        "type": "string"
+                                                    },
+                                                    "OrderID": {
+                                                        "type": "string"
+                                                    },
+                                                    "OrderUUID": {
+                                                        "type": "string"
+                                                    },
+                                                    "Ordereditem": {
+                                                        "type": "string"
+                                                    },
+                                                    "Prstatus": {
+                                                        "type": "string"
+                                                    },
+                                                    "Purchasereqn": {
+                                                        "type": "string"
+                                                    },
+                                                    "SAP__Messages": {
+                                                        "type": "array"
+                                                    },
+                                                    "URL": {
+                                                        "type": "string"
+                                                    },
+                                                    "__EntityControl": {
+                                                        "properties": {
+                                                            "Deletable": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "Updatable": {
+                                                                "type": "boolean"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "__OperationControl": {
+                                                        "properties": {
+                                                            "Edit": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "createPurchaseRequisitionItem": {
+                                                                "type": "boolean"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "quantity": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "runAfter": {
+                                            "HTTP_2": [
+                                                "Succeeded"
+                                            ]
+                                        },
+                                        "type": "ParseJson"
+                                    }
+                                },
+                                "expression": {
+                                    "and": [
+                                        {
+                                            "equals": [
+                                                "@outputs('Post_adaptive_card_and_wait_for_a_response')['body']['submitActionId']",
+                                                "CreatePR"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "runAfter": {
+                                    "Post_adaptive_card_and_wait_for_a_response": [
+                                        "Succeeded"
+                                    ]
+                                },
+                                "type": "If"
+                            },
+                            "Post_adaptive_card_and_wait_for_a_response": {
+                                "inputs": {
+                                    "body": {
+                                        "body": {
+                                            "messageBody": "{\n    \"type\": \"AdaptiveCard\",\n    \"body\": [\n        {\n            \"type\": \"TextBlock\",\n            \"size\": \"Medium\",\n            \"weight\": \"Bolder\",\n            \"text\": \"New Order has been placed in the Online Shop\"\n        },\n        {\n            \"type\": \"ColumnSet\",\n            \"columns\": [\n                {\n                    \"type\": \"Column\",\n                    \"items\": [\n                        {\n                            \"type\": \"TextBlock\",\n                            \"weight\": \"Bolder\",\n                            \"text\": \"Hi,\",\n                            \"wrap\": true\n                        }\n                    ],\n                    \"width\": \"stretch\"\n                }\n            ]\n        },\n        {\n            \"type\": \"TextBlock\",\n            \"text\": \"A new order has been place in the Online Shop URL. Please review the provided information. \",\n            \"wrap\": true\n        },\n        {\n            \"type\": \"FactSet\",\n            \"facts\": [\n                {\n                    \"title\": \"Order ID\",\n                    \"value\": \"@{items('For_each')?['ORDERID']}\"\n                },\n                {\n                    \"title\": \"Status Purchase Requisition\",\n                    \"value\": \"@{items('For_each')?['PRSTATUS']}\"\n                },\n                {\n                    \"title\": \"Ordered Items\",\n                    \"value\": \"@{items('For_each')?['ORDEREDITEM']}\"\n                },\n                {\n                    \"title\": \"Quantity\",\n                    \"value\": \"@{items('For_each_2')?['quantity']}\"\n                },\n                {\n                    \"title\": \"Description Text: \",\n                    \"value\": \"@{items('For_each_2')?['DescriptionText']}\"\n                },\n                {\n                    \"title\": \"Purchase Requisition: \",\n                    \"value\": \"@{items('For_each')?['PURCHASEREQN']}\"\n                }\n            ]\n        }\n    ],\n    \"actions\": [\n        {\n            \"type\": \"Action.OpenUrl\",\n            \"title\": \"View\",\n            \"url\": \"https://vhcals4hcs.dummy.nodomain:44301/sap/bc/adt/businessservices/odatav4/feap?feapParams=C%C2%87u%C2%84C%C2%83%C2%84%C2%89C%C2%83xu%C2%88uHC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87Es%C2%83HC%C2%87%C2%86%C2%8AxC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87ECDDDEC77c%C2%82%C2%80%7D%C2%82ysg%7C%C2%83%C2%84777777ni%5Dscb%60%5DbYg%5CcdsagE77DDDE77ni%5Dscb%60%5DbYg%5CcdsagEscH&sap-ui-language=EN&sap-client=100#/Online_Shop(OrderUUID=@{items('For_each_2')?['OrderUUID']},IsActiveEntity=true)\"\n        },\n{\n    \"type\": \"Action.Submit\",\n    \"title\": \"Create Purchase Requisition\",\n        \"id\": \"CreatePR\"\n}\n    ],\n    \"$schema\": \"http://adaptivecards.io/schemas/adaptive-card.json\",\n    \"version\": \"1.3\"\n}",
+                                            "recipient": {
+                                                "channelId": "19:a38680470d95481685c064f36a146e24@thread.tacv2",
+                                                "groupId": "c1eedb2a-3a35-4f0e-98e3-898c2d5e907c"
+                                            },
+                                            "updateMessage": "Thanks for your response!"
+                                        },
+                                        "notificationUrl": "@{listCallbackUrl()}"
+                                    },
+                                    "host": {
+                                        "connection": {
+                                            "name": "@parameters('$connections')['teams']['connectionId']"
+                                        }
+                                    },
+                                    "path": "/v1.0/teams/conversation/gatherinput/poster/Flow bot/location/@{encodeURIComponent('Channel')}/$subscriptions"
+                                },
+                                "runAfter": {},
+                                "type": "ApiConnectionWebhook"
+                            }
+                        },
+                        "foreach": "@body('Parse_JSON_3')?['value']",
+                        "runAfter": {
+                            "Parse_JSON_3": [
+                                "Succeeded"
+                            ]
+                        },
+                        "type": "Foreach"
+                    },
+                    "HTTP": {
+                        "inputs": {
+                            "authentication": {
+                                "password": "Welcome1",
+                                "type": "Basic",
+                                "username": "Developer100"
+                            },
+                            "method": "GET",
+                            "uri": "http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui_onlineshop_ms1/0001/Online_Shop?$filter=OrderID%20eq%20%27@{items('For_each')?['ORDERID']}%27"
+                        },
+                        "runAfter": {},
+                        "type": "Http"
+                    },
+                    "Parse_JSON_3": {
+                        "inputs": {
+                            "content": "@body('HTTP')",
+                            "schema": {
+                                "properties": {
+                                    "@@odata.context": {
+                                        "type": "string"
+                                    },
+                                    "@@odata.metadataEtag": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "items": {
+                                            "properties": {
+                                                "#com.sap.gateway.srvd.zui_onlineshop_ms1.v0001.Edit(PreserveChanges)": {
+                                                    "properties": {},
+                                                    "type": "object"
+                                                },
+                                                "#com.sap.gateway.srvd.zui_onlineshop_ms1.v0001.createPurchaseRequisitionItem": {
+                                                    "properties": {},
+                                                    "type": "object"
+                                                },
+                                                "@@odata.etag": {
+                                                    "type": "string"
+                                                },
+                                                "CreatedAt": {
+                                                    "type": "string"
+                                                },
+                                                "CreatedBy": {
+                                                    "type": "string"
+                                                },
+                                                "DeliveryDate": {},
+                                                "DescriptionText": {
+                                                    "type": "string"
+                                                },
+                                                "DraftEntityCreationDateTime": {},
+                                                "DraftEntityLastChangeDateTime": {},
+                                                "HasActiveEntity": {
+                                                    "type": "boolean"
+                                                },
+                                                "HasDraftEntity": {
+                                                    "type": "boolean"
+                                                },
+                                                "IsActiveEntity": {
+                                                    "type": "boolean"
+                                                },
+                                                "LastChangedAt": {
+                                                    "type": "string"
+                                                },
+                                                "LastChangedBy": {
+                                                    "type": "string"
+                                                },
+                                                "LocalLastChangedAt": {
+                                                    "type": "string"
+                                                },
+                                                "OrderID": {
+                                                    "type": "string"
+                                                },
+                                                "OrderUUID": {
+                                                    "type": "string"
+                                                },
+                                                "Ordereditem": {
+                                                    "type": "string"
+                                                },
+                                                "Prstatus": {
+                                                    "type": "string"
+                                                },
+                                                "Purchasereqn": {
+                                                    "type": "string"
+                                                },
+                                                "SAP__Messages": {
+                                                    "type": "array"
+                                                },
+                                                "URL": {
+                                                    "type": "string"
+                                                },
+                                                "__EntityControl": {
+                                                    "properties": {
+                                                        "Deletable": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "Updatable": {
+                                                            "type": "boolean"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "__OperationControl": {
+                                                    "properties": {
+                                                        "Edit": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "createPurchaseRequisitionItem": {
+                                                            "type": "boolean"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "quantity": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "@@odata.etag",
+                                                "#com.sap.gateway.srvd.zui_onlineshop_ms1.v0001.createPurchaseRequisitionItem",
+                                                "#com.sap.gateway.srvd.zui_onlineshop_ms1.v0001.Edit(PreserveChanges)",
+                                                "OrderUUID",
+                                                "OrderID",
+                                                "Ordereditem",
+                                                "Purchasereqn",
+                                                "Prstatus",
+                                                "DeliveryDate",
+                                                "LocalLastChangedAt",
+                                                "quantity",
+                                                "DescriptionText",
+                                                "URL",
+                                                "CreatedAt",
+                                                "CreatedBy",
+                                                "LastChangedAt",
+                                                "LastChangedBy",
+                                                "HasDraftEntity",
+                                                "DraftEntityCreationDateTime",
+                                                "DraftEntityLastChangeDateTime",
+                                                "HasActiveEntity",
+                                                "IsActiveEntity",
+                                                "__EntityControl",
+                                                "__OperationControl",
+                                                "SAP__Messages"
+                                            ],
+                                            "type": "object"
+                                        },
+                                        "type": "array"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "runAfter": {
+                            "HTTP": [
+                                "Succeeded"
+                            ]
+                        },
+                        "type": "ParseJson"
+                    }
+                },
+                "foreach": "@body('Parse_JSON')?['EM_ORDER']",
+                "runAfter": {
+                    "Parse_JSON": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Foreach"
+            },
+            "Initialize_variable": {
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "Message Content",
+                            "type": "string",
+                            "value": "@base64ToString(triggerBody()?['ContentData'])"
+                        }
+                    ]
+                },
+                "runAfter": {},
+                "type": "InitializeVariable"
+            },
+            "Parse_JSON": {
+                "inputs": {
+                    "content": "@body('[RFC]_Call_function_in_SAP')?['JsonResponse']",
+                    "schema": {
+                        "properties": {
+                            "EM_ORDER": {
+                                "items": {
+                                    "properties": {
+                                        "CLIENT": {
+                                            "type": "string"
+                                        },
+                                        "CREATED_AT": {
+                                            "type": "integer"
+                                        },
+                                        "CREATED_BY": {
+                                            "type": "string"
+                                        },
+                                        "LAST_CHANGED_AT": {
+                                            "type": "integer"
+                                        },
+                                        "LAST_CHANGED_BY": {
+                                            "type": "string"
+                                        },
+                                        "LOCAL_LAST_CHANGED_AT": {
+                                            "type": "integer"
+                                        },
+                                        "ORDEREDITEM": {
+                                            "type": "string"
+                                        },
+                                        "ORDERID": {
+                                            "type": "string"
+                                        },
+                                        "ORDERUUID": {
+                                            "type": "string"
+                                        },
+                                        "PRSTATUS": {
+                                            "type": "string"
+                                        },
+                                        "PURCHASEREQN": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "CLIENT",
+                                        "ORDERUUID",
+                                        "ORDERID",
+                                        "ORDEREDITEM",
+                                        "PURCHASEREQN",
+                                        "PRSTATUS",
+                                        "CREATED_AT",
+                                        "CREATED_BY",
+                                        "LAST_CHANGED_BY",
+                                        "LAST_CHANGED_AT",
+                                        "LOCAL_LAST_CHANGED_AT"
+                                    ],
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "runAfter": {
+                    "[RFC]_Call_function_in_SAP": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ParseJson"
+            },
+            "Parse_JSON_2": {
+                "inputs": {
+                    "content": "@variables('Message Content')",
+                    "schema": {
+                        "properties": {
+                            "data": {
+                                "properties": {
+                                    "createdby": {
+                                        "type": "string"
+                                    },
+                                    "date": {
+                                        "type": "string"
+                                    },
+                                    "event": {
+                                        "type": "string"
+                                    },
+                                    "ordernr": {
+                                        "type": "string"
+                                    },
+                                    "time": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "dataversion": {
+                                "type": "string"
+                            },
+                            "eventtime": {
+                                "type": "string"
+                            },
+                            "eventtype": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            },
+                            "metadataversion": {
+                                "type": "string"
+                            },
+                            "subject": {
+                                "type": "string"
+                            },
+                            "topic": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "runAfter": {
+                    "Initialize_variable": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ParseJson"
+            },
+            "[RFC]_Call_function_in_SAP": {
+                "inputs": {
+                    "body": "<ZF_RFC_ONLINESHOP_GET_ORDER xmlns=\"http://Microsoft.LobServices.Sap/2007/03/Rfc/\">\n<IM_ORDER>@{body('Parse_JSON_2')?['data']?['ordernr']}</IM_ORDER>\n</ZF_RFC_ONLINESHOP_GET_ORDER>",
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['sap']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/CallRfc",
+                    "queries": {
+                        "autoCommit": false,
+                        "rfcGroupFilter": "Z_ONLINESHOP_MSF:msf",
+                        "rfcName": "ZF_RFC_ONLINESHOP_GET_ORDER:order:Z_ONLINESHOP_MSF"
+                    }
+                },
+                "runAfter": {
+                    "Parse_JSON_2": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {
+            "$connections": {
+                "defaultValue": {},
+                "type": "Object"
+            }
+        },
+        "triggers": {
+            "When_a_message_is_received_in_a_queue_(auto-complete)": {
+                "evaluatedRecurrence": {
+                    "frequency": "Minute",
+                    "interval": 3
+                },
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['servicebus']['connectionId']"
+                        }
+                    },
+                    "method": "get",
+                    "path": "/@{encodeURIComponent(encodeURIComponent('developer100'))}/messages/head",
+                    "queries": {
+                        "queueType": "Main"
+                    }
+                },
+                "recurrence": {
+                    "frequency": "Minute",
+                    "interval": 3
+                },
+                "type": "ApiConnection"
+            }
+        }
+    },
+    "parameters": {
+        "$connections": {
+            "value": {
+                "sap": {
+                    "connectionId": "/subscriptions/22a9ba10-8328-4f21-baeb-50728288a33c/resourceGroups/Developer100/providers/Microsoft.Web/connections/sap",
+                    "connectionName": "sap",
+                    "id": "/subscriptions/22a9ba10-8328-4f21-baeb-50728288a33c/providers/Microsoft.Web/locations/northeurope/managedApis/sap"
+                },
+                "servicebus": {
+                    "connectionId": "/subscriptions/22a9ba10-8328-4f21-baeb-50728288a33c/resourceGroups/Developer100/providers/Microsoft.Web/connections/servicebus",
+                    "connectionName": "servicebus",
+                    "id": "/subscriptions/22a9ba10-8328-4f21-baeb-50728288a33c/providers/Microsoft.Web/locations/northeurope/managedApis/servicebus"
+                },
+                "teams": {
+                    "connectionId": "/subscriptions/22a9ba10-8328-4f21-baeb-50728288a33c/resourceGroups/Developer100/providers/Microsoft.Web/connections/teams",
+                    "connectionName": "teams",
+                    "id": "/subscriptions/22a9ba10-8328-4f21-baeb-50728288a33c/providers/Microsoft.Web/locations/northeurope/managedApis/teams"
+                }
+            }
+        }
+    }
+}
+```
 
 ## Where to next?
 
