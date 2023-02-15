@@ -6,7 +6,7 @@ We are following the official [Tutorial: Create a weather bot with Composer](htt
 
 ## Create an Empty Bot in Composer
 
-1. Start the Bot Framework Composer and click on "+ Create new"
+1. Start the Bot Framework Composer and click on "+ Create new" 
 
 <p align="center" width="100%">
 <img alt="Create Bot" src="../img/student/Quest5/CreateEmptyBot.jpg"  width="600">
@@ -18,6 +18,8 @@ We are following the official [Tutorial: Create a weather bot with Composer](htt
 <img alt="Provide name" src="../img/student/Quest5/CreateBotName.jpg"  width="600">
 </p>
 
+> Note: You  might be asked to do a Tour of the Botframework. Just skip this for now. 
+
 ## Modify the Greeting
 
 1. Select the Greeting trigger in the bot explorer and select the "Send a response" action
@@ -27,7 +29,7 @@ We are following the official [Tutorial: Create a weather bot with Composer](htt
 <img alt="Send a response" src="../img/student/Quest5/SendAResponse.jpg"  width="600">
 </p>
 
-3. Click on the existing text and replace it with something like "Welcome to the SAP Online Shop Bot". Type "orders" to get started.
+3. Click on the existing text and replace it with something like `Welcome to the SAP Online Shop Bot. Type "orders" to get started`
 
 <p align="center" width="100%">
 <img alt="replace response" src="../img/student/Quest5/ReplaceResonse.jpg"  width="600">
@@ -38,6 +40,8 @@ We are following the official [Tutorial: Create a weather bot with Composer](htt
 <p align="center" width="100%">
 <img alt="Open Web Chat" src="../img/student/Quest5/OpenWebChat.jpg"  width="600">
 </p>
+
+> Note: You might get a warning regarind Firewall access. Click on Allow. 
  
 <p align="center" width="100%">
 <img alt="Running Bot" src="../img/student/Quest5/FirstRunningBot.jpg"  width="600">
@@ -173,7 +177,7 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 <img alt="Send HTTP request" src="../img/student/Quest5/EnterHeaders.jpg"  width="300">
 </p>
 
-> **Note** - Sometimes these properties are not stored. Before continuing with the next step, click on somewhere else to leave the focus of the Value input field.
+> **Note** - Sometimes these properties are not stored. Before continuing with the next step, click on "Add New"  leave the focus of the current Value input field.
 
 4. We expect a response in json and we want to store the results in a variable, enter `dialog.api_response` for the Result property and "json" for the Response type.
 
@@ -257,7 +261,10 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 > **Note** - To learn more Adaptive Cards format, read the [documentation](https://docs.microsoft.com/adaptive-cards/getting-started/bots)
 
 ```json
-{
+
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
     "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
     "version": "1.2",
     "type": "AdaptiveCard",
@@ -306,7 +313,8 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
             ]
         }
     ]
-}
+}```
+
 ```
 
 <p align="center" width="100%">
