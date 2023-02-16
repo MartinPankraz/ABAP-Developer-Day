@@ -21,7 +21,7 @@ We are following the official [Tutorial: Create a weather bot with Composer](htt
 <img alt="Provide name" src="../img/student/Quest5/CreateBotName.jpg"  width="600">
 </p>
 
-> Note: You  might be asked to do a Tour of the Botframework. Just skip this for now. 
+> **Note**: You  might be asked to do a Tour of the Bot framework. Just skip this for now.
 
 ## Modify the Greeting
 
@@ -44,7 +44,7 @@ We are following the official [Tutorial: Create a weather bot with Composer](htt
 <img alt="Open Web Chat" src="../img/student/Quest5/OpenWebChat.jpg"  width="600">
 </p>
 
-> Note: You might get a warning regarind Firewall access. Click on Allow. 
+> **Note**: You might get a warning regarding Firewall access. Click on Allow.
  
 <p align="center" width="100%">
 <img alt="Running Bot" src="../img/student/Quest5/FirstRunningBot.jpg"  width="600">

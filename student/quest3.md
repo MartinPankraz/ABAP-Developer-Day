@@ -420,7 +420,7 @@ outputs('Post_adaptive_card_and_wait_for_a_response')['body']['submitActionId']
 <img alt="Switch" src="../img/student/Quest3/CreatePR-Value.jpg"  width="600">
 </p>
 
-> Note: In case the Expression Pane hides the **Choose a value**  field, click on **+ Add** without doing anything else there to hide the Pane. As a result you should be able to see the **Choose a value** field.
+> **Note**: In case the Expression Pane hides the **Choose a value**  field, click on **+ Add** without doing anything else there to hide the Pane. As a result you should be able to see the **Choose a value** field.
 
 ### Create Purchase Requisition
 

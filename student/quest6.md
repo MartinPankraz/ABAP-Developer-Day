@@ -59,7 +59,7 @@ To get familiar with the concepts of the Office JavaScript libraries, let's star
 <img alt="more Samples" src="../img/student/Quest6/MoreSamples.jpg"  width="500">
 </p>
 
-> Note: You can make the **Script lab** pane larger so that you can see the full content of the Code Menu. 
+> **Note**: You can make the **Script lab** pane larger so that you can see the full content of the Code Menu.
 
 ## Fetch data from the Online Store
 
