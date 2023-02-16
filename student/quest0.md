@@ -4,9 +4,11 @@
 
 Our journey will start from an SAP Online Shop that allows users to choose and place orders from a variety of products. One the orders are placed in the Online Shop, a manager can "Approve" these orders and create an actual Purchase Requisition in the SAP system.
 
-🏋🏽‍♂️**Difficulty meter** (1 star = walk in the park | 5 stars = squeeze your brains out ): 🌟🌟🌟🌟🌟
+> **Note**:
 
-⏱Allow ~6 hours to complete your journey
+>🏋🏽‍♂️**Difficulty meter** (1 star = walk in the park | 5 stars = squeeze your brains out ): 🌟🌟🌟🌟🌟
+
+>⏱Allow ~6 hours to complete your journey
 
 ## Meet your Mentors, learn more about the journey and kick-off
 
