@@ -163,7 +163,7 @@ Endpoint=sb://servicebusforsaponlineshop.servicebus.windows.net/;SharedAccessKey
 <img alt="Enter Schema" src="../img/student/Quest2/EnterSchema.jpg"  width="600">
 </p>
 
-<details><summary>⤵️JSON schema code block</summary>
+<details><summary>**⤵️JSON schema code block**</summary>
 
 ```json
 {
@@ -215,6 +215,7 @@ Endpoint=sb://servicebusforsaponlineshop.servicebus.windows.net/;SharedAccessKey
 ```
 
 </details>
+<br>
 
 11. In the next step to call the RFC, replace the hard-coded order Nr with the `ordernr` field from the parsed message body.
 

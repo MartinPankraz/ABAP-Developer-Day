@@ -306,7 +306,7 @@ If not switch to this Directory, by clicking on your user, selecting **Switch di
 
 6. For convenience, leverage below json created with the [Adaptive Card Designer](https://www.adaptivecards.io/designer/) and paste the content into the respective field.
 
-<details><summary>⤵️AdaptiveCard code block</summary>
+<details><summary>**⤵️AdaptiveCard code block**</summary>
 
 ```json
 {
@@ -383,6 +383,7 @@ If not switch to this Directory, by clicking on your user, selecting **Switch di
 ```
 
 </details>
+<br>
 
 <p align="center" width="100%">
 <img alt="Open Action" src="../img/student/Quest1/CopyPasteAdaptiveCard.jpg"  width="600">

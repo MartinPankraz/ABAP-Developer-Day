@@ -77,7 +77,7 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 
 10. Using the schema:
 
-<details><summary>⤵️JSON code block</summary>
+<details><summary>**⤵️JSON code block**</summary>
 
 ```json
 {
@@ -216,6 +216,7 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 ```
 
 </details>
+<br>
 
 > **Note** - Like in Quest 1, you could have generated this schema by providing a sample HTTP request.
 
@@ -297,7 +298,7 @@ The creation happens via a POST message. POSTing data to SAP requires a few step
 
 > **Note** - if you didn't rename anything, this is the correct content
 
-<details><summary>⤵️AdaptiveCard code block</summary>
+<details><summary>**⤵️AdaptiveCard code block**</summary>
 
 ```json
 {
@@ -385,6 +386,7 @@ The creation happens via a POST message. POSTing data to SAP requires a few step
 ```
 
 </details>
+<br>
 
 5. With this we can delete the first Action to send an Adaptive Card to Teams.
 
@@ -454,7 +456,7 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 <img alt="Add action in True flow" src="../img/student/Quest3/ParseJsonForToken.jpg"  width="600">
 </p>
 
-<details><summary>⤵️JSON code block</summary>
+<details><summary>**⤵️JSON code block**</summary>
 
 ```json
 {
@@ -558,6 +560,7 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 ```
 
 </details>
+<br>
 
 4. Now we are ready to make the action call to create the Purchase Requisition. Create another HTTP Action and use the following values:
 
@@ -657,7 +660,7 @@ Now make sure to save the Logic App!
 
 Here is a working flow that you can replace via the **Code view** in the Logic App designer. You will need to connect it to your specific Service Bus Queue and Teams tenant.
 
-<details><summary>⤵️Logic Apps code block</summary>
+<details><summary>**⤵️Logic Apps code block**</summary>
 
 ```json
 {
@@ -1251,6 +1254,7 @@ Here is a working flow that you can replace via the **Code view** in the Logic A
 ```
 
 </details>
+<br>
 
 ## Where to next?
 
