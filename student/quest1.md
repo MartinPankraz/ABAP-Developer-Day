@@ -2,6 +2,9 @@
 
 [< Quest 0](quest0.md) - **[🏠Home](../README.md)** - [ Quest 2 >](quest2.md)
 
+🌟🌟🌟🌟
+🕒 1 h
+
 ## Introduction
 
 Throughout the next exercises we will use an Office 365 user, an Azure subscription and some Office 365 tools. In order to make sure that everything is fine, it is best to quickly try and verify all used resources.
@@ -11,19 +14,20 @@ Throughout the next exercises we will use an Office 365 user, an Azure subscript
 <p align="center" width="100%">
 <img alt="Invitation Email" src="../img/student/Quest1/CheckOutlook.jpg"  width="800">
 </p>
->>Note: If you have not done so yet, accept the invite. You will be asked to Accept certain permissions to read your profile. 
 
+> **Note**: If you have not done so yet, accept the invite. You will be asked to Accept certain permissions to read your profile. 
 
 2. Open [Microsoft Teams](https://teams.microsoft.com/). When doing that it is best to use the Browser experience (in order not to interfere with any other local Teams and Accounts that you might have installed).
 
 3. Check if you have Excel on-prem installed. Here you do not need to authenticate and it is fine to use the rich-client. In Quest 4 we will connect to an OData service and read data from our Online Store.
->> Note: if you want you can go to [Office.com](https://www.office.com/?auth=2&home=1) and click on "Install Apps" to run the OfficeSetup.exe which will insatll the rich clients for Excel (and other Office apps)
+
+> **Note**: if you want you can go to [Office.com](https://www.office.com/?auth=2&home=1) and click on "Install Apps" to run the OfficeSetup.exe which will insatll the rich clients for Excel (and other Office apps)
 
 4. For the last exercise we are going to integrate in [Microsoft Word](https://www.office.com/launch/word?auth=2). You can open and create a Blank document from there.
 
 5. For every participant a resource group in Azure has been created in a central Azure subscription. In order to not interfere with other users, please always make sure that you only operate in the resource group assigned to you. 
 
-> **Info** - To log-on to the [Azure portal](https://portal.azure.com/#home), please use your Microsoft 365 users which has been assigned as a contribute to the central Azure subscription.
+> **Note** - To log-on to the [Azure portal](https://portal.azure.com/#home), please use your Microsoft 365 users which has been assigned as a contribute to the central Azure subscription.
 
 Make sure that the Directory shown in the upper right corner of your user says "Contoso YAAC".
 
@@ -88,7 +92,8 @@ If not switch to this Directory, by clicking on your user, selecting **Switch di
 <p align="center" width="100%">
 <img alt="Start with HTTP Trigger" src="../img/student/Quest1/WhenHTTPRequest.jpg"  width="800">
 </p>
-> **Info** - Sometimes it takes a long time to load the Logic Apps Designer for the first time. If this happens, just click on Refresh on your browser. 
+
+> **Note** - Sometimes it takes a long time to load the Logic Apps Designer for the first time. If this happens, just click on Refresh on your browser. 
 
 2. Click on "+ New Step"
 
@@ -188,6 +193,7 @@ If not switch to this Directory, by clicking on your user, selecting **Switch di
 </p>
 
 13. Copy results from the Json Response to your Clipboard. We will use it in the next steps.
+
 ```json
 {
   "EM_ORDER": [
@@ -207,6 +213,7 @@ If not switch to this Directory, by clicking on your user, selecting **Switch di
   ]
 }
 ```
+
 ### Working with the results from SAP
 
 1. With the results from the RFC call, we can now take this data and use it to publish to Teams. Click on "Designer" to return to the Logic Apps Designer view. 
@@ -301,6 +308,9 @@ If not switch to this Directory, by clicking on your user, selecting **Switch di
 
 6. For convenience, leverage below json created with the [Adaptive Card Designer](https://www.adaptivecards.io/designer/) and paste the content into the respective field.
 
+<br>
+<details><summary><strong>⤵️AdaptiveCard code block</strong></summary>
+
 ```json
 {
     "type": "AdaptiveCard",
@@ -374,6 +384,9 @@ If not switch to this Directory, by clicking on your user, selecting **Switch di
     "version": "1.3"
 }
 ```
+
+</details>
+<br>
 
 <p align="center" width="100%">
 <img alt="Open Action" src="../img/student/Quest1/CopyPasteAdaptiveCard.jpg"  width="600">

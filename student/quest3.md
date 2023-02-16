@@ -2,6 +2,9 @@
 
 [< Quest 2](quest2.md) - **[🏠Home](../README.md)** - [ Quest 4 >](quest4.md)
 
+🌟🌟🌟🌟
+🕒 1,5 h
+
 Whenever an Order is created in the Online Shop the user is now notified in Teams. However, a Purchase Requisition is not yet created.
 
 In order to simplify this process we want to empower the Teams user to review the created order and then create a Purchase Requisition directly from Teams. For this we will enhance our Adaptive Card and make it interactive: The user should have the option to create a Purchase Requisition directly from Teams.
@@ -30,7 +33,7 @@ Then we will also call the an API from the Online Shop, that creates the actual 
 <img alt="Change Position" src="../img/student/Quest3/ChangePosition.jpg"  width="600">
 </p>
 
-4. Request an order from the Online Shop via OData filtering by OrderID. Select **GET** for the Method and copy the URL for the Online Shop Item in the URI field. 
+4. Request an order from the Online Shop via OData filtering by OrderID. Select **GET** for the Method and copy the URL for the Online Shop Item in the URI field.
 
 ```http
 http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui_onlineshop_ms1/0001/Online_Shop?$filter=OrderID%20eq%20%27ORDERID%27
@@ -73,6 +76,9 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 </p>
 
 10. Using the schema:
+
+<br>
+<details><summary><strong>⤵️JSON code block</strong></summary>
 
 ```json
 {
@@ -210,6 +216,9 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 }
 ```
 
+</details>
+<br>
+
 > **Note** - Like in Quest 1, you could have generated this schema by providing a sample HTTP request.
 
 11. and selecting the Body form the previous HTTP Call as Content
@@ -288,7 +297,11 @@ The creation happens via a POST message. POSTing data to SAP requires a few step
 
 > **Note** - make sure that you start with the first "," so that the results are as shown in the screenshot.
 
-> **Note** - if you didn't rename anything, this is the correct conent
+> **Note** - if you didn't rename anything, this is the correct content
+
+<br>
+<details><summary><strong>⤵️AdaptiveCard code block</strong></summary>
+
 ```json
 {
     "type": "AdaptiveCard",
@@ -374,6 +387,9 @@ The creation happens via a POST message. POSTing data to SAP requires a few step
 }
 ```
 
+</details>
+<br>
+
 5. With this we can delete the first Action to send an Adaptive Card to Teams.
 
 <p align="center" width="100%">
@@ -384,7 +400,7 @@ The creation happens via a POST message. POSTing data to SAP requires a few step
 
 1. Now we have to react to the answer from the user. If the User clicked on the "Create Purchase Requisition" button, we need to call the OData Service of the Online Shop to create the Purchase Requisition. 
 
-Under the **Post adaptive card and wait for a response** action, click on **Add an action**. Search for and select **Control** and select the **Condition** action. 
+Under the **Post adaptive card and wait for a response** action, click on **Add an action**. Search for and select **Control** and select the **Condition** action.
 
 If there is an action, we want to Check if it was our Create Purchase Requisition Button and only then execute next steps.
 
@@ -408,7 +424,7 @@ outputs('Post_adaptive_card_and_wait_for_a_response')['body']['submitActionId']
 <img alt="Switch" src="../img/student/Quest3/CreatePR-Value.jpg"  width="600">
 </p>
 
-> Note: In case the Expression Pane hides the **Choose a value**  field, click on **+ Add** without doing anything else there to hide the Pane. As a result you should be able to see the **Choose a value** field. 
+> **Note**: In case the Expression Pane hides the **Choose a value**  field, click on **+ Add** without doing anything else there to hide the Pane. As a result you should be able to see the **Choose a value** field.
 
 ### Create Purchase Requisition
 
@@ -441,6 +457,9 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 <p align="center" width="100%">
 <img alt="Add action in True flow" src="../img/student/Quest3/ParseJsonForToken.jpg"  width="600">
 </p>
+
+<br>
+<details><summary><strong>⤵️JSON code block</strong></summary>
 
 ```json
 {
@@ -543,9 +562,13 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 }
 ```
 
+</details>
+<br>
+
 4. Now we are ready to make the action call to create the Purchase Requisition. Create another HTTP Action and use the following values:
 
-
+<br>
+<div style="margin-left: auto; margin-right: auto; width: 50%">
 
 |Property|Value|
 |---|---|
@@ -554,6 +577,9 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 |If-Match|OData ETag value from Parse Json, e.g. ```body('Parse_JSON_4')?['@odata.etag']```|
 |X-CSRF-Token|Dynamic x-csrf-token value from previous HTTP Call, e.g. `outputs('HTTP_2')['headers']?['x-csrf-token']`|
 |Cookie|we take the cookie from the previous HTTP call, order not to do another authentication, e.g. `replace(outputs('HTTP_2')['headers']?['Set-Cookie'], ',', ';')`|
+</div>
+
+<br>
 
 * If- Match
 
@@ -603,7 +629,6 @@ The result should look like this:
 
 Now make sure to save the Logic App!
 
-
 ### Test the new flow
 
 1. Now we can test the flow again. Create a new Order in the [Online Shop](https://vhcals4hcs.dummy.nodomain:44301/sap/bc/adt/businessservices/odatav4/feap?feapParams=C%C2%87u%C2%84C%C2%83%C2%84%C2%89C%C2%83xu%C2%88uHC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87Es%C2%83HC%C2%87%C2%86%C2%8AxC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87ECDDDEC77c%C2%82%C2%80%7D%C2%82ysg%7C%C2%83%C2%84777777ni%5Dscb%60%5DbYg%5CcdsagE77DDDE77ni%5Dscb%60%5DbYg%5CcdsagEscH&sap-ui-language=EN&sap-client=100).
@@ -629,13 +654,18 @@ Now make sure to save the Logic App!
 </p>
 
 ### Troubleshooting
+
 * Check Logic App Run History
 
-* Swtich Condition passt nicht
+* Switch Condition incorrect
 
 * Adaptive Card not correct
 
-Here is a working flow that you can replace via the **Code view** in the Logic App designer. You will need to connect it to your specific Service Bus Queue and Teams tenant. 
+Here is a working flow that you can replace via the **Code view** in the Logic App designer. You will need to connect it to your specific Service Bus Queue and Teams tenant.
+
+<br>
+<details><summary><strong>⤵️Logic Apps code block</strong></summary>
+
 ```json
 {
     "definition": {
@@ -1226,6 +1256,9 @@ Here is a working flow that you can replace via the **Code view** in the Logic A
     }
 }
 ```
+
+</details>
+<br>
 
 ## Where to next?
 

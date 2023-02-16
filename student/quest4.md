@@ -2,6 +2,9 @@
 
 [< Quest 3](quest3.md) - **[🏠Home](../README.md)** - [ Quest 5 >](quest5.md)
 
+🌟
+🕒 30 mins
+
 In the next step we want to integrate the Ordered Items in Excel. Use OData v2 instead of OData v4 to verify legacy support. Luckily creating an OData v2 services from default v4 is just a click away with RAP.
 
 ```http
