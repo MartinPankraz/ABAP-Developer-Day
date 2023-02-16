@@ -545,19 +545,15 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 
 4. Now we are ready to make the action call to create the Purchase Requisition. Create another HTTP Action and use the following values:
 
-<br>
-<div style="margin-left: auto; margin-right: auto; width: 50%">
+
 
 |Property|Value|
 |---|---|
-|Method|POST|
-|URI|```http
-http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui_onlineshop_ms1/0001/Online_Shop(OrderUUID=ORDERUUID-PLACEHOLDER,IsActiveEntity=true)/com.sap.gateway.srvd.zui_onlineshop_ms1.v0001.createPurchaseRequisitionItem?sap-client=100&$select=SAP__Messages
-```|
+|Method|**POST**|
+|URI|```http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui_onlineshop_ms1/0001/Online_Shop(OrderUUID=ORDERUUID-PLACEHOLDER,IsActiveEntity=true)/com.sap.gateway.srvd.zui_onlineshop_ms1.v0001.createPurchaseRequisitionItem?sap-client=100&$select=SAP__Messages```|
 |If-Match|OData ETag value from Parse Json, e.g. ```body('Parse_JSON_4')?['@odata.etag']```|
 |X-CSRF-Token|Dynamic x-csrf-token value from previous HTTP Call, e.g. `outputs('HTTP_2')['headers']?['x-csrf-token']`|
 |Cookie|we take the cookie from the previous HTTP call, order not to do another authentication, e.g. `replace(outputs('HTTP_2')['headers']?['Set-Cookie'], ',', ';')`|
-</div>
 
 * If- Match
 
@@ -569,7 +565,7 @@ body('Parse_JSON_4')?['@odata.etag']
 <img alt="Add If Match" src="../img/student/Quest3/IfMatch.jpg"  width="600">
 </p>
 
-* OrderUUID: Take the vlue from **Parse JSON 4**
+* OrderUUID: Take the value from **Parse JSON 4**
 
 <p align="center" width="100%">
 <img alt="Add Order UUID" src="../img/student/Quest3/OrderUUID.jpg"  width="600">
