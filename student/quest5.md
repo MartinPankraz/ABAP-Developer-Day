@@ -2,6 +2,9 @@
 
 [< Quest 4](quest4.md) - **[🏠Home](../README.md)** - [ Quest 6 >](quest6.md)
 
+🌟🌟
+🕒 1 h
+
 We are following the official [Tutorial: Create a weather bot with Composer](https://learn.microsoft.com/composer/tutorial-create-weather-bot) -- however: instead of connecting to a Weather API, we are going to connect to our Online Store Service and retrieve additional information of a specific order.
 
 ## Create an Empty Bot in Composer
@@ -256,15 +259,14 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 <img alt="Select Adaptive Card" src="../img/student/Quest5/AddAdaptiveCard.jpg"  width="400">
 </p>
 
-13. Copy and paste/replace the content from below in the Attachment field 
+13. Copy and paste/replace the content from below in the Attachment field.
 
 > **Note** - To learn more Adaptive Cards format, read the [documentation](https://docs.microsoft.com/adaptive-cards/getting-started/bots)
 
-```json
+<details><summary>⤵️AdaptiveCard code block</summary>
 
-> To learn more Adaptive Cards format, read the documentation at
-> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
-- ```{
+```json
+{
     "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
     "version": "1.2",
     "type": "AdaptiveCard",
@@ -313,9 +315,10 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
             ]
         }
     ]
-}```
-
+}
 ```
+
+</details>
 
 <p align="center" width="100%">
 <img alt="Content Added" src="../img/student/Quest5/ContentAdded.jpg"  width="400">
@@ -352,7 +355,8 @@ Click again on "Restart bot" -> "Open Web Chat" to test the integration.
 </p>
 
 ## (Optional) Publish the bot to Teams
-Follow the steps outlined [here](https://learn.microsoft.com/en-us/composer/how-to-publish-bot?tabs=v2x) to publish the Bot to Azure and from there to Teams. 
+
+Follow the steps outlined [here](https://learn.microsoft.com/en-us/composer/how-to-publish-bot?tabs=v2x) to publish the Bot to Azure and from there to Teams.
 
 ## Where to next?
 

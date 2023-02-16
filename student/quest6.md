@@ -2,6 +2,9 @@
 
 [< Quest 5](quest5.md) - **[🏠Home](../README.md)**
 
+🌟
+🕒 20 mins
+
 Now we want to leverage the same OData service to build an App in the Office suite of Microsoft 365. Instead of using Visual Studio Code or Visual Studio to build a "full" app, we are going to leverage the Script-Lab add-in which enables you to create an app directly from within the Office app. The concept is the same for Excel, Outlook or Power Point, so we are going to do this in Microsoft Word.
 
 Once the app is build, you can easily create a stand-alone app and continue the app development in VS Code following the process outlined [here](https://learn.microsoft.com/office/dev/add-ins/overview/create-an-office-add-in-from-script-lab).
@@ -102,8 +105,8 @@ Click on Run
 
 Feel free to reminiscent about your journey while covering your tracks in the cloud.
 
-- Delete resources in Azure
-- Decommission the M365 dev tenant
+- [Delete resources](https://learn.microsoft.com/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-powershell) in Azure if no longer needed
+- Decommission the M365 dev tenant if no longer needed
 - Devour left overs from lunch box
 
 ## Where to next?
