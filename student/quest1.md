@@ -123,7 +123,7 @@ If not switch to this Directory, by clicking on your user, selecting **Switch di
 |Connection name|Use a unique name, e.g. Dev002-SAPConnection|
 |Connection Gateway|Select AKDevelopmentWithJohnWin4|
 |Client|100|
-|SAP Username|Developer\<xxx>|
+|SAP Username|Developer\<XX>|
 |SAP Password|\<YourPassword>|
 |AS Host|10.0.0.34|
 |AS Service|3200|
