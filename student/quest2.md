@@ -3,7 +3,7 @@
 [< Quest 1](quest1.md) - **[🏠Home](../README.md)** - [ Quest 3 >](quest3.md)
 
 🌟🌟🌟
-🕒 1 h
+🕒 45 mins
 
 Now that we have the Logic App in place to fetch data from the SAP system and create an Adaptive Card in Teams, we want to trigger this flow automatically from the SAP System once a new order is placed in the Online Shop.
 

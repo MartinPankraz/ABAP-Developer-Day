@@ -3,7 +3,7 @@
 [< Quest 5](quest5.md) - **[🏠Home](../README.md)**
 
 🌟
-🕒 20 mins
+🕒 30 mins
 
 Now we want to leverage the same OData service to build an App in the Office suite of Microsoft 365. Instead of using Visual Studio Code or Visual Studio to build a "full" app, we are going to leverage the Script-Lab add-in which enables you to create an app directly from within the Office app. The concept is the same for Excel, Outlook or Power Point, so we are going to do this in Microsoft Word.
 
