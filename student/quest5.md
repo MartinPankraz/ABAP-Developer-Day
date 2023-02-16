@@ -331,7 +331,7 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 <img alt="Content Added" src="../img/student/Quest5/ContentAdded.jpg"  width="400">
 </p>
 
-> Note: Make sure that header is "> To learn more Adaptive Cards..." is still there. 
+> **Warning** - Make sure that header "> To learn more Adaptive Cards..." is still there. 
 
 14. Also add a response for the False branch using:
 
