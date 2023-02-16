@@ -77,7 +77,8 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 
 10. Using the schema:
 
-<details><summary>**⤵️JSON code block**</summary>
+<br>
+<details><summary><strong>⤵️JSON code block</strong></summary>
 
 ```json
 {
@@ -298,7 +299,8 @@ The creation happens via a POST message. POSTing data to SAP requires a few step
 
 > **Note** - if you didn't rename anything, this is the correct content
 
-<details><summary>**⤵️AdaptiveCard code block**</summary>
+<br>
+<details><summary><strong>⤵️AdaptiveCard code block</strong></summary>
 
 ```json
 {
@@ -456,7 +458,8 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 <img alt="Add action in True flow" src="../img/student/Quest3/ParseJsonForToken.jpg"  width="600">
 </p>
 
-<details><summary>**⤵️JSON code block**</summary>
+<br>
+<details><summary><strong>⤵️JSON code block</strong></summary>
 
 ```json
 {
@@ -660,7 +663,8 @@ Now make sure to save the Logic App!
 
 Here is a working flow that you can replace via the **Code view** in the Logic App designer. You will need to connect it to your specific Service Bus Queue and Teams tenant.
 
-<details><summary>**⤵️Logic Apps code block**</summary>
+<br>
+<details><summary><strong>⤵️Logic Apps code block</strong></summary>
 
 ```json
 {

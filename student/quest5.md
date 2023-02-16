@@ -263,7 +263,8 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 
 > **Note** - To learn more Adaptive Cards format, read the [documentation](https://docs.microsoft.com/adaptive-cards/getting-started/bots)
 
-<details><summary>**⤵️AdaptiveCard code block**</summary>
+<br>
+<details><summary><strong>⤵️AdaptiveCard code block</strong></summary>
 
 ```json
 {

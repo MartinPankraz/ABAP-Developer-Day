@@ -163,7 +163,8 @@ Endpoint=sb://servicebusforsaponlineshop.servicebus.windows.net/;SharedAccessKey
 <img alt="Enter Schema" src="../img/student/Quest2/EnterSchema.jpg"  width="600">
 </p>
 
-<details><summary>**⤵️JSON schema code block**</summary>
+<br>
+<details><summary><strong>⤵️JSON schema code block</strong></summary>
 
 ```json
 {
