@@ -15,7 +15,7 @@ Then we will also call the an API from the Online Shop, that creates the actual 
 
 ## Enhance the existing Logic App with an additional call to the OData service
 
-1. If you Logic App is not yet open, go to the [Azure Portal](https://portal.azure.com/) and search for your Logic Apps, e.g. `Developer<XXX>-OrderItem` and change to the **Logic app designer** view. In the "For Each" loop at the end of your flow that was created to send the Adaptive Card, click on "Add an Action"
+1. If you Logic App is not yet open, go to the [Azure Portal](https://portal.azure.com/) and search for your Logic Apps, e.g. `Developer<XX>-OrderItem` and change to the **Logic app designer** view. In the "For Each" loop at the end of your flow that was created to send the Adaptive Card, click on "Add an Action"
 
 <p align="center" width="100%">
 <img alt="AddNewAction" src="../img/student/Quest3/AddNewAction.jpg"  width="600">
@@ -57,7 +57,7 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 <img alt="Use Order ID" src="../img/student/Quest3/AddAuthentication.jpg"  width="600">
 </p>
 
-7. Select Authentication Type Basic and enter the username and password for the SAP System, `Developer<XXX> / <SAP Password>`
+7. Select Authentication Type Basic and enter the username and password for the SAP System, `Developer<XX> / <SAP Password>`
 
 <p align="center" width="100%">
 <img alt="Enter Authentication" src="../img/student/Quest3/EnterpriseAuthentication.jpg"  width="600">

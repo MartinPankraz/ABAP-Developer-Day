@@ -17,7 +17,7 @@ For this we will enhance the SAP System to react on the custom event triggered b
 <img alt="Select Service Bus" src="../img/student/Quest2/SelectServiceBus.jpg"  width="600">
 </p>
 
-2. Create a new Queue by clicking on "+ Queue" and enter a Queue name, like Developer\<XXX> and click on **Create**
+2. Create a new Queue by clicking on "+ Queue" and enter a Queue name, like Developer\<XX> and click on **Create**
 
 <p align="center" width="100%">
 <img alt="Create Queue" src="../img/student/Quest2/CreateQueue.jpg"  width="800">
@@ -43,13 +43,13 @@ For this we will enhance the SAP System to react on the custom event triggered b
 <img alt="Create Event Grid Subscription" src="../img/student/Quest2/CreateEventSubscription.jpg"  width="800">
 </p>
 
-3. Start entering the details like, subscription name (`Developer<xxx>Subscription`) and select **Azure Service Bus Queue** as the Endpoint Type. 
+3. Start entering the details like, subscription name (`Developer<XX>Subscription`) and select **Azure Service Bus Queue** as the Endpoint Type. 
 
 <p align="center" width="100%">
 <img alt="Create Event Grid Subscription Details" src="../img/student/Quest2/EnterSubscriptionDetails.jpg"  width="600">
 </p>
 
-4. Click on "Select an endpoint" and make sure to select the Service Bus Queue for your Developer\<xxx> previous created. Then click on "Confirm Selection". 
+4. Click on "Select an endpoint" and make sure to select the Service Bus Queue for your Developer\<XX> previous created. Then click on "Confirm Selection". 
 
 <p align="center" width="100%">
 <img alt="Select Endpoint" src="../img/student/Quest2/SelectEndpoint.jpg"  width="800">
@@ -67,7 +67,7 @@ For this we will enhance the SAP System to react on the custom event triggered b
 <img alt="Enter filter information" src="../img/student/Quest2/EnterFilters.jpg"  width="600">
 </p>
 
-7) Enter your SAP user, e.g. Developer\<xxx> and click on Create
+7) Enter your SAP user, e.g. Developer\<XX> and click on Create
 
 <p align="center" width="100%">
 <img alt="Enter Value and click on create" src="../img/student/Quest2/ValueAndCreate.jpg"  width="600">
@@ -77,7 +77,7 @@ For this we will enhance the SAP System to react on the custom event triggered b
 
 Now events from the SAP system should be sent to the Service Bus Queue whenever a new Order is created in the Online Shop. Head over to the [Online Shop](https://vhcals4hcs.dummy.nodomain:44301/sap/bc/adt/businessservices/odatav4/feap?feapParams=C%C2%87u%C2%84C%C2%83%C2%84%C2%89C%C2%83xu%C2%88uHC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87Es%C2%83HC%C2%87%C2%86%C2%8AxC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87ECDDDEC77c%C2%82%C2%80%7D%C2%82ysg%7C%C2%83%C2%84777777ni%5Dscb%60%5DbYg%5CcdsagE77DDDE77ni%5Dscb%60%5DbYg%5CcdsagEscH&sap-ui-language=EN&sap-client=100) create a new Order and check for incoming events.
 
-The easiest way is to search for `EventsFromOnlineShop` and select your Event Subscription (e.g. Developer\<xxx>Subscription) from the bottom of the page.
+The easiest way is to search for `EventsFromOnlineShop` and select your Event Subscription (e.g. Developer\<XX>Subscription) from the bottom of the page.
 
 <p align="center" width="100%">
 <img alt="Navigate to Event Subscription" src="../img/student/Quest2/NavigateToEventSubscription.jpg"  width="800">
@@ -97,7 +97,7 @@ and look at the events.
 <img alt="Delete the first action" src="../img/student/Quest2/LogicAppDesigner.jpg"  width="800">
 </p>
 
-> **Note**: An easy way to navigate back to your Logic App is to search for `Developer<XXX>-OrderItem` in the Search bar on the top and then selecting the **Logic app designer** view in the navigation on the left.
+> **Note**: An easy way to navigate back to your Logic App is to search for `Developer<XX>-OrderItem` in the Search bar on the top and then selecting the **Logic app designer** view in the navigation on the left.
 
 2. Search for "Service Bus" and select the new Trigger action "Service Bus"
 
