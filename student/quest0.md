@@ -10,6 +10,13 @@ Our journey will start from an SAP Online Shop that allows users to choose and p
 
 >⏱Allow ~6 hours to complete your journey
 
+> Be aware of the collapsed code blocks that kick start your challenges throughout your adventurer's path. They look like this
+> <details><summary><strong>⤵️AdaptiveCard code block</strong></summary>
+> ```json
+> {}
+> ```
+> </details>
+
 ## Meet your Mentors, learn more about the journey and kick-off
 
 🌟
