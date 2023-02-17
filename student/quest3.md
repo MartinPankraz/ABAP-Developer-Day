@@ -318,14 +318,7 @@ AdaptiveCard code block
                         {
                             "type": "TextBlock",
                             "weight": "Bolder",
-                            "text": "Hi USER",
-                            "wrap": true
-                        },
-                        {
-                            "type": "TextBlock",
-                            "spacing": "None",
-                            "text": "Created {{DATE(${createdUtc},SHORT)}}",
-                            "isSubtle": true,
+                            "text": "Hi",
                             "wrap": true
                         }
                     ],

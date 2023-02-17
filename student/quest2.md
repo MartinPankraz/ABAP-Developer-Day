@@ -83,10 +83,16 @@ The easiest way is to search for `EventsFromOnlineShop` and select your Event Su
 <img alt="Navigate to Event Subscription" src="../img/student/Quest2/NavigateToEventSubscription.jpg"  width="800">
 </p>
 
-and look at the events.
+if the event is not yet shown, click on the Service Bus Queue at the bottom 
 
 <p align="center" width="100%">
 <img alt="Incoming Events" src="../img/student/Quest2/FirstIncomingEvent.jpg"  width="800">
+</p>
+
+Now you can peek in the Service Bus Queue by selecting **Service Bus Explorer** on the left, click on **Peek from start** and select the latest entry from the Sequence Number list. In the Message Body you can then see the event from the Online Store. 
+
+<p align="center" width="100%">
+<img alt="Incoming Events" src="../img/student/Quest2/PeekFromStart.jpg"  width="800">
 </p>
 
 ## Connect the event to our Logic App
