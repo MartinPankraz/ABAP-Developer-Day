@@ -263,8 +263,7 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 
 > **Note** - To learn more Adaptive Cards format, read the [documentation](https://docs.microsoft.com/adaptive-cards/getting-started/bots)
 
-<br>
-<details><summary><strong>⤵️AdaptiveCard code block</strong></summary>
+AdaptiveCard code block
 
 ```json
 
@@ -324,8 +323,7 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 
 ```
 
-</details>
-<br>
+
 
 <p align="center" width="100%">
 <img alt="Content Added" src="../img/student/Quest5/ContentAdded.jpg"  width="400">

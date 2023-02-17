@@ -215,13 +215,13 @@ JSON schema code block
 ```
 
 
-11. In the next step to call the RFC, replace the hard-coded order Nr with the `ordernr` field from the parsed message body.
+11. In the next step to call the RFC, replace the hard-coded order Nr with the `ordernr` field from the parsed message body. 
 
 <p align="center" width="100%">
 <img alt="Enter Order NR" src="../img/student/Quest2/EnterOrderNr.jpg"  width="800">
 </p>
 
-> **Note**: You might need to exapnd the properties from the Parse Json response.
+> **Note**: You might need to expand the properties from the Parse Json response.
 
 <p align="center" width="100%">
 <img alt="See more" src="../img/student/Quest2/ParseJson-SeeMore.jpg"  width="800">
