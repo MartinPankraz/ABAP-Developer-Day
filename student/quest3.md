@@ -77,8 +77,7 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 
 10. Using the schema:
 
-<br>
-<details><summary><strong>⤵️JSON code block</strong></summary>
+JSON code block
 
 ```json
 {
@@ -216,8 +215,7 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 }
 ```
 
-</details>
-<br>
+
 
 > **Note** - Like in Quest 1, you could have generated this schema by providing a sample HTTP request.
 
@@ -299,8 +297,7 @@ The creation happens via a POST message. POSTing data to SAP requires a few step
 
 > **Note** - if you didn't rename anything, this is the correct content
 
-<br>
-<details><summary><strong>⤵️AdaptiveCard code block</strong></summary>
+AdaptiveCard code block
 
 ```json
 {
@@ -321,14 +318,7 @@ The creation happens via a POST message. POSTing data to SAP requires a few step
                         {
                             "type": "TextBlock",
                             "weight": "Bolder",
-                            "text": "Hi USER",
-                            "wrap": true
-                        },
-                        {
-                            "type": "TextBlock",
-                            "spacing": "None",
-                            "text": "Created {{DATE(${createdUtc},SHORT)}}",
-                            "isSubtle": true,
+                            "text": "Hi",
                             "wrap": true
                         }
                     ],
@@ -387,8 +377,7 @@ The creation happens via a POST message. POSTing data to SAP requires a few step
 }
 ```
 
-</details>
-<br>
+
 
 5. With this we can delete the first Action to send an Adaptive Card to Teams.
 
@@ -458,8 +447,7 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 <img alt="Add action in True flow" src="../img/student/Quest3/ParseJsonForToken.jpg"  width="600">
 </p>
 
-<br>
-<details><summary><strong>⤵️JSON code block</strong></summary>
+JSON code block
 
 ```json
 {
@@ -562,8 +550,7 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 }
 ```
 
-</details>
-<br>
+
 
 4. Now we are ready to make the action call to create the Purchase Requisition. Create another HTTP Action and use the following values:
 

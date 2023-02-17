@@ -180,7 +180,7 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 <img alt="Send HTTP request" src="../img/student/Quest5/EnterHeaders.jpg"  width="300">
 </p>
 
-> **Note** - Sometimes these properties are not stored. Before continuing with the next step, click on "Add New"  leave the focus of the current Value input field.
+> **Warning** - Sometimes these properties are not stored. Before continuing with the next step, click on "Add New" to leave the focus of the current Value input field.
 
 4. We expect a response in json and we want to store the results in a variable, enter `dialog.api_response` for the Result property and "json" for the Response type.
 
@@ -263,8 +263,7 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 
 > **Note** - To learn more Adaptive Cards format, read the [documentation](https://docs.microsoft.com/adaptive-cards/getting-started/bots)
 
-<br>
-<details><summary><strong>⤵️AdaptiveCard code block</strong></summary>
+AdaptiveCard code block
 
 ```json
 
@@ -324,8 +323,7 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 
 ```
 
-</details>
-<br>
+
 
 <p align="center" width="100%">
 <img alt="Content Added" src="../img/student/Quest5/ContentAdded.jpg"  width="400">
