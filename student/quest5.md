@@ -267,7 +267,10 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 <details><summary><strong>⤵️AdaptiveCard code block</strong></summary>
 
 ```json
-{
+
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
     "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
     "version": "1.2",
     "type": "AdaptiveCard",
@@ -316,7 +319,9 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
             ]
         }
     ]
-}
+}```
+
+
 ```
 
 </details>
@@ -325,6 +330,8 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 <p align="center" width="100%">
 <img alt="Content Added" src="../img/student/Quest5/ContentAdded.jpg"  width="400">
 </p>
+
+> **Warning** - Make sure that header "> To learn more Adaptive Cards..." is still there. 
 
 14. Also add a response for the False branch using:
 
