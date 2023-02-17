@@ -283,6 +283,272 @@ JSON schema code block
 <img alt="Adaptive Card" src="../img/student/Quest2/LogicAppRunHistory.jpg"  width="600">
 </p>
 
+
+<br>
+<details><summary><strong>⤵️Block for the full Logic App Code for Quest 2</strong></summary>
+
+```json
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "For_each": {
+                "actions": {
+                    "Post_adaptive_card_in_a_chat_or_channel": {
+                        "inputs": {
+                            "body": {
+                                "messageBody": "{\n    \"type\": \"AdaptiveCard\",\n    \"body\": [\n        {\n            \"type\": \"TextBlock\",\n            \"size\": \"Medium\",\n            \"weight\": \"Bolder\",\n            \"text\": \"New Order has been placed in the Online Shop\"\n        },\n        {\n            \"type\": \"ColumnSet\",\n            \"columns\": [\n                {\n                    \"type\": \"Column\",\n                    \"items\": [\n                        {\n                            \"type\": \"TextBlock\",\n                            \"weight\": \"Bolder\",\n                            \"text\": \"Hi, \",\n                            \"wrap\": true\n                        }\n                    ],\n                    \"width\": \"stretch\"\n                }\n            ]\n        },\n        {\n            \"type\": \"TextBlock\",\n            \"text\": \"A new order has been place in the Online Shop URL. Please review the provided information. \",\n            \"wrap\": true\n        },\n        {\n            \"type\": \"FactSet\",\n            \"facts\": [\n                {\n                    \"title\": \"Order ID\",\n                    \"value\": \"@{items('For_each')?['ORDERID']}\"\n                },\n                {\n                    \"title\": \"Status Purchase Requisition\",\n                    \"value\": \"@{items('For_each')?['PRSTATUS']}\"\n                },\n                {\n                    \"title\": \"Ordered Items\",\n                    \"value\": \"@{items('For_each')?['ORDEREDITEM']}\"\n                },\n                {\n                    \"title\": \"Quantity\",\n                    \"value\": \"${value}\"\n                },\n                {\n                    \"title\": \"Description Text: \",\n                    \"value\": \"${value}\"\n                },\n                {\n                    \"title\": \"Purchase Requisition: \",\n                    \"value\": \"@{items('For_each')?['PURCHASEREQN']}\"\n                }\n            ]\n        }\n    ],\n    \"actions\": [\n        {\n            \"type\": \"Action.OpenUrl\",\n            \"title\": \"View\",\n            \"url\": \"URL\"\n        }\n    ],\n    \"$schema\": \"http://adaptivecards.io/schemas/adaptive-card.json\",\n    \"version\": \"1.3\"\n}",
+                                "recipient": {
+                                    "channelId": "19:a38680470d95481685c064f36a146e24@thread.tacv2",
+                                    "groupId": "c1eedb2a-3a35-4f0e-98e3-898c2d5e907c"
+                                }
+                            },
+                            "host": {
+                                "connection": {
+                                    "name": "@parameters('$connections')['teams']['connectionId']"
+                                }
+                            },
+                            "method": "post",
+                            "path": "/v1.0/teams/conversation/adaptivecard/poster/Flow bot/location/@{encodeURIComponent('Channel')}"
+                        },
+                        "runAfter": {},
+                        "type": "ApiConnection"
+                    }
+                },
+                "foreach": "@body('Parse_JSON')?['EM_ORDER']",
+                "runAfter": {
+                    "Parse_JSON": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Foreach"
+            },
+            "Initialize_variable": {
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "Message Content",
+                            "type": "string",
+                            "value": "@base64ToString(triggerBody()?['ContentData'])"
+                        }
+                    ]
+                },
+                "runAfter": {},
+                "type": "InitializeVariable"
+            },
+            "Parse_JSON": {
+                "inputs": {
+                    "content": "@body('[RFC]_Call_function_in_SAP')?['JsonResponse']",
+                    "schema": {
+                        "properties": {
+                            "EM_ORDER": {
+                                "items": {
+                                    "properties": {
+                                        "CLIENT": {
+                                            "type": "string"
+                                        },
+                                        "CREATED_AT": {
+                                            "type": "integer"
+                                        },
+                                        "CREATED_BY": {
+                                            "type": "string"
+                                        },
+                                        "LAST_CHANGED_AT": {
+                                            "type": "integer"
+                                        },
+                                        "LAST_CHANGED_BY": {
+                                            "type": "string"
+                                        },
+                                        "LOCAL_LAST_CHANGED_AT": {
+                                            "type": "integer"
+                                        },
+                                        "ORDEREDITEM": {
+                                            "type": "string"
+                                        },
+                                        "ORDERID": {
+                                            "type": "string"
+                                        },
+                                        "ORDERUUID": {
+                                            "type": "string"
+                                        },
+                                        "PRSTATUS": {
+                                            "type": "string"
+                                        },
+                                        "PURCHASEREQN": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "CLIENT",
+                                        "ORDERUUID",
+                                        "ORDERID",
+                                        "ORDEREDITEM",
+                                        "PURCHASEREQN",
+                                        "PRSTATUS",
+                                        "CREATED_AT",
+                                        "CREATED_BY",
+                                        "LAST_CHANGED_BY",
+                                        "LAST_CHANGED_AT",
+                                        "LOCAL_LAST_CHANGED_AT"
+                                    ],
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "runAfter": {
+                    "[RFC]_Call_function_in_SAP": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ParseJson"
+            },
+            "Parse_JSON_2": {
+                "inputs": {
+                    "content": "@variables('Message Content')",
+                    "schema": {
+                        "properties": {
+                            "data": {
+                                "properties": {
+                                    "createdby": {
+                                        "type": "string"
+                                    },
+                                    "date": {
+                                        "type": "string"
+                                    },
+                                    "event": {
+                                        "type": "string"
+                                    },
+                                    "ordernr": {
+                                        "type": "string"
+                                    },
+                                    "time": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "dataversion": {
+                                "type": "string"
+                            },
+                            "eventtime": {
+                                "type": "string"
+                            },
+                            "eventtype": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            },
+                            "metadataversion": {
+                                "type": "string"
+                            },
+                            "subject": {
+                                "type": "string"
+                            },
+                            "topic": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "runAfter": {
+                    "Initialize_variable": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ParseJson"
+            },
+            "[RFC]_Call_function_in_SAP": {
+                "inputs": {
+                    "body": "<ZF_RFC_ONLINESHOP_GET_ORDER xmlns=\"http://Microsoft.LobServices.Sap/2007/03/Rfc/\">\n<IM_ORDER>@{body('Parse_JSON_2')?['data']?['ordernr']}</IM_ORDER>\n</ZF_RFC_ONLINESHOP_GET_ORDER>",
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['sap']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/CallRfc",
+                    "queries": {
+                        "autoCommit": false,
+                        "rfcGroupFilter": "Z_ONLINESHOP_MSF:msf",
+                        "rfcName": "ZF_RFC_ONLINESHOP_GET_ORDER:order:Z_ONLINESHOP_MSF"
+                    }
+                },
+                "runAfter": {
+                    "Parse_JSON_2": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {
+            "$connections": {
+                "defaultValue": {},
+                "type": "Object"
+            }
+        },
+        "triggers": {
+            "When_a_message_is_received_in_a_queue_(auto-complete)": {
+                "evaluatedRecurrence": {
+                    "frequency": "Minute",
+                    "interval": 3
+                },
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['servicebus']['connectionId']"
+                        }
+                    },
+                    "method": "get",
+                    "path": "/@{encodeURIComponent(encodeURIComponent('developer103'))}/messages/head",
+                    "queries": {
+                        "queueType": "Main"
+                    }
+                },
+                "recurrence": {
+                    "frequency": "Minute",
+                    "interval": 3
+                },
+                "type": "ApiConnection"
+            }
+        }
+    },
+    "parameters": {
+        "$connections": {
+            "value": {
+                "sap": {
+                    "connectionId": "/subscriptions/22a9ba10-8328-4f21-baeb-50728288a33c/resourceGroups/Developer103/providers/Microsoft.Web/connections/sap",
+                    "connectionName": "sap",
+                    "id": "/subscriptions/22a9ba10-8328-4f21-baeb-50728288a33c/providers/Microsoft.Web/locations/northeurope/managedApis/sap"
+                },
+                "servicebus": {
+                    "connectionId": "/subscriptions/22a9ba10-8328-4f21-baeb-50728288a33c/resourceGroups/Developer103/providers/Microsoft.Web/connections/servicebus",
+                    "connectionName": "servicebus",
+                    "id": "/subscriptions/22a9ba10-8328-4f21-baeb-50728288a33c/providers/Microsoft.Web/locations/northeurope/managedApis/servicebus"
+                },
+                "teams": {
+                    "connectionId": "/subscriptions/22a9ba10-8328-4f21-baeb-50728288a33c/resourceGroups/Developer103/providers/Microsoft.Web/connections/teams",
+                    "connectionName": "teams",
+                    "id": "/subscriptions/22a9ba10-8328-4f21-baeb-50728288a33c/providers/Microsoft.Web/locations/northeurope/managedApis/teams"
+                }
+            }
+        }
+    }
+}
+```
+
+</details>
+<br>
+
+
 ## Where to next?
 
 [< Quest 1](quest1.md) - **[🏠Home](../README.md)** - [ Quest 3 >](quest3.md)

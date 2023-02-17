@@ -15,7 +15,7 @@ Then we will also call the an API from the Online Shop, that creates the actual 
 
 ## Enhance the existing Logic App with an additional call to the OData service
 
-1. If you Logic App is not yet open, go to the [Azure Portal](https://portal.azure.com/) and search for your Logic Apps, e.g. `Developer<XX>-OrderItem` and change to the **Logic app designer** view. In the "For Each" loop at the end of your flow that was created to send the Adaptive Card, click on "Add an Action"
+1. If your Logic App is not yet open, go to the [Azure Portal](https://portal.azure.com/) and search for your Logic Apps, e.g. `Developer<XX>-OrderItem` and change to the **Logic app designer** view. In the "For Each" loop at the end of your flow that was created to send the Adaptive Card, click on "Add an Action"
 
 <p align="center" width="100%">
 <img alt="AddNewAction" src="../img/student/Quest3/AddNewAction.jpg"  width="600">
