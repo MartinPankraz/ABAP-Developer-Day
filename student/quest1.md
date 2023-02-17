@@ -95,6 +95,13 @@ If not switch to this Directory, by clicking on your user, selecting **Switch di
 
 > **Note** - Sometimes it takes a long time to load the Logic Apps Designer for the first time. If this happens, just click on Refresh on your browser. 
 
+> **Note** - Please start by switching back to the "old" Canvas to ensure consistency with the following screenshots.
+
+<p align="center" width="100%">
+<img alt="Start with HTTP Trigger" src="../img/student/Quest1/ChangeBackToNewCanvas.jpg"  width="800">
+</p>
+
+
 2. Click on "+ New Step"
 
 <p align="center" width="100%">
