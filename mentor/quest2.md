@@ -8,8 +8,9 @@ The ABAP SDK will send the events towards the Event Grid Topic. These events wil
 The SAP user is part of the Event.data send by the ABAP SDK.
 
 <b>Example Advanced filter</b>
-
+<p align="center" width="100%">
 <img alt="EventSubscriptionFilter" src="../img/mentor/Quest2/EventSubscriptionFilter.jpg">
+</p>
 
 <b>Example Event Message</b>
 ```json
