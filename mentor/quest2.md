@@ -39,7 +39,7 @@ The SAP user is part of the Event.data send by the ABAP SDK.
 | URL | https://eventsfromonlineshop.northeurope-1.eventgrid.azure.net/api/events |
 | Azure Service Bus Namespace | `ServiceBusForSAPOnlineShop` |
 
->Note : There is a Event Subscription `allmessages` which will receive all events from all participants. The corresponding queues is `allmessages`.
+>Note : There is a Event Subscription `allmessages` which will receive all events from all participants. The corresponding queue is `allmessages`.
 
 ## SAP Setup
 |<!-- --> | <!-- -->   |
@@ -56,4 +56,4 @@ The SAP user is part of the Event.data send by the ABAP SDK.
 |ZREST_CONFIG | link to RFC destination |
 |ZREST_CONF_MISC | link to Interface type, EventGrid in this case |
 |ZADF_CONFIG | contains the EventGrid Access Key |
-| ZADF_EHUB_POLICY | not used for EventGrid, there is no sender policy|
+|ZADF_EHUB_POLICY | not used for EventGrid, there is no sender policy|
