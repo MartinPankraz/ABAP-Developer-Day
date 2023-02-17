@@ -4,7 +4,7 @@
 
 In this step the participants will use a predefined Azure Event Grid Topic. Each participant will need to create his personal Event Subscription which points to his Service Bus queue. The Service Bus will be the receiver of the event. In a further step, a LogicApp will read out the event for processing.
 
-The ABAP SDK will send the events towards the Event Grid Topic. These events will then be forwarded to all the Subscriptions. In order to make sure that each participants receives his own events, there is a filter based on the SAP User of the participants.
+The ABAP SDK will send the events towards the Event Grid Topic. These events will then be forwarded to all the Subscriptions. In order to make sure each participant receives his own events, there is a filter based on the SAP User of the participants.
 The SAP user is part of the Event.data send by the ABAP SDK.
 
 <b>Example Advanced filter</b>
