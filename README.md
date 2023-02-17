@@ -1,4 +1,4 @@
-# 🌌Wander across the wolds of SAP and Microsoft - Journey of an ABAP'er🪐
+# 🌌Wander across the worlds of SAP and Microsoft - Journey of an ABAP'er🪐
 
 🏗️Under Construction🚧
 
