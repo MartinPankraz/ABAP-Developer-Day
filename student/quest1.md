@@ -44,7 +44,7 @@ If not switch to this Directory, by clicking on your user, selecting **Switch di
 
 ## Provision your workflow orchestrator - Azure Logic Apps
 
-1. From the [Azure portal](https://portal.azure.com/#home), use the Search bar at the top, search for "Logic Apps" and click on the Logic Apps under Services.
+1. From the [Azure portal](https://portal.azure.com/#home), use the Search bar at the top, search for `Logic Apps` and click on the Logic Apps under Services.
 
 <p align="center" width="100%">
 <img alt="Search Logic Apps" src="../img/student/Quest1/SearchLogicApps.jpg"  width="600">
