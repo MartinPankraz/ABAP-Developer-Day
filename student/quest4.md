@@ -13,15 +13,15 @@ http://vhcals4hcs.dummy.nodomain:50000/sap/opu/odata/sap/ZUI_ONLINESHOP_MS1_O2/O
 
 > **Note** - As before we are using here HTTP and Port 50000 (not HTTPS), because we have not configured any certificates.
 
-1. Open Microsoft Excel (You can either install Office on the VM as mentioned before, or for this Quest you can also easily use Excel installed on your PC)
+1. Open **Microsoft Excel** (You can either install Office on the VM as mentioned before, or for this Quest you can also easily use Excel installed on your PC)
 
-2. From a clean Excel Worksheet, navigate to Data and select 'Get Data' -> Open From Other Sources -> From OData Feed
+2. From a clean Excel Worksheet, navigate to Data and select **Get Data** -> **Open From Other Sources** -> **From OData Feed**
 
 <p align="center" width="100%">
 <img alt="Connect to OData" src="../img/student/Quest4/ExcelOdata1.jpg"  width="600">
 </p>
 
-3. When prompted enter the URL
+3. When prompted **enter the URL**
 
 ```http
 http://vhcals4hcs.dummy.nodomain:50000/sap/opu/odata/sap/ZUI_ONLINESHOP_MS1_O2/Online_Shop
@@ -33,13 +33,13 @@ http://vhcals4hcs.dummy.nodomain:50000/sap/opu/odata/sap/ZUI_ONLINESHOP_MS1_O2/O
 
 > **Note** - you can also open this URL in a browser first to validate that you get the Ordered Items in JSON
 
-4. In order to authenticate with the SAP System, select Basic and enter your Username and Password
+4. In order to authenticate with the SAP System, select **Basic** and enter your SAP **Username** and **Password**
 
 <p align="center" width="100%">
 <img alt="Authentication" src="../img/student/Quest4/ExcelOdata3.jpg"  width="600">
 </p>
 
-5. In the preview screen you could now filter and transform the data. We will leave it as is, and just click on Load
+5. In the preview screen you could now filter and transform the data. We will leave it as is, and just click on **Load**
 
 <p align="center" width="100%">
 <img alt="Preview Data" src="../img/student/Quest4/ExcelOdata4.jpg"  width="800">
