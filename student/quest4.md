@@ -13,6 +13,8 @@ http://vhcals4hcs.dummy.nodomain:50000/sap/opu/odata/sap/ZUI_ONLINESHOP_MS1_O2/O
 
 > **Note** - As before we are using here HTTP and Port 50000 (not HTTPS), because we have not configured any certificates.
 
+You can find a video of the performed steps [here](https://youtu.be/IsJS36Ll5uU)
+
 1. Open **Microsoft Excel** (You can either install Office on the VM as mentioned before, or for this Quest you can also easily use Excel installed on your PC)
 
 2. From a clean Excel Worksheet, navigate to Data and select **Get Data** -> **Open From Other Sources** -> **From OData Feed**

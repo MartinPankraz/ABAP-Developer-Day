@@ -17,6 +17,8 @@ Our journey will start from an SAP Online Shop that allows users to choose and p
 > ```
 > </details>
 
+You can find a video of the performed steps [here](https://youtu.be/quXfEzpDp6k)
+
 ## Meet your Mentors, learn more about the journey and kick-off
 
 🌟
@@ -68,8 +70,6 @@ Approach the last quest with a bang and improve one of the most dusted and slow 
 
 Now that the order is place and a purchase requisition has been created, we might need to write an Invoice or contact the buyer. In our case we are using Microsoft Word to write this letter, but in order to fetch the correct information from the Online Shop, we create an Add-in to Word that enables the user to connect to the SAP System directly from Word and paste the content in the document itself.
 
-## Video of the scenario
-[![Quest 0]()](https://youtu.be/YMECUSK6wG0)
 
 ## Our starting point -- the SAP Online Shop
 

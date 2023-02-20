@@ -7,6 +7,8 @@
 
 We are following the official [Tutorial: Create a weather bot with Composer](https://learn.microsoft.com/composer/tutorial-create-weather-bot) -- however: instead of connecting to a Weather API, we are going to connect to our Online Store Service and retrieve additional information of a specific order.
 
+You can find a video of the performed steps [here](https://youtu.be/EIIJkA5ZHPU)
+
 ## Create an Empty Bot in Composer
 
 1. Start the **Bot Framework Composer** and click on **+ Create new** 
@@ -174,7 +176,9 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 
 > **Note** - For the order ID we user the property stored in the answer from the user stored in {user.orderID}
 
-3. To authenticate with the user **S4H_EXT**, click on **Add new** in the **Headers** section and enter **Authorization** as the key and **Basic czRoX2V4dDpXZWxjb21lMQ==** as the value.
+3. To authenticate with the user **S4H_EXT**, click on **Add new** in the **Headers** section and enter **Authorization** as the key and 
+<br />
+**Basic czRoX2V4dDpXZWxjb21lMQ==** as the value.
 
 <p align="center" width="100%">
 <img alt="Send HTTP request" src="../img/student/Quest5/EnterHeaders.jpg"  width="300">
