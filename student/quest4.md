@@ -18,6 +18,12 @@ http://vhcals4hcs.dummy.nodomain:50000/sap/opu/odata/sap/ZUI_ONLINESHOP_MS1_O2/O
 
 1. Open **Microsoft Excel** (You can either install Office on the VM as mentioned before, or for this Quest you can also easily use Excel installed on your PC)
 
+> **Note** - If you use your Excel installed on your local computer, please use this URL instead (the vhcals4hcs.dummy.nodomain requires you to have an entry in our etc/hosts file)
+```http
+http://13.81.170.205:50000/sap/opu/odata/sap/ZUI_ONLINESHOP_MS1_O2/Online_Shop 
+```
+
+
 2. From a clean Excel Worksheet, navigate to Data and select **Get Data** -> **Open From Other Sources** -> **From OData Feed**
 
 <p align="center" width="100%">

@@ -420,11 +420,7 @@ outputs('Post_adaptive_card_and_wait_for_a_response')['body']['submitActionId']
 
 ### Create Purchase Requisition
 
-If the user clicked on the button we can finally create the Purchase Requisition. For this we can use the service.
-
-```http
-Online_Shop(OrderUUID=<OrderUUID>,IsActiveEntity=true)/com.sap.gateway.srvd.zui_onlineshop_ms1.v0001.createPurchaseRequisitionItem?sap-client=100&$select=SAP__Messages
-```
+If the user clicked on the button we can finally create the Purchase Requisition. For this we can use a function from the Online Shop which creates a purchase requisition for a specific Order number / order UUID.
 
 Since this is a POST call, we also need to provide a valid X-CSRF-Token and do the required e-tag handling. 
 
@@ -434,7 +430,7 @@ Since this is a POST call, we also need to provide a valid X-CSRF-Token and do t
 <img alt="Add action in True flow" src="../img/student/Quest3/AddActionInTrue.jpg"  width="600">
 </p>
 
-2. Select Method **Get**, add the Header: **X-CSRF-Token** = **Fetch** and also provide credentials for the authentication. For the URI use:
+2. Select Method **Get**, add the Header: **X-CSRF-Token** = **Fetch** and also provide credentials for the authentication. For the URI use (if you followed the steps above you can leave the URL as is; if you made changes, you might need to adjust the OrderUUID entry):
 
 ```http
 http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui_onlineshop_ms1/0001/Online_Shop(OrderUUID=@{items('For_each_2')?['OrderUUID']},IsActiveEntity=true)

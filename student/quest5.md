@@ -12,7 +12,7 @@ We are following the official [Tutorial: Create a weather bot with Composer](htt
 
 ## Create an Empty Bot in Composer
 
-1. Start the **Bot Framework Composer** and click on **+ Create new** 
+1. The Bot Framework Composer is already installed on your VM. Start the **Bot Framework Composer** and click on **+ Create new** 
 
 <p align="center" width="100%">
 <img alt="Create Bot" src="../img/student/Quest5/CreateEmptyBot.jpg"  width="600">

@@ -188,7 +188,6 @@ If not switch to this Directory, by clicking on your user, selecting **Switch di
 <img alt="Call SAP Function" src="../img/student/Quest1/LA-CallSAPFunction.jpg"  width="600">
 </p>
 
-> **Note** - See [How to create the Logic App Content](LogicAppContent.md) for more details on how to construct the XML payload for the RFC request in Logic Apps
 
 11. From the top of the flow click on **Save** and **Run Trigger** to execute the Flow.
 
