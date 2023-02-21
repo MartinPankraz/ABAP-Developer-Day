@@ -9,7 +9,8 @@ Now we want to leverage the same OData service to build an App in the Office sui
 
 Once the app is build, you can easily create a stand-alone app and continue the app development in VS Code following the process outlined [here](https://learn.microsoft.com/office/dev/add-ins/overview/create-an-office-add-in-from-script-lab).
 
-You can find a video of the performed steps [here](https://youtu.be/20XDX44ojlQ)
+### Video
+📺 You can find a video of the performed steps [here](https://youtu.be/20XDX44ojlQ)
 
 ## Install Script-Lab add-in into Word
 

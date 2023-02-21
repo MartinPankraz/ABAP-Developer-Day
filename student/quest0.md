@@ -17,7 +17,8 @@ Our journey will start from an SAP Online Shop that allows users to choose and p
 > ```
 > </details>
 
-You can find a video of the performed steps [here](https://youtu.be/quXfEzpDp6k)
+### Video
+📺 You can find a video of the performed steps [here](https://youtu.be/quXfEzpDp6k)
 
 ## Meet your Mentors, learn more about the journey and kick-off
 

@@ -7,7 +7,8 @@
 
 We are following the official [Tutorial: Create a weather bot with Composer](https://learn.microsoft.com/composer/tutorial-create-weather-bot) -- however: instead of connecting to a Weather API, we are going to connect to our Online Store Service and retrieve additional information of a specific order.
 
-You can find a video of the performed steps [here](https://youtu.be/EIIJkA5ZHPU)
+### Video
+📺 You can find a video of the performed steps [here](https://youtu.be/EIIJkA5ZHPU)
 
 ## Create an Empty Bot in Composer
 

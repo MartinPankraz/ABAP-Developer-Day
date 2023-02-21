@@ -13,7 +13,8 @@ Instead of doing this again via an RFC call, we will now switch to OData. At fir
 
 Then we will also call the an API from the Online Shop, that creates the actual Purchase Requisition in the SAP System.
 
-You can find a video of the performed steps [here](https://youtu.be/zYxu7yR7DAY)
+### Video
+📺 You can find a video of the performed steps [here](https://youtu.be/zYxu7yR7DAY)
 
 ## Enhance the existing Logic App with an additional call to the OData service
 
