@@ -13,21 +13,24 @@ Instead of doing this again via an RFC call, we will now switch to OData. At fir
 
 Then we will also call the an API from the Online Shop, that creates the actual Purchase Requisition in the SAP System.
 
+### Video
+📺 You can find a video of the performed steps [here](https://youtu.be/zYxu7yR7DAY)
+
 ## Enhance the existing Logic App with an additional call to the OData service
 
-1. If your Logic App is not yet open, go to the [Azure Portal](https://portal.azure.com/) and search for your Logic Apps, e.g. `Developer<XX>-OrderItem` and change to the **Logic app designer** view. In the "For Each" loop at the end of your flow that was created to send the Adaptive Card, click on "Add an Action"
+1. If your Logic App is not yet open, go to the [Azure Portal](https://portal.azure.com/) and search for your Logic Apps, e.g. **Developer<XX>-OrderItem** and change to the **Logic app designer** view. In the **For Each** loop at the end of your flow that was created to send the Adaptive Card, click on **Add an Action**
 
 <p align="center" width="100%">
 <img alt="AddNewAction" src="../img/student/Quest3/AddNewAction.jpg"  width="600">
 </p>
 
-2. Search for HTTP and add the "HTTP" Action
+2. Search for **HTTP** and add the "HTTP" Action
 
 <p align="center" width="100%">
 <img alt="AddNewAction" src="../img/student/Quest3/AddHttp.jpg"  width="600">
 </p>
 
-3. The HTTP action needs to be executed before the Adaptive Card is sent to Teams. So, before providing the required values to the HTTP action, change the position of the "HTTP Action and the Post adaptive card in a chat or channel" action by dragging and dropping the Teams action under the HTTP action.
+3. The HTTP action needs to be executed before the Adaptive Card is sent to Teams. So, before providing the required values to the HTTP action, *change the position* of the **HTTP Action and the Post adaptive card in a chat or channel** action by dragging and dropping the Teams action under the HTTP action.
 
 <p align="center" width="100%">
 <img alt="Change Position" src="../img/student/Quest3/ChangePosition.jpg"  width="600">
@@ -45,31 +48,31 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 <img alt="Copy HTTP URL" src="../img/student/Quest3/InitialURI.jpg"  width="600">
 </p>
 
-5. Since we always want to look for the Order ID that was previously fetched from the RFC, replace the placeholder `ORDERID` with the variable from the previous RFC call.
+5. Since we always want to look for the Order ID that was previously fetched from the RFC, replace the placeholder **ORDERID** with the variable from the previous RFC call.
 
 <p align="center" width="100%">
 <img alt="Use Order ID" src="../img/student/Quest3/UseOrderID.jpg"  width="600">
 </p>
 
-6. Click on "Add new parameter" and select "Authentication"
+6. Click on **Add new parameter** and select **Authentication**
 
 <p align="center" width="100%">
 <img alt="Use Order ID" src="../img/student/Quest3/AddAuthentication.jpg"  width="600">
 </p>
 
-7. Select Authentication Type Basic and enter the username and password for the SAP System, `Developer<XX> / <SAP Password>`
+7. Select Authentication Type **Basic** and enter the username and password for the SAP System, **Developer<XX>** / **\<SAP Password>**
 
 <p align="center" width="100%">
 <img alt="Enter Authentication" src="../img/student/Quest3/EnterpriseAuthentication.jpg"  width="600">
 </p>
 
-8. Similar like with the RFC call we can now prase the JSON response, by adding a new action after the HTTP Call
+8. Similar like with the RFC call we can now parse the JSON response, by **adding a new action** after the HTTP Call
 
 <p align="center" width="100%">
 <img alt="Use Order ID" src="../img/student/Quest3/AddActionToParse.jpg"  width="600">
 </p>
 
-9. Using the Parse Json Function
+9. Using the **Parse Json** Function
 
 <p align="center" width="100%">
 <img alt="Use Order ID" src="../img/student/Quest3/ParseJson.jpg"  width="600">
@@ -219,7 +222,7 @@ JSON code block
 
 > **Note** - Like in Quest 1, you could have generated this schema by providing a sample HTTP request.
 
-11. and selecting the Body form the previous HTTP Call as Content
+11. and selecting the **Body** form the previous HTTP Call as **Content**
 
 <p align="center" width="100%">
 <img alt="Input HTTP Body" src="../img/student/Quest3/ParseHttpBody.jpg"  width="600">
@@ -227,22 +230,22 @@ JSON code block
 
 12. With this information, expand the **Post adaptive card in chat or channel** action and make the new information like Description and Quantity also available in the Adaptive Card.
 
-* Quantity -> quantity
-* Description Text -> DescriptionText
+* Quantity -> **quantity**
+* Description Text -> **DescriptionText**
 
 <p align="center" width="100%">
 <img alt="Use Order ID" src="../img/student/Quest3/AddQuantity%2BDescription.jpg"  width="600">
 </p>
 
-> **Note** - Since the response from the OData call is an Array, Logic Apps automatically converted the Flow into another `For each` flow. In our case the results will most likely always be single items, but it is great to see that Logic Apps follows the schema and would be ready for arrays. In a productive implementation, you would probably also not do an RFC call first, and then an OData call. This is just to explain the different options how you can connect to your SAP System.
+> **Note** - Since the response from the OData call is an Array, Logic Apps automatically converted the Flow into another **For each** flow. In our case the results will most likely always be single items, but it is great to see that Logic Apps follows the schema and would be ready for arrays. In a productive implementation, you would probably also not do an RFC call first, and then an OData call. This is just to explain the different options how you can connect to your SAP System.
 
-13. The OData services also returned the Order UUID. Make use of that and add a URL to the View Button in the Adaptive card. In the "actions" section at the end of the adaptive card, replace the place holder URL with the link below:
+13. The OData services also returned the Order UUID. Make use of that and **add a URL** to the View Button in the Adaptive card. In the **Actions** section at the end of the adaptive card, replace the place holder URL with the link below:
 
 ```http
 https://vhcals4hcs.dummy.nodomain:44301/sap/bc/adt/businessservices/odatav4/feap?feapParams=C%C2%87u%C2%84C%C2%83%C2%84%C2%89C%C2%83xu%C2%88uHC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87Es%C2%83HC%C2%87%C2%86%C2%8AxC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87ECDDDEC77c%C2%82%C2%80%7D%C2%82ysg%7C%C2%83%C2%84777777ni%5Dscb%60%5DbYg%5CcdsagE77DDDE77ni%5Dscb%60%5DbYg%5CcdsagEscH&sap-ui-language=EN&sap-client=100#/Online_Shop(OrderUUID=ORDERUUID-PLACEHOLDER,IsActiveEntity=true)
 ```
 
-Then also make sure to update the Placeholder in the URL (ORDERUUID-PLACEHOLDER) with the dynamic value from the previous HTTP call.
+Then also make sure to update the Placeholder in the URL (**ORDERUUID-PLACEHOLDER**) with the dynamic value from the previous HTTP call.
 
 <p align="center" width="100%">
 <img alt="Replace URL" src="../img/student/Quest3/ReplaceURL.jpg"  width="600">
@@ -261,13 +264,13 @@ In the next step we want to enable the user to create a purchase requisition dir
 
 The creation happens via a POST message. POSTing data to SAP requires a few steps (e.g. you need to fetch a X-CSRF Token and handle the ETag).
 
-1. Since we now need to wait for a response, we switch to a different Action. We will first addt his new action and then alter delete the existing Teams action. Under the existing Teams action, click on "Add an action".
+1. Since we now need to wait for a response, we switch to a different Action. We will first add his new action and then alter delete the existing Teams action. Under the existing Teams action, click on **Add an action**.
 
 <p align="center" width="100%">
 <img alt="Add additional action" src="../img/student/Quest3/AddNewAction.jpg"  width="600">
 </p>
 
-2. Search for "Post adaptive card and wait" and select the new Teams Action
+2. Search for **Post adaptive card and wait** and select the new Teams Action
 
 <p align="center" width="100%">
 <img alt="Search for new action" src="../img/student/Quest3/SearchForPostAndWait.jpg"  width="600">
@@ -279,7 +282,7 @@ The creation happens via a POST message. POSTing data to SAP requires a few step
 <img alt="Enter values" src="../img/student/Quest3/SelectChannel.jpg"  width="600">
 </p>
 
-4. For the message copy and paste the message from the previous Teams action and add this section under the View actions section:
+4. For the message **copy and paste** the message from the previous Teams action and add this section under the View actions section:
 
 ```json
 {
@@ -293,7 +296,7 @@ The creation happens via a POST message. POSTing data to SAP requires a few step
 <img alt="Delete Action" src="../img/student/Quest3/NewAction.jpg"  width="600">
 </p>
 
-> **Note** - make sure that you start with the first "," so that the results are as shown in the screenshot.
+> **Note** - make sure that you start with the first **","** so that the results are as shown in the screenshot.
 
 > **Note** - if you didn't rename anything, this is the correct content
 
@@ -379,7 +382,7 @@ AdaptiveCard code block
 
 
 
-5. With this we can delete the first Action to send an Adaptive Card to Teams.
+5. With this we can **delete** the first Action to send an Adaptive Card to Teams.
 
 <p align="center" width="100%">
 <img alt="Delete Action" src="../img/student/Quest3/DeleteAction.jpg"  width="600">
@@ -387,11 +390,11 @@ AdaptiveCard code block
   
 ### Wait for input
 
-1. Now we have to react to the answer from the user. If the User clicked on the "Create Purchase Requisition" button, we need to call the OData Service of the Online Shop to create the Purchase Requisition. 
+1. Now we have to react to the answer from the user. If the User clicked on the **Create Purchase Requisition** button, we need to call the OData Service of the Online Shop to create the Purchase Requisition. 
 
 Under the **Post adaptive card and wait for a response** action, click on **Add an action**. Search for and select **Control** and select the **Condition** action.
 
-If there is an action, we want to Check if it was our Create Purchase Requisition Button and only then execute next steps.
+If there is an action, we want to check if it was our Create Purchase Requisition Button and only then execute next steps.
 
 <p align="center" width="100%">
 <img alt="Switch" src="../img/student/Quest3/SwitchControl.jpg"  width="600">
@@ -407,7 +410,7 @@ outputs('Post_adaptive_card_and_wait_for_a_response')['body']['submitActionId']
 <img alt="Switch" src="../img/student/Quest3/ConditionEnterValue.jpg"  width="600">
 </p>
 
-3. and `CreatePR` for the **Choose a value** 
+3. and **CreatePR** for the **Choose a value** 
 
 <p align="center" width="100%">
 <img alt="Switch" src="../img/student/Quest3/CreatePR-Value.jpg"  width="600">
@@ -425,13 +428,13 @@ Online_Shop(OrderUUID=<OrderUUID>,IsActiveEntity=true)/com.sap.gateway.srvd.zui_
 
 Since this is a POST call, we also need to provide a valid X-CSRF-Token and do the required e-tag handling. 
 
-1. Let's create another "HTTP" Action in the "True" flow which calls the OData service for a specific OrderUUID and fetches the required X-CSRF token
+1. Let's create another **HTTP** Action in the **True** flow which calls the OData service for a specific OrderUUID and fetches the required X-CSRF token
 
 <p align="center" width="100%">
 <img alt="Add action in True flow" src="../img/student/Quest3/AddActionInTrue.jpg"  width="600">
 </p>
 
-2. Select Method Get, add the Header: X-CSRF-Token = Fetch and also provide credentials for the authentication. For the URI use:
+2. Select Method **Get**, add the Header: **X-CSRF-Token** = **Fetch** and also provide credentials for the authentication. For the URI use:
 
 ```http
 http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui_onlineshop_ms1/0001/Online_Shop(OrderUUID=@{items('For_each_2')?['OrderUUID']},IsActiveEntity=true)
@@ -552,7 +555,7 @@ JSON code block
 
 
 
-4. Now we are ready to make the action call to create the Purchase Requisition. Create another HTTP Action and use the following values:
+4. Now we are ready to make the action call to create the Purchase Requisition. Create another **HTTP Action** and use the following values:
 
 <br>
 <div style="margin-left: auto; margin-right: auto; width: 50%">
@@ -568,7 +571,7 @@ JSON code block
 
 <br>
 
-* If- Match
+* **If-Match**
 
 ```json
 body('Parse_JSON_4')?['@odata.etag']
@@ -578,7 +581,7 @@ body('Parse_JSON_4')?['@odata.etag']
 <img alt="Add If Match" src="../img/student/Quest3/IfMatch.jpg"  width="600">
 </p>
 
-* OrderUUID: Take the value from **Parse JSON 4**
+* **OrderUUID**: Take the value from **Parse JSON 4**
 
 <p align="center" width="100%">
 <img alt="Add Order UUID" src="../img/student/Quest3/OrderUUID.jpg"  width="600">
@@ -588,7 +591,7 @@ body('Parse_JSON_4')?['@odata.etag']
 http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui_onlineshop_ms1/0001/Online_Shop(OrderUUID=@{body('Parse_JSON_4')?['OrderUUID']},IsActiveEntity=true)/com.sap.gateway.srvd.zui_onlineshop_ms1.v0001.createPurchaseRequisitionItem?sap-client=100&$select=SAP__Messages
 ```
 
-* X-CSRF-Token:
+* **X-CSRF-Token**:
 
 ```json
 outputs('HTTP_2')['headers']?['x-csrf-token']
@@ -598,7 +601,7 @@ outputs('HTTP_2')['headers']?['x-csrf-token']
 <img alt="Add X-CSRF-Token" src="../img/student/Quest3/X-CSRF-Token.jpg"  width="600">
 </p>
 
-* Cookie:
+* **Cookie**:
 
 ```json
 replace(outputs('HTTP_2')['headers']?['Set-Cookie'], ',', ';')
@@ -614,7 +617,7 @@ The result should look like this:
 <img alt="Switch" src="../img/student/Quest3/MakePurchaseRequisition.jpg"  width="600">
 </p>
 
-Now make sure to save the Logic App!
+Make sure to **save** the Logic App!
 
 ### Test the new flow
 
@@ -630,7 +633,7 @@ Now make sure to save the Logic App!
 <img alt="Teams waiting for approval" src="../img/student/Quest3/TeamsWaitingForApproval.jpg"  width="600">
 </p>
 
-3. A click on View should open up the Order in the Online Store in a separate Window. When you click on "Create Purchase Requisition" the Adaptive Card should change and in the Online Shop you should now see a Purchase Requisition number for your order
+3. A click on **View** should open up the Order in the Online Store in a separate Window. When you click on **Create Purchase Requisition** the Adaptive Card should change and in the Online Shop you should now see a Purchase Requisition number for your order
 
 <p align="center" width="100%">
 <img alt="PR created" src="../img/student/Quest3/PRCreated.jpg"  width="600">
