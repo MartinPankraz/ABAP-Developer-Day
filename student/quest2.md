@@ -9,15 +9,18 @@ Now that we have the Logic App in place to fetch data from the SAP system and cr
 
 For this the SAP System is enhanced using the Azure ABAP SDK to react on the custom event triggered by the Online Shop. This event will be sent out by the ABAP SDK for Azure and sent to an Azure Service Bus. From there our Logic App from Quest 1 can be triggered.
 
+### Video
+📺 You can find a video of the performed steps [here](https://youtu.be/mWGLkkER5cM)
+
 ## Create a Queue in Azure Service Bus
 
-1. Search from the [Azure Portal](https://portal.azure.com/) for `ServiceBusForSAPOnlineShop` and select the Service Bus
+1. Search from the [Azure Portal](https://portal.azure.com/) for **ServiceBusForSAPOnlineShop** and select the Service Bus
 
 <p align="center" width="100%">
 <img alt="Select Service Bus" src="../img/student/Quest2/SelectServiceBus.jpg"  width="600">
 </p>
 
-2. Create a new Queue by clicking on "+ Queue" and enter a Queue name, like Developer\<XX> and click on **Create**
+2. Create a new Queue by clicking on **+ Queue** and enter a Queue name, like **Developer\<XX>** and click on **Create**
 
 <p align="center" width="100%">
 <img alt="Create Queue" src="../img/student/Quest2/CreateQueue.jpg"  width="800">
@@ -31,43 +34,43 @@ For this the SAP System is enhanced using the Azure ABAP SDK to react on the cus
 
 ## Create a Event Subscription in Azure Event Grid
 
-1. Similar like before, in the Azure Portal search for EventsFromOnlineShop and select the Event Grid
+1. Similar like before, in the Azure Portal search for **EventsFromOnlineShop** and select the **Event Grid**
 
 <p align="center" width="100%">
 <img alt="Select Event Grid" src="../img/student/Quest2/SelectEventGrid.jpg"  width="600">
 </p>
 
-2. Click on "+ Event Subscription" and create a new subscription for the Event Grid
+2. Click on **+ Event Subscription** and create a new subscription for the Event Grid
 
 <p align="center" width="100%">
 <img alt="Create Event Grid Subscription" src="../img/student/Quest2/CreateEventSubscription.jpg"  width="800">
 </p>
 
-3. Start entering the details like, subscription name (`Developer<XX>Subscription`) and select **Azure Service Bus Queue** as the Endpoint Type. 
+3. Start entering the details like, subscription name (**Developer<XX>Subscription**) and select **Azure Service Bus Queue** as the Endpoint Type. 
 
 <p align="center" width="100%">
 <img alt="Create Event Grid Subscription Details" src="../img/student/Quest2/EnterSubscriptionDetails.jpg"  width="600">
 </p>
 
-4. Click on "Select an endpoint" and make sure to select the Service Bus Queue for your Developer\<XX> previous created. Then click on "Confirm Selection". 
+4. Click on **Select an endpoint** and make sure to select the Service Bus Queue for your Developer\<XX> previous created. Then click on **Confirm Selection**. 
 
 <p align="center" width="100%">
 <img alt="Select Endpoint" src="../img/student/Quest2/SelectEndpoint.jpg"  width="800">
 </p>
 
-5. Click on the Filter tab and click on "Add new filter"
+5. Click on the **Filter** tab and click on **Add new filter**
 
 <p align="center" width="100%">
 <img alt="Add filter" src="../img/student/Quest2/AddFilter.jpg"  width="600">
 </p>
 
-6. For the filter, enter "data.createdby", select "Contains ins" and click "Add new values"
+6. For the filter, enter **data.createdby**, select **Contains ins** and click **Add new values**
 
 <p align="center" width="100%">
 <img alt="Enter filter information" src="../img/student/Quest2/EnterFilters.jpg"  width="600">
 </p>
 
-7) Enter your SAP user, e.g. Developer\<XX> and click on Create
+7) Enter your SAP user, e.g. **Developer\<XX>** and click on **Create**
 
 <p align="center" width="100%">
 <img alt="Enter Value and click on create" src="../img/student/Quest2/ValueAndCreate.jpg"  width="600">
@@ -77,13 +80,13 @@ For this the SAP System is enhanced using the Azure ABAP SDK to react on the cus
 
 Now events from the SAP system should be sent to the Service Bus Queue whenever a new Order is created in the Online Shop. Head over to the [Online Shop](https://vhcals4hcs.dummy.nodomain:44301/sap/bc/adt/businessservices/odatav4/feap?feapParams=C%C2%87u%C2%84C%C2%83%C2%84%C2%89C%C2%83xu%C2%88uHC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87Es%C2%83HC%C2%87%C2%86%C2%8AxC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87ECDDDEC77c%C2%82%C2%80%7D%C2%82ysg%7C%C2%83%C2%84777777ni%5Dscb%60%5DbYg%5CcdsagE77DDDE77ni%5Dscb%60%5DbYg%5CcdsagEscH&sap-ui-language=EN&sap-client=100) create a new Order and check for incoming events.
 
-The easiest way is to search for `EventsFromOnlineShop` and select your Event Subscription (e.g. Developer\<XX>Subscription) from the bottom of the page.
+The easiest way is to search for **EventsFromOnlineShop** and select your Event Subscription (e.g. **Developer\<XX>Subscription**) from the bottom of the page.
 
 <p align="center" width="100%">
 <img alt="Navigate to Event Subscription" src="../img/student/Quest2/NavigateToEventSubscription.jpg"  width="800">
 </p>
 
-if the event is not yet shown, click on the Service Bus Queue at the bottom 
+if the event is not yet shown, click on your Service Bus Queue (e.g. **Developer\<XX>** at the bottom 
 
 <p align="center" width="100%">
 <img alt="Incoming Events" src="../img/student/Quest2/FirstIncomingEvent.jpg"  width="800">
@@ -97,15 +100,15 @@ Now you can peek in the Service Bus Queue by selecting **Service Bus Explorer** 
 
 ## Connect the event to our Logic App
 
-1. Now we need to change the configuration of our Logic App to react to incoming events in the Service Bus Queue. Open the Logic App created in Quest 1 and delete the first Trigger / Action (When a HTTP request is received)
+1. Now we need to change the configuration of our Logic App to react to incoming events in the Service Bus Queue. Open the Logic App created in Quest 1 and **delete** the first Trigger / Action (**When a HTTP request is received**)
 
 <p align="center" width="100%">
 <img alt="Delete the first action" src="../img/student/Quest2/LogicAppDesigner.jpg"  width="800">
 </p>
 
-> **Note**: An easy way to navigate back to your Logic App is to search for `Developer<XX>-OrderItem` in the Search bar on the top and then selecting the **Logic app designer** view in the navigation on the left.
+> **Note**: An easy way to navigate back to your Logic App is to search for **Developer<XX>-OrderItem** in the Search bar on the top and then selecting the **Logic app designer** view in the navigation on the left.
 
-2. Search for "Service Bus" and select the new Trigger action "Service Bus"
+2. Search for **Service Bus** and select the new Trigger action **Service Bus**
 
 <p align="center" width="100%">
 <img alt="Search Service Bus" src="../img/student/Quest2/SearchServiceBus.jpg"  width="600">
@@ -117,7 +120,7 @@ Now you can peek in the Service Bus Queue by selecting **Service Bus Explorer** 
 <img alt="When a message is received" src="../img/student/Quest2/WhenAMessgeIsReceived.jpg"  width="600">
 </p>
 
-4. Enter a name and the Connecting string from the Service Bus Queue. Click on Create
+4. Enter a name (e.g. **Trigger from Online Shop**) and the Connecting string (see below) from the Service Bus Queue. Click on **Create**
 
 ```http
 Endpoint=sb://servicebusforsaponlineshop.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=cIcJZtV87fyvpldm78OVcABI8LSw7QxRI+ASbCrll/w=
@@ -133,7 +136,7 @@ Endpoint=sb://servicebusforsaponlineshop.servicebus.windows.net/;SharedAccessKey
 <img alt="Copy connection string" src="../img/student/Quest2/CopyConnectionString.jpg"  width="800">
 </p>
 
-5. Select the Queue name that you previously created.
+5. Select the Queue name that you previously created (e.g. **developer\<xx>**).
 
 <p align="center" width="100%">
 <img alt="Select Queue" src="../img/student/Quest2/SelectQueueName.jpg"  width="600">
@@ -145,13 +148,13 @@ Endpoint=sb://servicebusforsaponlineshop.servicebus.windows.net/;SharedAccessKey
 <img alt="Add action" src="../img/student/Quest2/AddAnotherAction.jpg"  width="600">
 </p>
 
-7. Search for `Initialize variable` and add **Initialize Variable**
+7. Search for **Initialize variable** and add **Initialize Variable**
 
 <p align="center" width="100%">
 <img alt="Initialize Variable" src="../img/student/Quest2/InitalizeVariable.jpg"  width="500">
 </p>
 
-8. Provide a Name, e.g. `Message Content` and for the vlaue use the **Content** from the incoming Service Bus request. Then make sure to change the type from Boolean to **String**
+8. Provide a Name, e.g. **Message Content** and for the value use the **Content** from the incoming Service Bus request. Then make sure to change the type from Boolean to **String**
 
 <p align="center" width="100%">
 <img alt="Set message content" src="../img/student/Quest2/SetMessageContent.jpg"  width="800">
@@ -163,7 +166,7 @@ Endpoint=sb://servicebusforsaponlineshop.servicebus.windows.net/;SharedAccessKey
 <img alt="Select Parse JSON structure" src="../img/student/Quest2/ParseJson.jpg"  width="400">
 </p>
 
-10. Use the previously initialized variable and use the Schema from below.
+10. Use the previously initialized variable (e.g. **Message Content**) and use the Schema from below.
 
 <p align="center" width="100%">
 <img alt="Enter Schema" src="../img/student/Quest2/EnterSchema.jpg"  width="600">
@@ -221,7 +224,7 @@ JSON schema code block
 ```
 
 
-11. In the next step to call the RFC, replace the hard-coded order Nr with the `ordernr` field from the parsed message body. 
+11. In the next step to call the RFC, replace the hard-coded order Nr with the **ordernr** field from the parsed message body. 
 
 <p align="center" width="100%">
 <img alt="Enter Order NR" src="../img/student/Quest2/EnterOrderNr.jpg"  width="800">
@@ -233,7 +236,7 @@ JSON schema code block
 <img alt="See more" src="../img/student/Quest2/ParseJson-SeeMore.jpg"  width="800">
 </p>
 
-12. Click on Save to save the Logic Apps
+12. Click on **Save** to save the Logic Apps
 
 ### Test it!
 
@@ -243,7 +246,7 @@ JSON schema code block
 <img alt="Enter Order NR" src="../img/student/Quest2/OnlineShopCreate.jpg"  width="600">
 </p>
 
-2. Fill in the required properties and click on Create
+2. Fill in the required properties and click on **Create**
 
 <p align="center" width="100%">
 <img alt="Create Order" src="../img/student/Quest2/CreateOrder.jpg"  width="600">
@@ -255,9 +258,11 @@ JSON schema code block
 <img alt="Adaptive Card" src="../img/student/Quest2/AdaptiveCard.jpg"  width="600">
 </p>
 
+> **Note**: Sometimes it can take a minute before the adaptive card shows up. Feel free to check the incoming event like in the Test before or check the behind the scenes from below. 
+
 #### Behind the scene
 
-1. When you go back to your the Azure Event Grid Topic (search for EventsFromOnlineShop), you can see the Event coming via the ABAP SDK for Azure when a new Order is crated in the Online Shop. At the bottom you can also see the Subscription, that you had created for this event. 
+1. When you go back to your the Azure Event Grid Topic (search for **EventsFromOnlineShop**), you can see the Event coming via the ABAP SDK for Azure when a new Order is crated in the Online Shop. At the bottom you can also see the Subscription, that you had created for this event. 
 
 <p align="center" width="100%">
 <img alt="Adaptive Card" src="../img/student/Quest2/EventGridCheckEvent.jpg"  width="600">
@@ -282,6 +287,272 @@ JSON schema code block
 <p align="center" width="100%">
 <img alt="Adaptive Card" src="../img/student/Quest2/LogicAppRunHistory.jpg"  width="600">
 </p>
+
+
+<br>
+<details><summary><strong>⤵️Block for the full Logic App Code for Quest 2</strong></summary>
+
+```json
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "For_each": {
+                "actions": {
+                    "Post_adaptive_card_in_a_chat_or_channel": {
+                        "inputs": {
+                            "body": {
+                                "messageBody": "{\n    \"type\": \"AdaptiveCard\",\n    \"body\": [\n        {\n            \"type\": \"TextBlock\",\n            \"size\": \"Medium\",\n            \"weight\": \"Bolder\",\n            \"text\": \"New Order has been placed in the Online Shop\"\n        },\n        {\n            \"type\": \"ColumnSet\",\n            \"columns\": [\n                {\n                    \"type\": \"Column\",\n                    \"items\": [\n                        {\n                            \"type\": \"TextBlock\",\n                            \"weight\": \"Bolder\",\n                            \"text\": \"Hi, \",\n                            \"wrap\": true\n                        }\n                    ],\n                    \"width\": \"stretch\"\n                }\n            ]\n        },\n        {\n            \"type\": \"TextBlock\",\n            \"text\": \"A new order has been place in the Online Shop URL. Please review the provided information. \",\n            \"wrap\": true\n        },\n        {\n            \"type\": \"FactSet\",\n            \"facts\": [\n                {\n                    \"title\": \"Order ID\",\n                    \"value\": \"@{items('For_each')?['ORDERID']}\"\n                },\n                {\n                    \"title\": \"Status Purchase Requisition\",\n                    \"value\": \"@{items('For_each')?['PRSTATUS']}\"\n                },\n                {\n                    \"title\": \"Ordered Items\",\n                    \"value\": \"@{items('For_each')?['ORDEREDITEM']}\"\n                },\n                {\n                    \"title\": \"Quantity\",\n                    \"value\": \"${value}\"\n                },\n                {\n                    \"title\": \"Description Text: \",\n                    \"value\": \"${value}\"\n                },\n                {\n                    \"title\": \"Purchase Requisition: \",\n                    \"value\": \"@{items('For_each')?['PURCHASEREQN']}\"\n                }\n            ]\n        }\n    ],\n    \"actions\": [\n        {\n            \"type\": \"Action.OpenUrl\",\n            \"title\": \"View\",\n            \"url\": \"URL\"\n        }\n    ],\n    \"$schema\": \"http://adaptivecards.io/schemas/adaptive-card.json\",\n    \"version\": \"1.3\"\n}",
+                                "recipient": {
+                                    "channelId": "19:a38680470d95481685c064f36a146e24@thread.tacv2",
+                                    "groupId": "c1eedb2a-3a35-4f0e-98e3-898c2d5e907c"
+                                }
+                            },
+                            "host": {
+                                "connection": {
+                                    "name": "@parameters('$connections')['teams']['connectionId']"
+                                }
+                            },
+                            "method": "post",
+                            "path": "/v1.0/teams/conversation/adaptivecard/poster/Flow bot/location/@{encodeURIComponent('Channel')}"
+                        },
+                        "runAfter": {},
+                        "type": "ApiConnection"
+                    }
+                },
+                "foreach": "@body('Parse_JSON')?['EM_ORDER']",
+                "runAfter": {
+                    "Parse_JSON": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Foreach"
+            },
+            "Initialize_variable": {
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "Message Content",
+                            "type": "string",
+                            "value": "@base64ToString(triggerBody()?['ContentData'])"
+                        }
+                    ]
+                },
+                "runAfter": {},
+                "type": "InitializeVariable"
+            },
+            "Parse_JSON": {
+                "inputs": {
+                    "content": "@body('[RFC]_Call_function_in_SAP')?['JsonResponse']",
+                    "schema": {
+                        "properties": {
+                            "EM_ORDER": {
+                                "items": {
+                                    "properties": {
+                                        "CLIENT": {
+                                            "type": "string"
+                                        },
+                                        "CREATED_AT": {
+                                            "type": "integer"
+                                        },
+                                        "CREATED_BY": {
+                                            "type": "string"
+                                        },
+                                        "LAST_CHANGED_AT": {
+                                            "type": "integer"
+                                        },
+                                        "LAST_CHANGED_BY": {
+                                            "type": "string"
+                                        },
+                                        "LOCAL_LAST_CHANGED_AT": {
+                                            "type": "integer"
+                                        },
+                                        "ORDEREDITEM": {
+                                            "type": "string"
+                                        },
+                                        "ORDERID": {
+                                            "type": "string"
+                                        },
+                                        "ORDERUUID": {
+                                            "type": "string"
+                                        },
+                                        "PRSTATUS": {
+                                            "type": "string"
+                                        },
+                                        "PURCHASEREQN": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "CLIENT",
+                                        "ORDERUUID",
+                                        "ORDERID",
+                                        "ORDEREDITEM",
+                                        "PURCHASEREQN",
+                                        "PRSTATUS",
+                                        "CREATED_AT",
+                                        "CREATED_BY",
+                                        "LAST_CHANGED_BY",
+                                        "LAST_CHANGED_AT",
+                                        "LOCAL_LAST_CHANGED_AT"
+                                    ],
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "runAfter": {
+                    "[RFC]_Call_function_in_SAP": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ParseJson"
+            },
+            "Parse_JSON_2": {
+                "inputs": {
+                    "content": "@variables('Message Content')",
+                    "schema": {
+                        "properties": {
+                            "data": {
+                                "properties": {
+                                    "createdby": {
+                                        "type": "string"
+                                    },
+                                    "date": {
+                                        "type": "string"
+                                    },
+                                    "event": {
+                                        "type": "string"
+                                    },
+                                    "ordernr": {
+                                        "type": "string"
+                                    },
+                                    "time": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "dataversion": {
+                                "type": "string"
+                            },
+                            "eventtime": {
+                                "type": "string"
+                            },
+                            "eventtype": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            },
+                            "metadataversion": {
+                                "type": "string"
+                            },
+                            "subject": {
+                                "type": "string"
+                            },
+                            "topic": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "runAfter": {
+                    "Initialize_variable": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ParseJson"
+            },
+            "[RFC]_Call_function_in_SAP": {
+                "inputs": {
+                    "body": "<ZF_RFC_ONLINESHOP_GET_ORDER xmlns=\"http://Microsoft.LobServices.Sap/2007/03/Rfc/\">\n<IM_ORDER>@{body('Parse_JSON_2')?['data']?['ordernr']}</IM_ORDER>\n</ZF_RFC_ONLINESHOP_GET_ORDER>",
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['sap']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/CallRfc",
+                    "queries": {
+                        "autoCommit": false,
+                        "rfcGroupFilter": "Z_ONLINESHOP_MSF:msf",
+                        "rfcName": "ZF_RFC_ONLINESHOP_GET_ORDER:order:Z_ONLINESHOP_MSF"
+                    }
+                },
+                "runAfter": {
+                    "Parse_JSON_2": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {
+            "$connections": {
+                "defaultValue": {},
+                "type": "Object"
+            }
+        },
+        "triggers": {
+            "When_a_message_is_received_in_a_queue_(auto-complete)": {
+                "evaluatedRecurrence": {
+                    "frequency": "Minute",
+                    "interval": 3
+                },
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['servicebus']['connectionId']"
+                        }
+                    },
+                    "method": "get",
+                    "path": "/@{encodeURIComponent(encodeURIComponent('developer103'))}/messages/head",
+                    "queries": {
+                        "queueType": "Main"
+                    }
+                },
+                "recurrence": {
+                    "frequency": "Minute",
+                    "interval": 3
+                },
+                "type": "ApiConnection"
+            }
+        }
+    },
+    "parameters": {
+        "$connections": {
+            "value": {
+                "sap": {
+                    "connectionId": "/subscriptions/22a9ba10-8328-4f21-baeb-50728288a33c/resourceGroups/Developer103/providers/Microsoft.Web/connections/sap",
+                    "connectionName": "sap",
+                    "id": "/subscriptions/22a9ba10-8328-4f21-baeb-50728288a33c/providers/Microsoft.Web/locations/northeurope/managedApis/sap"
+                },
+                "servicebus": {
+                    "connectionId": "/subscriptions/22a9ba10-8328-4f21-baeb-50728288a33c/resourceGroups/Developer103/providers/Microsoft.Web/connections/servicebus",
+                    "connectionName": "servicebus",
+                    "id": "/subscriptions/22a9ba10-8328-4f21-baeb-50728288a33c/providers/Microsoft.Web/locations/northeurope/managedApis/servicebus"
+                },
+                "teams": {
+                    "connectionId": "/subscriptions/22a9ba10-8328-4f21-baeb-50728288a33c/resourceGroups/Developer103/providers/Microsoft.Web/connections/teams",
+                    "connectionName": "teams",
+                    "id": "/subscriptions/22a9ba10-8328-4f21-baeb-50728288a33c/providers/Microsoft.Web/locations/northeurope/managedApis/teams"
+                }
+            }
+        }
+    }
+}
+```
+
+</details>
+<br>
+
 
 ## Where to next?
 
