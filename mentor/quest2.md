@@ -47,6 +47,7 @@ The SAP user is part of the Event.data send by the ABAP SDK.
 | RFC Destination for Azure Event Grid Topic | `AzEGTOrderEventsASDK00` |
 | ABAP SDK Interface ID | `AZEGT_P00`|
 | Function Module | `Z_ONLINESHOP_SDK_BUS` This function module is called by the Online Shop RAP and calls the ABAP SDK |
+| Surrounding Class | `lsc_zr_onlineshop_ms1->save_modified` --> `ZCL_MS1=>abap_sdk_read` --> `Z_ONLINESHOP_SDK_BUS` |
 
 
 <b>ABAP SDK Tables</b>
