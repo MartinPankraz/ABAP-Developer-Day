@@ -7,7 +7,7 @@
 
 Now that we have the Logic App in place to fetch data from the SAP system and create an Adaptive Card in Teams, we want to trigger this flow automatically from the SAP System once a new order is placed in the Online Shop.
 
-For this we will enhance the SAP System to react on the custom event triggered by the Online Shop. This event will then be picked up by the ABAP SDK for Azure and sent to an Azure Service Bus. From there our Logic App from Quest 1 can be triggered.
+For this the SAP System is enhanced using the Azure ABAP SDK to react on the custom event triggered by the Online Shop. This event will be sent out by the ABAP SDK for Azure and sent to an Azure Service Bus. From there our Logic App from Quest 1 can be triggered.
 
 ## Create a Queue in Azure Service Bus
 
@@ -29,7 +29,7 @@ For this we will enhance the SAP System to react on the custom event triggered b
 <img alt="Verify the Queue" src="../img/student/Quest2/ScrollDownAndSelect.jpg"  width="800">
 </p>
 
-## Create a Subscription in Azure Event Grid
+## Create a Event Subscription in Azure Event Grid
 
 1. Similar like before, in the Azure Portal search for EventsFromOnlineShop and select the Event Grid
 

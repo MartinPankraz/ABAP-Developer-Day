@@ -347,7 +347,7 @@ If not switch to this Directory, by clicking on your user, selecting **Switch di
         },
         {
             "type": "TextBlock",
-            "text": "A new order has been place in the Online Shop URL. Please review the provided information. ",
+            "text": "A new order has been placed in the Online Shop URL. Please review the provided information. ",
             "wrap": true
         },
         {
