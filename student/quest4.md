@@ -13,8 +13,17 @@ http://vhcals4hcs.dummy.nodomain:50000/sap/opu/odata/sap/ZUI_ONLINESHOP_MS1_O2/O
 
 > **Note** - As before we are using here HTTP and Port 50000 (not HTTPS), because we have not configured any certificates.
 
-### Video
-📺 You can find a video of the performed steps [here](https://youtu.be/IsJS36Ll5uU)
+## Video guide provided by our Mentors
+
+<p align="center" width="100%">
+    <a href="https://youtu.be/IsJS36Ll5uU" target="_blank" rel="noopener noreferrer">
+        <img alt="Walkthrough video link" src="../img/student/Quest4/youtube-teaser.png"  width="800">
+    </a>
+</p>
+
+The video shall provide hints where lore, poetic code snippets, and narrative cannot.
+
+## The path
 
 1. Open **Microsoft Excel** (You can either install Office on the VM as mentioned before, or for this Quest you can also easily use Excel installed on your PC)
 

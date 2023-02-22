@@ -38,7 +38,7 @@ Before you go: verify [prerequisites](PREREQUISITES.md) are met (backpack, lunch
 5. [Master's trail](student/quest5.md) - Unleash one of the mightiest automation tools on your workflow - the Azure Bot Framework
 6. [Wizard's route](student/quest6.md) - Approach the last quest with a bang and improve one of the most dusted and slow processes there is -> automatically pre-fill your invoice drafted in Microsoft Word with master data from SAP
 
-Finish the final quest and claim your badge 😎
+🏆Finish the final quest, collect the pass phrase, and redeem it to claim **[your badge](https://webhostingforconverter.z16.web.core.windows.net/claim-reward.html)** 😎
 
 No one should say there aren't any cool stickers for ABAP'ers!
 
