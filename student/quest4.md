@@ -16,7 +16,7 @@ http://vhcals4hcs.dummy.nodomain:50000/sap/opu/odata/sap/ZUI_ONLINESHOP_MS1_O2/O
 ## Video guide provided by our Mentors
 
 <p align="center" width="100%">
-    <a href="https://youtu.be/IsJS36Ll5uU" target="_blank">
+    <a href="https://youtu.be/IsJS36Ll5uU" target="_blank" rel="noopener noreferrer">
         <img alt="Walkthrough video link" src="../img/student/Quest4/youtube-teaser.png"  width="800">
     </a>
 </p>

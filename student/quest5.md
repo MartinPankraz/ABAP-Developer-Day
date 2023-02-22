@@ -10,7 +10,7 @@ We are following the official [Tutorial: Create a weather bot with Composer](htt
 ## Video guide provided by our Mentors
 
 <p align="center" width="100%">
-    <a href="https://youtu.be/EIIJkA5ZHPU" target="_blank">
+    <a href="https://youtu.be/EIIJkA5ZHPU" target="_blank" rel="noopener noreferrer">
         <img alt="Walkthrough video link" src="../img/student/Quest5/youtube-teaser.png"  width="800">
     </a>
 </p>

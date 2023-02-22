@@ -12,7 +12,7 @@ Once the app is build, you can easily create a stand-alone app and continue the 
 ## Video guide provided by our Mentors
 
 <p align="center" width="100%">
-    <a href="https://youtu.be/20XDX44ojlQ" target="_blank">
+    <a href="https://youtu.be/20XDX44ojlQ" target="_blank" rel="noopener noreferrer">
         <img alt="Walkthrough video link" src="../img/student/Quest6/youtube-teaser.png"  width="800">
     </a>
 </p>
