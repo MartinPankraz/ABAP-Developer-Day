@@ -9,8 +9,15 @@ Now that we have the Logic App in place to fetch data from the SAP system and cr
 
 For this the SAP System is enhanced using the Azure ABAP SDK to react on the custom event triggered by the Online Shop. This event will be sent out by the ABAP SDK for Azure and sent to an Azure Service Bus. From there our Logic App from Quest 1 can be triggered.
 
-### Video
-📺 You can find a video of the performed steps [here](https://youtu.be/mWGLkkER5cM)
+## Video guide provided by our Mentors
+
+<p align="center" width="100%">
+    <a href="https://youtu.be/mWGLkkER5cM">
+        <img alt="Walkthrough video link" src="../img/student/Quest2/youtube-teaser.png"  width="800">
+    </a>
+</p>
+
+The video shall provide hints where lore, poetic code snippets, and narrative cannot.
 
 ## Create a Queue in Azure Service Bus
 

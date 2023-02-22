@@ -9,8 +9,17 @@
 
 Throughout the next exercises we will use an Office 365 user, an Azure subscription and some Office 365 tools. In order to make sure that everything is fine, it is best to quickly try and verify all used resources.
 
-### Video
-📺 You can find a video of the performed steps [here](https://youtu.be/eoByMm89DH0)
+## Video guide provided by our Mentors
+
+<p align="center" width="100%">
+    <a href="https://youtu.be/eoByMm89DH0">
+        <img alt="Walkthrough video link" src="../img/student/Quest1/youtube-teaser.png"  width="800">
+    </a>
+</p>
+
+The video shall provide hints where lore, poetic code snippets, and narrative cannot.
+
+## The path
 
 1. Open up your [Office 365 Outlook Inbox](https://outlook.office.com/mail/inbox/). Make sure to authenticate with your Developer Office 365 user, not with your corporate / personal user. One of the last emails in the Inbox should be the invitation email for the Contoso YAAC Azure subscription.
 

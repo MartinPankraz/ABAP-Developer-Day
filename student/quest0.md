@@ -17,8 +17,15 @@ Our journey will start from an SAP Online Shop that allows users to choose and p
 > ```
 > </details>
 
-### Video
-📺 You can find a video of the performed steps [here](https://youtu.be/quXfEzpDp6k)
+## Video guide provided by our Mentors
+
+<p align="center" width="100%">
+    <a href="https://youtu.be/quXfEzpDp6k">
+        <img alt="Walkthrough video link" src="../img/student/Quest0/youtube-teaser.png"  width="800">
+    </a>
+</p>
+
+The video shall provide hints where lore, poetic code snippets, and narrative cannot.
 
 ## Meet your Mentors, learn more about the journey and kick-off
 
