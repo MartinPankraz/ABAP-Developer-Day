@@ -40,6 +40,8 @@ The video shall provide hints where lore, poetic code snippets, and narrative ca
 </p>
 
 ## Create a Event Subscription in Azure Event Grid
+📺 [Jump to the video](https://youtu.be/mWGLkkER5cM?t=38)
+
 
 1. Similar like before, in the Azure Portal search for **EventsFromOnlineShop** and select the **Event Grid**
 
@@ -84,6 +86,7 @@ The video shall provide hints where lore, poetic code snippets, and narrative ca
 </p>
 
 ### Test
+📺 [Jump to the video](https://youtu.be/mWGLkkER5cM?t=119)
 
 Now events from the SAP system should be sent to the Service Bus Queue whenever a new Order is created in the Online Shop. Head over to the [Online Shop](https://vhcals4hcs.dummy.nodomain:44301/sap/bc/adt/businessservices/odatav4/feap?feapParams=C%C2%87u%C2%84C%C2%83%C2%84%C2%89C%C2%83xu%C2%88uHC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87Es%C2%83HC%C2%87%C2%86%C2%8AxC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87ECDDDEC77c%C2%82%C2%80%7D%C2%82ysg%7C%C2%83%C2%84777777ni%5Dscb%60%5DbYg%5CcdsagE77DDDE77ni%5Dscb%60%5DbYg%5CcdsagEscH&sap-ui-language=EN&sap-client=100) create a new Order and check for incoming events.
 
@@ -106,6 +109,7 @@ Now you can peek in the Service Bus Queue by selecting **Service Bus Explorer** 
 </p>
 
 ## Connect the event to our Logic App
+📺 [Jump to the video](https://youtu.be/mWGLkkER5cM?t=199)
 
 1. Now we need to change the configuration of our Logic App to react to incoming events in the Service Bus Queue. Open the Logic App created in Quest 1 and **delete** the first Trigger / Action (**When a HTTP request is received**)
 
@@ -246,6 +250,8 @@ JSON schema code block
 12. Click on **Save** to save the Logic Apps
 
 ### Test it!
+📺 [Jump to the video](https://youtu.be/mWGLkkER5cM?t=388)
+
 
 1. Open up again the [Online Shop](https://vhcals4hcs.dummy.nodomain:44301/sap/bc/adt/businessservices/odatav4/feap?feapParams=C%C2%87u%C2%84C%C2%83%C2%84%C2%89C%C2%83xu%C2%88uHC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87Es%C2%83HC%C2%87%C2%86%C2%8AxC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87ECDDDEC77c%C2%82%C2%80%7D%C2%82ysg%7C%C2%83%C2%84777777ni%5Dscb%60%5DbYg%5CcdsagE77DDDE77ni%5Dscb%60%5DbYg%5CcdsagEscH&sap-ui-language=EN&sap-client=100)
 

@@ -55,6 +55,7 @@ If not switch to this Directory, by clicking on your user, selecting **Switch di
 
 
 ## Provision your workflow orchestrator - Azure Logic Apps
+📺 [Jump to the video](https://youtu.be/eoByMm89DH0?t=179)
 
 1. From the [Azure portal](https://portal.azure.com/#home), use the Search bar at the top, search for **Logic Apps** and click on the Logic Apps under Services.
 
@@ -98,6 +99,8 @@ If not switch to this Directory, by clicking on your user, selecting **Switch di
 ## Design your workflow in Azure Logic Apps
 
 ### Setting up the Flow
+📺 [Jump to the video](https://youtu.be/eoByMm89DH0?t=264)
+
 
 1. On the welcome screen, select **When a HTTP request is received**. In the first step we will trigger the Logic Apps flow manually, but later on the SAP system can trigger the request automatically when a new order has been created in the Online Shop.
 
@@ -233,6 +236,8 @@ If not switch to this Directory, by clicking on your user, selecting **Switch di
 ```
 
 ### Working with the results from SAP
+📺 [Jump to the video](https://youtu.be/eoByMm89DH0?t=449)
+
 
 1. With the results from the RFC call, we can now take this data and use it to publish to Teams. Click on **Designer** to return to the Logic Apps Designer view. 
 
@@ -291,6 +296,8 @@ If not switch to this Directory, by clicking on your user, selecting **Switch di
 </p>
 
 ### Create Adaptive Card in Teams
+📺 [Jump to the video](https://youtu.be/eoByMm89DH0?t=491)
+
 
 1. In order to create an Adaptive Card to Teams, we now need to add another Action. As before, click on **+ New Step** and search for **Post adaptive card**. Select the **Post adaptive card in a chat or channel**
 

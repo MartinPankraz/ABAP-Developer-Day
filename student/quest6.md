@@ -46,6 +46,7 @@ The video shall provide hints where lore, poetic code snippets, and narrative ca
 </p>
 
 ## Run a first test
+📺 [Jump to the video](https://youtu.be/20XDX44ojlQ?t=58)
 
 To get familiar with the concepts of the Office JavaScript libraries, let's start with a few simple examples.
 
@@ -72,6 +73,7 @@ To get familiar with the concepts of the Office JavaScript libraries, let's star
 > **Note**: You can make the **Script lab** pane larger so that you can see the full content of the Code Menu.
 
 ## Fetch data from the Online Store
+📺 [Jump to the video](https://youtu.be/20XDX44ojlQ?t=99)
 
 Now lets go back and create a new app that will connect to the Online Store OData service and fetch details to a specific order.
 

@@ -265,6 +265,8 @@ As before head over to the [Online Shop](https://vhcals4hcs.dummy.nodomain:44301
 When you switch back over to Teams, you should see the Adaptive Card, now with additional properties and a working **View** button.
 
 ## Add an action to create the Purchase Requisition
+📺 [Jump to the video](https://youtu.be/zYxu7yR7DAY?t=247)
+
 
 In the next step we want to enable the user to create a purchase requisition directly from Teams. We could call the Purchase Requisition API as documented on the
 [SAP API Business Hub](https://api.sap.com/api/OP_PURCHASEREQUISITION_0001/resource), but our Online Shop already provides a proxy that takes care of all the properties. So, we can just ask the Online Shop to create a Purchase Requisition for a specific Order Item.
@@ -396,6 +398,7 @@ AdaptiveCard code block
 </p>
   
 ### Wait for input
+📺 [Jump to the video](https://youtu.be/zYxu7yR7DAY?t=378)
 
 1. Now we have to react to the answer from the user. If the User clicked on the **Create Purchase Requisition** button, we need to call the OData Service of the Online Shop to create the Purchase Requisition. 
 
@@ -426,6 +429,7 @@ outputs('Post_adaptive_card_and_wait_for_a_response')['body']['submitActionId']
 > **Note**: In case the Expression Pane hides the **Choose a value**  field, click on **+ Add** without doing anything else there to hide the Pane. As a result you should be able to see the **Choose a value** field.
 
 ### Create Purchase Requisition
+📺 [Jump to the video](https://youtu.be/zYxu7yR7DAY?t=426)
 
 If the user clicked on the button we can finally create the Purchase Requisition. For this we can use a function from the Online Shop which creates a purchase requisition for a specific Order number / order UUID.
 
@@ -559,6 +563,7 @@ JSON code block
 
 
 4. Now we are ready to make the action call to create the Purchase Requisition. Create another **HTTP Action** and use the following values:
+📺 [Jump to the video](https://youtu.be/zYxu7yR7DAY?t=532)
 
 <br>
 <div style="margin-left: auto; margin-right: auto; width: 50%">
@@ -623,6 +628,7 @@ The result should look like this:
 Make sure to **save** the Logic App!
 
 ### Test the new flow
+📺 [Jump to the video](https://youtu.be/zYxu7yR7DAY?t=667)
 
 1. Now we can test the flow again. Create a new Order in the [Online Shop](https://vhcals4hcs.dummy.nodomain:44301/sap/bc/adt/businessservices/odatav4/feap?feapParams=C%C2%87u%C2%84C%C2%83%C2%84%C2%89C%C2%83xu%C2%88uHC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87Es%C2%83HC%C2%87%C2%86%C2%8AxC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87ECDDDEC77c%C2%82%C2%80%7D%C2%82ysg%7C%C2%83%C2%84777777ni%5Dscb%60%5DbYg%5CcdsagE77DDDE77ni%5Dscb%60%5DbYg%5CcdsagEscH&sap-ui-language=EN&sap-client=100).
 

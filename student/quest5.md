@@ -67,6 +67,8 @@ The video shall provide hints where lore, poetic code snippets, and narrative ca
 </p>
 
 ## Create a new dialog
+📺 [Jump to the video](https://youtu.be/EIIJkA5ZHPU?t=125)
+
 
 1. Select the **...** next to the **fetch_order_infos** bot in the Bot explorer and click on **+ Add a dialog**
 
@@ -95,6 +97,8 @@ The video shall provide hints where lore, poetic code snippets, and narrative ca
 </p>
 
 ## Start a dialog from a trigger
+📺 [Jump to the video](https://youtu.be/EIIJkA5ZHPU?t=163)
+
 
 1. Select the **fetch_order_infos** dialog in the bot explorer and click on **Change** in the properties for **Recognizer Type/Dispatch type**. Then select the **Regular expression** type and click on **Done**
 
@@ -139,6 +143,8 @@ The video shall provide hints where lore, poetic code snippets, and narrative ca
 </p>
 
 ## Prompt a user for input
+📺 [Jump to the video](https://youtu.be/EIIJkA5ZHPU?t=249)
+
 
 1. In the next step we need to ask the user for an order number. For this select the **BeginDialog** step under **get_order** and click on the **+** sign after the **Send a response** step. From there Click on **Ask a question** and **Number**.
 
@@ -165,6 +171,7 @@ The video shall provide hints where lore, poetic code snippets, and narrative ca
 </p>
 
 ## Call the Online Shop OData service
+📺 [Jump to the video](https://youtu.be/EIIJkA5ZHPU?t=289)
 
 1. Now that we have all the information it is time to call the OData service. Under the **User input dialog**, click on the **+** and select **Access external resource** -> **Send an HTTP request**
 
@@ -266,6 +273,7 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 </p>
 
 12. Then click on **Add new attachment** -> **Create from template** -> **Adaptive Card**
+📺 [Jump to the video](https://youtu.be/EIIJkA5ZHPU?t=440)
 
 <p align="center" width="100%">
 <img alt="Select Adaptive Card" src="../img/student/Quest5/AddAdaptiveCard.jpg"  width="400">
@@ -366,6 +374,7 @@ Something went wrong: ${dialog.api_response.content.message}.
 </p>
 
 ## Run the bot
+📺 [Jump to the video](https://youtu.be/EIIJkA5ZHPU?t=528)
 
 Click again on **Restart bot** -> **Open Web Chat** to test the integration.
 
