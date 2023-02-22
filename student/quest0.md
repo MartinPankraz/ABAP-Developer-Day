@@ -82,8 +82,10 @@ Now that the order is place and a purchase requisition has been created, we migh
 ## Our starting point -- the SAP Online Shop
 
 As a new front end to our SAP S/4HANA System we have created a RAP application where users can create orders.
-The Online Shop was developed using RAP, ...
-ToDo--ToDo--ToDo--ToDo--ToDo--ToDo--ToDo--ToDo--
+Documentation on how to setup the Online Store can be found here. 
+
+We have then enhanced the Store so that events are sent directly to Azure Event Grid using the [ABAP SDK for Azure](https://github.com/microsoft/ABAP-SDK-for-Azure). This is something we will use in Quest 2. For more details see the documentation in the [Mentor track](../mentor/quest2.md)
+
 
 To access the Online Shop click [here](https://vhcals4hcs.dummy.nodomain:44301/sap/bc/adt/businessservices/odatav4/feap?feapParams=C%C2%87u%C2%84C%C2%83%C2%84%C2%89C%C2%83xu%C2%88uHC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87Es%C2%83HC%C2%87%C2%86%C2%8AxC%C2%87u%C2%84C%C2%8E%C2%89%7Ds%C2%83%C2%82%C2%80%7D%C2%82y%C2%87%7C%C2%83%C2%84s%C2%81%C2%87ECDDDEC77c%C2%82%C2%80%7D%C2%82ysg%7C%C2%83%C2%84777777ni%5Dscb%60%5DbYg%5CcdsagE77DDDE77ni%5Dscb%60%5DbYg%5CcdsagEscH&sap-ui-language=EN&sap-client=100).
 
