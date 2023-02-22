@@ -16,7 +16,7 @@ Then we will also call the an API from the Online Shop, that creates the actual 
 ## Video guide provided by our Mentors
 
 <p align="center" width="100%">
-    <a href="https://youtu.be/zYxu7yR7DAY">
+    <a href="https://youtu.be/zYxu7yR7DAY" target="_blank">
         <img alt="Walkthrough video link" src="../img/student/Quest3/youtube-teaser.png"  width="800">
     </a>
 </p>

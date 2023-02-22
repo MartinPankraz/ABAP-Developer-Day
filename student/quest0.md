@@ -20,7 +20,7 @@ Our journey will start from an SAP Online Shop that allows users to choose and p
 ## Video guide provided by our Mentors
 
 <p align="center" width="100%">
-    <a href="https://youtu.be/quXfEzpDp6k">
+    <a href="https://youtu.be/quXfEzpDp6k" target="_blank">
         <img alt="Walkthrough video link" src="../img/student/Quest0/youtube-teaser.png"  width="800">
     </a>
 </p>

@@ -12,7 +12,7 @@ For this the SAP System is enhanced using the Azure ABAP SDK to react on the cus
 ## Video guide provided by our Mentors
 
 <p align="center" width="100%">
-    <a href="https://youtu.be/mWGLkkER5cM">
+    <a href="https://youtu.be/mWGLkkER5cM" target="_blank">
         <img alt="Walkthrough video link" src="../img/student/Quest2/youtube-teaser.png"  width="800">
     </a>
 </p>

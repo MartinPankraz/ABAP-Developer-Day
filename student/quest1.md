@@ -12,7 +12,7 @@ Throughout the next exercises we will use an Office 365 user, an Azure subscript
 ## Video guide provided by our Mentors
 
 <p align="center" width="100%">
-    <a href="https://youtu.be/eoByMm89DH0">
+    <a href="https://youtu.be/eoByMm89DH0" target="_blank">
         <img alt="Walkthrough video link" src="../img/student/Quest1/youtube-teaser.png"  width="800">
     </a>
 </p>
