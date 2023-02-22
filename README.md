@@ -1,7 +1,5 @@
 # 🌌Wander across the worlds of SAP and Microsoft - Journey of an ABAP'er🪐
 
-🏗️Under Construction🚧
-
 `Content supporting the DSAG ABAP Developer Day February 2023`
 
 Digitization of business processes and deriving intelligent action automatically is one of the mega trends across all industries globally. As part of this mission, should you choose to accept it, you will experience challenges and solution approaches firsthand acting as the much needed incubation team 🐣 of the Contoso Inc.

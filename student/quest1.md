@@ -33,7 +33,7 @@ The video shall provide hints where lore, poetic code snippets, and narrative ca
 
 3. Check if you have Excel on-prem installed. Here you do not need to authenticate and it is fine to use the rich-client. In Quest 4 we will connect to an OData service and read data from our Online Store.
 
-> **Note**: if you want you can go to [Office.com](https://www.office.com/?auth=2&home=1) and click on "Install Apps" to run the OfficeSetup.exe which will insatll the rich clients for Excel (and other Office apps)
+> **Note**: if you want you can go to [Office.com](https://www.office.com/?auth=2&home=1) and click on "Install Apps" to run the OfficeSetup.exe which will install the rich clients for Excel (and other Office apps)
 
 4. For the last exercise we are going to integrate in [Microsoft Word](https://www.office.com/launch/word?auth=2). You can open and create a Blank document from there.
 
@@ -53,9 +53,9 @@ If not switch to this Directory, by clicking on your user, selecting **Switch di
 <img alt="Switch Directory" src="../img/student/Quest1/SwitchDirectory.jpg"  width="800">
 </p>
 
-
 ## Provision your workflow orchestrator - Azure Logic Apps
-📺 [Jump to the video](https://youtu.be/eoByMm89DH0?t=179)
+
+<a href="https://youtu.be/eoByMm89DH0?t=179" target="_blank">📺Jump to the video</a>
 
 1. From the [Azure portal](https://portal.azure.com/#home), use the Search bar at the top, search for **Logic Apps** and click on the Logic Apps under Services.
 
