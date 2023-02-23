@@ -17,6 +17,8 @@ Our journey will start from an SAP Online Shop that allows users to choose and p
 > ```
 > </details>
 
+> **Warning**: The guide and screenshots refer to the English terms. We recommend to **adjust your browser language to English** to avoid confusion. Some of the translated texts can be misleading. For instance "Parse JSON" translates to "JSON analysieren" in German. The icons in Logic Apps etc. stay the same and can serve as visual reference if you get lost.
+
 ## Video guide provided by our Mentors
 
 <p align="center" width="100%">

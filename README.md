@@ -28,6 +28,8 @@ Before you go: verify [prerequisites](PREREQUISITES.md) are met (backpack, lunch
 
 > **Warning** - avoid getting lost in personas and users that exist in your environment by employing [isolated browser profiles](https://support.microsoft.com/topic/sign-in-and-create-multiple-profiles-in-microsoft-edge-df94e622-2061-49ae-ad1d-6f0e43ce6435) or the infamous [incognito mode](https://support.microsoft.com/microsoft-edge/browse-inprivate-in-microsoft-edge-cd2c9a48-0bc4-b98e-5e46-ac40c84e27e2) in case you have existing personal or corporate accounts for M365, SAP, etc. This might save you from a lot of session trouble later on.
 
+> **Warning**: The guide and screenshots refer to the English terms. We recommend to **adjust your browser language to English** to avoid confusion. Some of the translated texts can be misleading. For instance "Parse JSON" translates to "JSON analysieren" in German. The icons in Logic Apps etc. stay the same and can serve as visual reference if you get lost.
+
 0. [The Journey](student/quest0.md) - Where will those quests take us
 1. [Novice's path](student/quest1.md) - Empower your fellow humans on Microsoft Teams via SAP RFCs
 2. [Apprentice's curious road](student/quest2.md) - Trigger your first workflow via the ABAP SDK for Azure (to infinity and beyond)
