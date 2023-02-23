@@ -53,9 +53,9 @@ If not switch to this Directory, by clicking on your user, selecting **Switch di
 <img alt="Switch Directory" src="../img/student/Quest1/SwitchDirectory.jpg"  width="800">
 </p>
 
-
 ## Provision your workflow orchestrator - Azure Logic Apps
-📺 [Jump to the video](https://youtu.be/eoByMm89DH0?t=179)
+
+<a href="https://youtu.be/eoByMm89DH0?t=179" target="_blank">📺Jump to the video</a>
 
 1. From the [Azure portal](https://portal.azure.com/#home), use the Search bar at the top, search for **Logic Apps** and click on the Logic Apps under Services.
 
