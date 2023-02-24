@@ -19,7 +19,7 @@ The video shall provide hints where lore, poetic code snippets, and narrative ca
 
 ## Create an Empty Bot in Composer
 
-1. The Bot Framework Composer is already installed on your VM. Start the **Bot Framework Composer** and click on **+ Create new** 
+1. The Bot Framework Composer is already installed on your VM. Start the **Bot Framework Composer** and click on **+ Create new**
 
 <p align="center" width="100%">
 <img alt="Create Bot" src="../img/student/Quest5/CreateEmptyBot.jpg"  width="600">
@@ -191,9 +191,18 @@ http://13.81.170.205:50000/sap/opu/odata4/sap/zui_onlineshop_ms1_o4/srvd/sap/zui
 
 > **Note** - For the order ID we user the property stored in the answer from the user stored in {user.orderID}
 
-3. To authenticate with the user **S4H_EXT**, click on **Add new** in the **Headers** section and enter **Authorization** as the key and 
-<br />
-**Basic czRoX2V4dDpXZWxjb21lMQ==** as the value.
+3. To authenticate with the user **S4H_EXT**, click on **Add new** in the **Headers** section and enter as follows
+
+<br>
+<div style="margin-left: auto; margin-right: auto; width: 50%">
+
+| Key      | Value |
+| ----------- | ----------- |
+| Authorization      | `Basic czRoX2V4dDpXZWxjb21lMQ==`       |
+
+</div>
+
+<br>
 
 <p align="center" width="100%">
 <img alt="Send HTTP request" src="../img/student/Quest5/EnterHeaders.jpg"  width="300">
