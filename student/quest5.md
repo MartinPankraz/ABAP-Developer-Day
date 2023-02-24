@@ -361,7 +361,7 @@ Something went wrong: ${dialog.api_response.content.message}.
 <img alt="Error response" src="../img/student/Quest5/SendError.jpg"  width="600">
 </p>
 
-15. In case of an error we will also clean-up the property to enable the user to enter another Order ID. In the **Fail branch**, under the **Send a response**, click on the **+**, select **Manage properties** and click on **Delete a property**
+15. In order to enable a second run we clean-up the property to enable the user to enter another Order ID. Under the **True/Fail branch**, under the **Send a response**, click on the **+**, select **Manage properties** and click on **Delete a property**
 
 <p align="center" width="100%">
 <img alt="Error response" src="../img/student/Quest5/DeleteProperty.jpg"  width="600">
