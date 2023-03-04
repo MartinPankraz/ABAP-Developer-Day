@@ -54,6 +54,9 @@ Run the GatewayInstall installation file previously downloaded. In the last step
 <img alt="Inactive Objects" src="img/student/Quest0/ABAPGit-InactiveObjects.jpg"  width="600">
 </p>
 
+## Install the Onlineshop 
+Follow the instructions from [ABAP Platform Code Samples for On-premise Systems](https://github.com/SAP-samples/abap-platform-code-samples-standard) and [ABAP RAP Workshops - solutions](https://github.com/SAP-samples/abap-platform-rap-workshops/blob/main/readme_source_code.md)
+
 ## Prepare the Client
 
 In a hosted event we have prepared a VM for you so that you can find all the required tools for this workshop already pre-installed. If you do it on your own, you might need to install these tools on your computer.
